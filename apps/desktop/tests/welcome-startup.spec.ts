@@ -2,6 +2,7 @@ vi.mock('../src/web-document.ts', () => ({ authenticateWebHost: async () => 'tes
 /** Welcome startup uses the Host before transitioning to the workspace. */
 
 import { afterEach, expect, it, vi } from 'vitest'
+import { join } from 'node:path'
 import type { BrowserWindowConstructorOptions } from 'electron'
 import type { DesktopLocale } from '../src/locale.ts'
 import type { AccountView } from '@deepseek-ai/dsh-deepseek-account/types'
@@ -50,15 +51,18 @@ vi.mock('electron', () => ({
   clipboard: { writeText: state.copy },
   app: {
     isPackaged: false,
-    name: 'Harness',
+    name: 'DeepSeek Science',
+    setName: vi.fn(),
+    setPath: vi.fn(),
     requestSingleInstanceLock: () => true,
     setAsDefaultProtocolClient: vi.fn(),
     whenReady: () => Promise.resolve(),
     getLocale: () => 'en',
     getVersion: () => '1.0.0',
     setAboutPanelOptions: vi.fn(),
-    getAppPath: () => '/development-app',
+    getAppPath: () => join(import.meta.dirname, 'fixtures', 'app-root'),
     getPath: (name: string) => name === 'userData' ? '/desktop-user-data' : `/development-${name}`,
+    setAppUserModelId: vi.fn(),
     setAppLogsPath: vi.fn(),
     getPreferredSystemLanguages: () => ['en-US'],
     on: (name: string, callback: (...args: unknown[]) => void) => { state.appListeners.set(name, callback) },

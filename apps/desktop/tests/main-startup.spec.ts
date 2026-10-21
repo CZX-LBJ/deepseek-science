@@ -152,14 +152,17 @@ const harness = await vi.hoisted(async () => {
   }
   const app = Object.assign(new EventEmitter(), {
     isPackaged: true,
-    name: 'Desktop test',
+    name: 'DeepSeek Science',
+    setName: vi.fn(),
+    setPath: vi.fn(),
     whenReady: () => Promise.resolve(),
     getLocale: (): string => 'en-US',
     getPreferredSystemLanguages: () => ['en-US'],
     getVersion: () => '1.0.0',
-    getAppPath: (): string => 'desktop-test-app',
+    getAppPath: (): string => join(import.meta.dirname, 'fixtures', 'app-root'),
     setAppLogsPath: vi.fn(),
-    getPath: vi.fn<(name: string) => string>(),
+    getPath: vi.fn<(name: string) => string>((name) => `/desktop-test-${name}`),
+    setAppUserModelId: vi.fn(),
     setAboutPanelOptions: vi.fn<(options: Electron.AboutPanelOptionsOptions) => void>(),
     requestSingleInstanceLock: () => true,
     setAsDefaultProtocolClient: vi.fn(),
@@ -306,8 +309,9 @@ vi.mock('../src/background-notice.ts', () => ({ DesktopBackgroundNotice: class {
 vi.mock('node:fs/promises', async (importOriginal) => {
   const original = await importOriginal<typeof import('node:fs/promises')>()
   return { ...original, readFile: vi.fn((path: Parameters<typeof original.readFile>[0], encoding?: 'utf8') => {
-    if (path === join('desktop-test-app', 'package.json')) {
-      return Promise.resolve(JSON.stringify({ dshDesktopAppId: 'com.deepseek.dsh', dshMandatoryUpdatePolicy: harness.embeddedPolicy }))
+    const normalizedPath = String(path).replaceAll('\\', '/')
+    if (path === join('desktop-test-app', 'package.json') || normalizedPath.endsWith('/fixtures/app-root/package.json')) {
+      return Promise.resolve(JSON.stringify({ dshDesktopAppId: 'org.deepseek-science.desktop', dshScience: true, dshMandatoryUpdatePolicy: harness.embeddedPolicy }))
     }
     return encoding === undefined ? original.readFile(path) : original.readFile(path, encoding)
   }) }
@@ -478,7 +482,7 @@ describe('desktop main startup', () => {
     for (const file of ['update-dialog.html', 'update-dialog.js', 'update-dialog.css', 'update-close.svg', 'mandatory-update.html']) {
       const request = new Request(`dsh-app://shell/${file}`)
       await handler(request)
-      expect(serveWebDocument).toHaveBeenLastCalledWith(request, join('desktop-test-app', 'renderer'))
+      expect(serveWebDocument).toHaveBeenLastCalledWith(request, join(harness.app.getAppPath(), 'renderer'))
     }
     expect(forwardWebRequest).not.toHaveBeenCalled()
     expect((await handler(new Request('dsh-app://unknown/update-dialog.html'))).status).toBe(404)
@@ -513,7 +517,7 @@ describe('desktop main startup', () => {
     expect({ menu: [{ label: about!.label, role: about!.role }, separator], options: { ...options, iconPath: '<app icon>' } })
       .toEqual(expected[`${platform}:${locale}`])
     expect(options.iconPath).toBe(packaged ? join('desktop-test-resources', 'icon.png')
-      : join('desktop-test-app', 'resources', 'icon-windows.png'))
+      : join(harness.app.getAppPath(), 'resources', 'icon-windows.png'))
     if (platform !== 'win32') { expect(about!.click).toBeUndefined(); return }
     // Windows reuses the dimmed update dialog because Electron's fallback is a bare message box.
     harness.dialog.showMessageBox.mockResolvedValueOnce({ response: 0 })
@@ -723,7 +727,7 @@ describe('desktop main startup', () => {
     const handler = harness.protocolHandle.mock.calls[0]![1]
     const request = new Request('dsh-app://shell/update-dialog.html')
     expect(await (await handler(request)).text()).toBe('shell document')
-    expect(serveWebDocument).toHaveBeenCalledWith(request, join('desktop-test-app', 'renderer'))
+    expect(serveWebDocument).toHaveBeenCalledWith(request, join(harness.app.getAppPath(), 'renderer'))
     expect((await handler(new Request('dsh-app://foreign/index.html'))).status).toBe(404)
   })
 
@@ -878,7 +882,7 @@ describe('desktop main startup', () => {
       .find(items => items.some(item => item.role === 'editMenu'))
     if (template === undefined) throw new Error('application menu missing')
     expect(template.map(describeItem)).toEqual(platform === 'darwin'
-      ? ['Desktop test', en.fileMenu, 'editMenu', 'windowMenu']
+      ? ['DeepSeek Science', en.fileMenu, 'editMenu', 'windowMenu']
       : ['Application', 'editMenu'])
     const application = template[0]!.submenu as MenuItemConstructorOptions[]
     expect(application.filter(item => item.visible !== false).map(describeItem)).toEqual(platform === 'darwin'
@@ -2020,7 +2024,7 @@ describe('desktop main startup', () => {
     expect(report.error).toBeInstanceOf(Error)
     expect((report.error as Error).message).toContain('fatal uncaught exception: ENOENT')
     expect(report.rendererConsole).toEqual(['dsh-app://app/assets/entry.js:12 client-modules: bundle script plugins/??a/client.js&rev=1 failed to load'])
-    expect(report.app).toMatchObject({ name: 'Desktop test', version: '1.0.0', platform: process.platform, locale: 'en' })
+    expect(report.app).toMatchObject({ name: 'DeepSeek Science', version: '1.0.0', platform: process.platform, locale: 'en' })
     expect(report.time).toBeInstanceOf(Date)
     host.exited.resolve()
     await harness.quitCompleted.promise
