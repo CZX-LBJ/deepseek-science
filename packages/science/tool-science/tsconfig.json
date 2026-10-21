@@ -1,0 +1,14 @@
+{
+  "extends": "../../../tsconfig.base.json",
+  "compilerOptions": { "rootDir": "src", "outDir": "lib/types" },
+  "include": ["src"],
+  "references": [
+    { "path": "../../../vendor/cordis" }, { "path": "../../../vendor/schemastery" },
+    { "path": "../../core/tools" }, { "path": "../../core/agent" }, { "path": "../../core/system-prompt" },
+    { "path": "../../fs/fs" }, { "path": "../../sandbox/sandbox-policy" },
+    { "path": "../../session/session-projection" }, { "path": "../../core/session" },
+    { "path": "../../llm/llm" }, { "path": "../../llm/llm-retry" }, { "path": "../../util/values" },
+    { "path": "../../skill/skill" }, { "path": "../../skill/skill-science" },
+    { "path": "../science-project" }, { "path": "../science-literature" }
+  ]
+}

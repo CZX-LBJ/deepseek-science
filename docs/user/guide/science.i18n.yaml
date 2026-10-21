@@ -1,0 +1,25 @@
+# Bilingual-pair consistency record for science.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
+#   pnpm run verify-translation-pairing --write docs/user/guide/science.md
+/:
+  en: 35ca1319e42fa4b7
+  zh: 0630a48f6de0dd4a
+/deepseek-science:
+  en: 868a6fb6636c378d
+  zh: 8fa83c4cb0c76493
+/deepseek-science/start-the-workbench:
+  en: d7f958fbfbf5a312
+  zh: 2a18e656b2df75d9
+/deepseek-science/choose-a-research-task:
+  en: 59806b02d3ac33c3
+  zh: bff1068214f0938c
+/deepseek-science/keep-evidence-and-recover-work:
+  en: 1c1ce94c649ea5c2
+  zh: bccecdc0629f8b22
+/deepseek-science/optional-academic-packs:
+  en: 8b4d1c9386a89073
+  zh: 1ec279b8ad4030e1
+/deepseek-science/read-performance-honestly:
+  en: 6fc901aa857c60bc
+  zh: 12b6bfd019a7dff3

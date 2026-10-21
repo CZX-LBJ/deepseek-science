@@ -1,0 +1,19 @@
+# Bilingual-pair consistency record for science-evaluation.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
+#   pnpm run verify-translation-pairing --write docs/user/guide/science-evaluation.md
+/:
+  en: 6d289bc187a23e1e
+  zh: 45a600966f998b8c
+/evaluate-scientific-task-quality:
+  en: 5d85bcaa4c1ab346
+  zh: 01cc08c8782a7144
+/evaluate-scientific-task-quality/prepare-a-fair-comparison:
+  en: f7ed38da4e0aedff
+  zh: b4e0d2ae8930da3f
+/evaluate-scientific-task-quality/check-observable-deliverables:
+  en: 6b1465f9d69667c7
+  zh: beb9b3b21f8130d5
+/evaluate-scientific-task-quality/compare-efficiency-after-quality:
+  en: 3ba7246b7d297cad
+  zh: 5b8cc89c0e0c2b0a

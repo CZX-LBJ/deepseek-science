@@ -1,0 +1,14 @@
+{
+  "extends": "../../../tsconfig.base.json",
+  "compilerOptions": { "rootDir": "src", "outDir": "lib/types" },
+  "include": ["src"],
+  "references": [
+    { "path": "../../../vendor/cordis" },
+    { "path": "../../../vendor/schemastery" },
+    { "path": "../../fs/fs" },
+    { "path": "../../llm/llm" },
+    { "path": "../../util/timeout" },
+    { "path": "../../web/web-fetch-http" },
+    { "path": "../../sandbox/sandbox" }
+  ]
+}

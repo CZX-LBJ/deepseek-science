@@ -1,0 +1,4842 @@
+[
+  {
+    "source": "academic-research-skills-codex",
+    "path": "plugins/ars-codex/skills/academic-research-suite/SKILL.md",
+    "name": "academic-research-suite"
+  },
+  {
+    "source": "academic-research-skills",
+    "path": "academic-paper-reviewer/SKILL.md",
+    "name": "academic-paper-reviewer"
+  },
+  {
+    "source": "academic-research-skills",
+    "path": "academic-paper/SKILL.md",
+    "name": "academic-paper"
+  },
+  {
+    "source": "academic-research-skills",
+    "path": "academic-pipeline/SKILL.md",
+    "name": "academic-pipeline"
+  },
+  {
+    "source": "academic-research-skills",
+    "path": "deep-research/SKILL.md",
+    "name": "deep-research"
+  },
+  {
+    "source": "academic-research-skills",
+    "path": "sr-screener/SKILL.md",
+    "name": "sr-screener"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "0-autoresearch-skill/SKILL.md",
+    "name": "ai-research-skills-autoresearch"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "01-model-architecture/litgpt/SKILL.md",
+    "name": "ai-research-skills-implementing-llms-litgpt"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "01-model-architecture/mamba/SKILL.md",
+    "name": "ai-research-skills-mamba-architecture"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "01-model-architecture/nanogpt/SKILL.md",
+    "name": "ai-research-skills-nanogpt"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "01-model-architecture/rwkv/SKILL.md",
+    "name": "ai-research-skills-rwkv-architecture"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "01-model-architecture/torchtitan/SKILL.md",
+    "name": "ai-research-skills-distributed-llm-pretraining-torchtitan"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "02-tokenization/huggingface-tokenizers/SKILL.md",
+    "name": "ai-research-skills-huggingface-tokenizers"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "02-tokenization/sentencepiece/SKILL.md",
+    "name": "ai-research-skills-sentencepiece"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "03-fine-tuning/axolotl/SKILL.md",
+    "name": "ai-research-skills-axolotl"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "03-fine-tuning/llama-factory/SKILL.md",
+    "name": "ai-research-skills-llama-factory"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "03-fine-tuning/peft/SKILL.md",
+    "name": "ai-research-skills-peft-fine-tuning"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "03-fine-tuning/unsloth/SKILL.md",
+    "name": "unsloth"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "04-mechanistic-interpretability/nnsight/SKILL.md",
+    "name": "ai-research-skills-nnsight-remote-interpretability"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "04-mechanistic-interpretability/pyvene/SKILL.md",
+    "name": "ai-research-skills-pyvene-interventions"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "04-mechanistic-interpretability/saelens/SKILL.md",
+    "name": "ai-research-skills-sparse-autoencoder-training"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "04-mechanistic-interpretability/transformer-lens/SKILL.md",
+    "name": "ai-research-skills-transformer-lens-interpretability"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "05-data-processing/nemo-curator/SKILL.md",
+    "name": "ai-research-skills-nemo-curator"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "05-data-processing/ray-data/SKILL.md",
+    "name": "ai-research-skills-ray-data"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "06-post-training/grpo-rl-training/SKILL.md",
+    "name": "ai-research-skills-grpo-rl-training"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "06-post-training/miles/SKILL.md",
+    "name": "ai-research-skills-miles-rl-training"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "06-post-training/openrlhf/SKILL.md",
+    "name": "ai-research-skills-openrlhf-training"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "06-post-training/simpo/SKILL.md",
+    "name": "ai-research-skills-simpo-training"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "06-post-training/slime/SKILL.md",
+    "name": "ai-research-skills-slime-rl-training"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "06-post-training/torchforge/SKILL.md",
+    "name": "ai-research-skills-torchforge-rl-training"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "06-post-training/trl-fine-tuning/SKILL.md",
+    "name": "ai-research-skills-fine-tuning-with-trl"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "06-post-training/verl/SKILL.md",
+    "name": "ai-research-skills-verl-rl-training"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "07-safety-alignment/constitutional-ai/SKILL.md",
+    "name": "ai-research-skills-constitutional-ai"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "07-safety-alignment/llamaguard/SKILL.md",
+    "name": "ai-research-skills-llamaguard"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "07-safety-alignment/nemo-guardrails/SKILL.md",
+    "name": "ai-research-skills-nemo-guardrails"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "07-safety-alignment/prompt-guard/SKILL.md",
+    "name": "prompt-guard"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "08-distributed-training/accelerate/SKILL.md",
+    "name": "ai-research-skills-huggingface-accelerate"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "08-distributed-training/deepspeed/SKILL.md",
+    "name": "ai-research-skills-deepspeed"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "08-distributed-training/megatron-core/SKILL.md",
+    "name": "ai-research-skills-training-llms-megatron"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "08-distributed-training/pytorch-fsdp2/SKILL.md",
+    "name": "pytorch-fsdp2"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "08-distributed-training/pytorch-lightning/SKILL.md",
+    "name": "ai-research-skills-pytorch-lightning"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "08-distributed-training/ray-train/SKILL.md",
+    "name": "ai-research-skills-ray-train"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "09-infrastructure/lambda-labs/SKILL.md",
+    "name": "lambda-labs-gpu-cloud"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "09-infrastructure/modal/SKILL.md",
+    "name": "ai-research-skills-modal-serverless-gpu"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "09-infrastructure/skypilot/SKILL.md",
+    "name": "ai-research-skills-skypilot-multi-cloud-orchestration"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "10-optimization/awq/SKILL.md",
+    "name": "ai-research-skills-awq-quantization"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "10-optimization/bitsandbytes/SKILL.md",
+    "name": "ai-research-skills-quantizing-models-bitsandbytes"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "10-optimization/flash-attention/SKILL.md",
+    "name": "ai-research-skills-optimizing-attention-flash"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "10-optimization/gguf/SKILL.md",
+    "name": "ai-research-skills-gguf-quantization"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "10-optimization/gptq/SKILL.md",
+    "name": "ai-research-skills-gptq"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "10-optimization/hqq/SKILL.md",
+    "name": "ai-research-skills-hqq-quantization"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "10-optimization/ml-training-recipes/SKILL.md",
+    "name": "ml-training-recipes"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "11-evaluation/bigcode-evaluation-harness/SKILL.md",
+    "name": "ai-research-skills-evaluating-code-models"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "11-evaluation/lm-evaluation-harness/SKILL.md",
+    "name": "ai-research-skills-evaluating-llms-harness"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "11-evaluation/nemo-evaluator/SKILL.md",
+    "name": "ai-research-skills-nemo-evaluator-sdk"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "12-inference-serving/llama-cpp/SKILL.md",
+    "name": "ai-research-skills-llama-cpp"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "12-inference-serving/sglang/SKILL.md",
+    "name": "ai-research-skills-sglang"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "12-inference-serving/tensorrt-llm/SKILL.md",
+    "name": "ai-research-skills-tensorrt-llm"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "12-inference-serving/vllm/SKILL.md",
+    "name": "ai-research-skills-serving-llms-vllm"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "13-mlops/mlflow/SKILL.md",
+    "name": "ai-research-skills-mlflow"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "13-mlops/swanlab/SKILL.md",
+    "name": "experiment-tracking-swanlab"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "13-mlops/tensorboard/SKILL.md",
+    "name": "ai-research-skills-tensorboard"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "13-mlops/weights-and-biases/SKILL.md",
+    "name": "ai-research-skills-weights-and-biases"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "14-agents/a-evolve/SKILL.md",
+    "name": "evolving-ai-agents"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "14-agents/autogpt/SKILL.md",
+    "name": "ai-research-skills-autogpt-agents"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "14-agents/crewai/SKILL.md",
+    "name": "ai-research-skills-crewai-multi-agent"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "14-agents/langchain/SKILL.md",
+    "name": "ai-research-skills-langchain"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "14-agents/llamaindex/SKILL.md",
+    "name": "ai-research-skills-llamaindex"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "15-rag/chroma/SKILL.md",
+    "name": "ai-research-skills-chroma"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "15-rag/faiss/SKILL.md",
+    "name": "ai-research-skills-faiss"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "15-rag/pinecone/SKILL.md",
+    "name": "ai-research-skills-pinecone"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "15-rag/qdrant/SKILL.md",
+    "name": "ai-research-skills-qdrant-vector-search"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "15-rag/sentence-transformers/SKILL.md",
+    "name": "ai-research-skills-sentence-transformers"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "16-prompt-engineering/dspy/SKILL.md",
+    "name": "ai-research-skills-dspy"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "16-prompt-engineering/guidance/SKILL.md",
+    "name": "ai-research-skills-guidance"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "16-prompt-engineering/instructor/SKILL.md",
+    "name": "ai-research-skills-instructor"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "16-prompt-engineering/outlines/SKILL.md",
+    "name": "ai-research-skills-outlines"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "17-observability/langsmith/SKILL.md",
+    "name": "ai-research-skills-langsmith-observability"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "17-observability/phoenix/SKILL.md",
+    "name": "ai-research-skills-phoenix-observability"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "18-multimodal/audiocraft/SKILL.md",
+    "name": "ai-research-skills-audiocraft-audio-generation"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "18-multimodal/blip-2/SKILL.md",
+    "name": "ai-research-skills-blip-2-vision-language"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "18-multimodal/clip/SKILL.md",
+    "name": "ai-research-skills-clip"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "18-multimodal/cosmos-policy/SKILL.md",
+    "name": "evaluating-cosmos-policy"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "18-multimodal/llava/SKILL.md",
+    "name": "ai-research-skills-llava"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "18-multimodal/openpi/SKILL.md",
+    "name": "fine-tuning-serving-openpi"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "18-multimodal/openvla-oft/SKILL.md",
+    "name": "fine-tuning-openvla-oft"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "18-multimodal/segment-anything/SKILL.md",
+    "name": "ai-research-skills-segment-anything-model"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "18-multimodal/stable-diffusion/SKILL.md",
+    "name": "ai-research-skills-stable-diffusion-image-generation"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "18-multimodal/whisper/SKILL.md",
+    "name": "ai-research-skills-whisper"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "19-emerging-techniques/knowledge-distillation/SKILL.md",
+    "name": "ai-research-skills-knowledge-distillation"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "19-emerging-techniques/long-context/SKILL.md",
+    "name": "ai-research-skills-long-context"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "19-emerging-techniques/model-merging/SKILL.md",
+    "name": "ai-research-skills-model-merging"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "19-emerging-techniques/model-pruning/SKILL.md",
+    "name": "ai-research-skills-model-pruning"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "19-emerging-techniques/moe-training/SKILL.md",
+    "name": "ai-research-skills-moe-training"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "19-emerging-techniques/speculative-decoding/SKILL.md",
+    "name": "ai-research-skills-speculative-decoding"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "20-ml-paper-writing/academic-plotting/SKILL.md",
+    "name": "academic-plotting"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "20-ml-paper-writing/ml-paper-writing/SKILL.md",
+    "name": "ai-research-skills-ml-paper-writing"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "20-ml-paper-writing/presenting-conference-talks/SKILL.md",
+    "name": "presenting-conference-talks"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "20-ml-paper-writing/systems-paper-writing/SKILL.md",
+    "name": "systems-paper-writing"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "21-research-ideation/brainstorming-research-ideas/SKILL.md",
+    "name": "brainstorming-research-ideas"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "21-research-ideation/creative-thinking-for-research/SKILL.md",
+    "name": "creative-thinking-for-research"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "22-agent-native-research-artifact/compiler/SKILL.md",
+    "name": "ara-compiler"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "22-agent-native-research-artifact/research-manager/SKILL.md",
+    "name": "ara-research-manager"
+  },
+  {
+    "source": "ai-research-skills",
+    "path": "22-agent-native-research-artifact/rigor-reviewer/SKILL.md",
+    "name": "ara-rigor-reviewer"
+  },
+  {
+    "source": "aris",
+    "path": "skills/ablation-planner/SKILL.md",
+    "name": "aris-ablation-planner-53aa24a0779acafe"
+  },
+  {
+    "source": "aris",
+    "path": "skills/alphaxiv/SKILL.md",
+    "name": "aris-alphaxiv-0548e3ae81b0afb6"
+  },
+  {
+    "source": "aris",
+    "path": "skills/analyze-results/SKILL.md",
+    "name": "aris-analyze-results-6d40e3858072a58f"
+  },
+  {
+    "source": "aris",
+    "path": "skills/arxiv/SKILL.md",
+    "name": "aris-arxiv-d1c3450ea412eb5a"
+  },
+  {
+    "source": "aris",
+    "path": "skills/auto-paper-improvement-loop/SKILL.md",
+    "name": "aris-auto-paper-improvement-loop-2b8c087e945499da"
+  },
+  {
+    "source": "aris",
+    "path": "skills/auto-review-loop-llm/SKILL.md",
+    "name": "aris-auto-review-loop-llm-16c948c2e8dc7e5d"
+  },
+  {
+    "source": "aris",
+    "path": "skills/auto-review-loop-minimax/SKILL.md",
+    "name": "aris-auto-review-loop-minimax-2c85fe9270ecb7fe"
+  },
+  {
+    "source": "aris",
+    "path": "skills/auto-review-loop/SKILL.md",
+    "name": "aris-auto-review-loop-b69151f8cee1ece4"
+  },
+  {
+    "source": "aris",
+    "path": "skills/citation-audit/SKILL.md",
+    "name": "aris-citation-audit-4406831ff737f6ff"
+  },
+  {
+    "source": "aris",
+    "path": "skills/claims-drafting/SKILL.md",
+    "name": "aris-claims-drafting-36e97961ac3420e2"
+  },
+  {
+    "source": "aris",
+    "path": "skills/comm-lit-review/SKILL.md",
+    "name": "aris-comm-lit-review-96d8eeb4742718c5"
+  },
+  {
+    "source": "aris",
+    "path": "skills/deepxiv/SKILL.md",
+    "name": "aris-deepxiv-1702bf1af5c9c8e4"
+  },
+  {
+    "source": "aris",
+    "path": "skills/dse-loop/SKILL.md",
+    "name": "aris-dse-loop-e3d71024c62c209c"
+  },
+  {
+    "source": "aris",
+    "path": "skills/embodiment-description/SKILL.md",
+    "name": "embodiment-description"
+  },
+  {
+    "source": "aris",
+    "path": "skills/exa-search/SKILL.md",
+    "name": "aris-exa-search-e7dde5584652a1b4"
+  },
+  {
+    "source": "aris",
+    "path": "skills/experiment-audit/SKILL.md",
+    "name": "aris-experiment-audit-06548c16cf1c93a9"
+  },
+  {
+    "source": "aris",
+    "path": "skills/experiment-bridge/SKILL.md",
+    "name": "aris-experiment-bridge-0646715c234c6cdd"
+  },
+  {
+    "source": "aris",
+    "path": "skills/experiment-plan/SKILL.md",
+    "name": "aris-experiment-plan-26634336e2c724f1"
+  },
+  {
+    "source": "aris",
+    "path": "skills/experiment-queue/SKILL.md",
+    "name": "aris-experiment-queue-54ed6715f383fda5"
+  },
+  {
+    "source": "aris",
+    "path": "skills/feishu-notify/SKILL.md",
+    "name": "aris-feishu-notify-927648b67546e593"
+  },
+  {
+    "source": "aris",
+    "path": "skills/figure-description/SKILL.md",
+    "name": "figure-description"
+  },
+  {
+    "source": "aris",
+    "path": "skills/figure-spec/SKILL.md",
+    "name": "aris-figure-spec-fa5dd4b5950651a9"
+  },
+  {
+    "source": "aris",
+    "path": "skills/formula-derivation/SKILL.md",
+    "name": "aris-formula-derivation-3087fbf6edbff018"
+  },
+  {
+    "source": "aris",
+    "path": "skills/gemini-search/SKILL.md",
+    "name": "aris-gemini-search-525da84b3fd45e14"
+  },
+  {
+    "source": "aris",
+    "path": "skills/grant-proposal/SKILL.md",
+    "name": "aris-grant-proposal-669f3b14ad0314a9"
+  },
+  {
+    "source": "aris",
+    "path": "skills/idea-creator/SKILL.md",
+    "name": "aris-idea-creator-f1020005df225d23"
+  },
+  {
+    "source": "aris",
+    "path": "skills/idea-discovery-robot/SKILL.md",
+    "name": "aris-idea-discovery-robot-d7d2d2fc7ef1d697"
+  },
+  {
+    "source": "aris",
+    "path": "skills/idea-discovery/SKILL.md",
+    "name": "aris-idea-discovery-3eed9415c410888b"
+  },
+  {
+    "source": "aris",
+    "path": "skills/integrity-forensics/SKILL.md",
+    "name": "aris-integrity-forensics-9ae7cdb64b4d317a"
+  },
+  {
+    "source": "aris",
+    "path": "skills/interview-cheatsheet/SKILL.md",
+    "name": "aris-interview-cheatsheet-6cc075d115539b5e"
+  },
+  {
+    "source": "aris",
+    "path": "skills/invention-structuring/SKILL.md",
+    "name": "aris-invention-structuring-2f0f120172ba36c0"
+  },
+  {
+    "source": "aris",
+    "path": "skills/jurisdiction-format/SKILL.md",
+    "name": "jurisdiction-format"
+  },
+  {
+    "source": "aris",
+    "path": "skills/kill-argument/SKILL.md",
+    "name": "aris-kill-argument-a716961e20897418"
+  },
+  {
+    "source": "aris",
+    "path": "skills/lean-formalize/SKILL.md",
+    "name": "aris-lean-formalize-d0415977a05a82dd"
+  },
+  {
+    "source": "aris",
+    "path": "skills/mermaid-diagram/SKILL.md",
+    "name": "aris-mermaid-diagram-e0025ea7de463c5e"
+  },
+  {
+    "source": "aris",
+    "path": "skills/meta-apply/SKILL.md",
+    "name": "aris-meta-apply-0d46c72fbb32e160"
+  },
+  {
+    "source": "aris",
+    "path": "skills/meta-optimize/SKILL.md",
+    "name": "aris-meta-optimize-059900b84080a13e"
+  },
+  {
+    "source": "aris",
+    "path": "skills/monitor-experiment/SKILL.md",
+    "name": "aris-monitor-experiment-214b7b4bff68e7f5"
+  },
+  {
+    "source": "aris",
+    "path": "skills/novelty-check/SKILL.md",
+    "name": "aris-novelty-check-207c69e901332c4e"
+  },
+  {
+    "source": "aris",
+    "path": "skills/openalex/SKILL.md",
+    "name": "aris-openalex-93968a123840c1e0"
+  },
+  {
+    "source": "aris",
+    "path": "skills/overleaf-sync/SKILL.md",
+    "name": "aris-overleaf-sync-19d6c5c45186e064"
+  },
+  {
+    "source": "aris",
+    "path": "skills/paper-claim-audit/SKILL.md",
+    "name": "aris-paper-claim-audit-6fa8c60a288e3bd6"
+  },
+  {
+    "source": "aris",
+    "path": "skills/paper-compile/SKILL.md",
+    "name": "aris-paper-compile-39f7e147f6885a94"
+  },
+  {
+    "source": "aris",
+    "path": "skills/paper-figure/SKILL.md",
+    "name": "aris-paper-figure-845066a6af5b1a64"
+  },
+  {
+    "source": "aris",
+    "path": "skills/paper-illustration-image2/SKILL.md",
+    "name": "aris-paper-illustration-image2-b59d6aa28e51f1f9"
+  },
+  {
+    "source": "aris",
+    "path": "skills/paper-illustration/SKILL.md",
+    "name": "aris-paper-illustration-b968af9eebfc6417"
+  },
+  {
+    "source": "aris",
+    "path": "skills/paper-plan/SKILL.md",
+    "name": "aris-paper-plan-3ff7036b40c64a61"
+  },
+  {
+    "source": "aris",
+    "path": "skills/paper-poster-html/SKILL.md",
+    "name": "aris-paper-poster-html-82c53e355aeca6b7"
+  },
+  {
+    "source": "aris",
+    "path": "skills/paper-poster/SKILL.md",
+    "name": "aris-paper-poster-0a825b69035659fc"
+  },
+  {
+    "source": "aris",
+    "path": "skills/paper-slides/SKILL.md",
+    "name": "aris-paper-slides-618b034a384fe4e4"
+  },
+  {
+    "source": "aris",
+    "path": "skills/paper-talk/SKILL.md",
+    "name": "aris-paper-talk-c1a1b8a9d984bf6f"
+  },
+  {
+    "source": "aris",
+    "path": "skills/paper-write/SKILL.md",
+    "name": "aris-paper-write-803e0bb140ac2dd8"
+  },
+  {
+    "source": "aris",
+    "path": "skills/paper-writing/SKILL.md",
+    "name": "aris-paper-writing-5534696ffea32efe"
+  },
+  {
+    "source": "aris",
+    "path": "skills/patent-novelty-check/SKILL.md",
+    "name": "aris-patent-novelty-check-e97bd08e3b67b4c4"
+  },
+  {
+    "source": "aris",
+    "path": "skills/patent-pipeline/SKILL.md",
+    "name": "aris-patent-pipeline-5a70ddf96e7c54f4"
+  },
+  {
+    "source": "aris",
+    "path": "skills/patent-review/SKILL.md",
+    "name": "aris-patent-review-e0036b5e301d2ac6"
+  },
+  {
+    "source": "aris",
+    "path": "skills/pixel-art/SKILL.md",
+    "name": "aris-pixel-art-50c41ed984c1be45"
+  },
+  {
+    "source": "aris",
+    "path": "skills/prior-art-search/SKILL.md",
+    "name": "prior-art-search"
+  },
+  {
+    "source": "aris",
+    "path": "skills/proof-checker/SKILL.md",
+    "name": "aris-proof-checker-49cd7d5ae6851394"
+  },
+  {
+    "source": "aris",
+    "path": "skills/proof-orchestrator/SKILL.md",
+    "name": "aris-proof-orchestrator-88dd310724612f4e"
+  },
+  {
+    "source": "aris",
+    "path": "skills/proof-writer/SKILL.md",
+    "name": "aris-proof-writer-3aad06d460597a2e"
+  },
+  {
+    "source": "aris",
+    "path": "skills/qzcli/SKILL.md",
+    "name": "qzcli"
+  },
+  {
+    "source": "aris",
+    "path": "skills/rebuttal/SKILL.md",
+    "name": "aris-rebuttal-ed938b5decd9de7b"
+  },
+  {
+    "source": "aris",
+    "path": "skills/render-html/SKILL.md",
+    "name": "aris-render-html-466d376a332571b3"
+  },
+  {
+    "source": "aris",
+    "path": "skills/research-implement-feature/SKILL.md",
+    "name": "aris-research-implement-feature-84cf53f4e8cf8b23"
+  },
+  {
+    "source": "aris",
+    "path": "skills/research-lit/SKILL.md",
+    "name": "aris-research-lit-1427c78e73592032"
+  },
+  {
+    "source": "aris",
+    "path": "skills/research-pipeline/SKILL.md",
+    "name": "aris-research-pipeline-441b952c841f0542"
+  },
+  {
+    "source": "aris",
+    "path": "skills/research-refine-pipeline/SKILL.md",
+    "name": "aris-research-refine-pipeline-887c892ade4242cd"
+  },
+  {
+    "source": "aris",
+    "path": "skills/research-refine/SKILL.md",
+    "name": "aris-research-refine-3faff978a8cd8cc7"
+  },
+  {
+    "source": "aris",
+    "path": "skills/research-review/SKILL.md",
+    "name": "aris-research-review-a8c6ef1d6e6dbd86"
+  },
+  {
+    "source": "aris",
+    "path": "skills/research-wiki/SKILL.md",
+    "name": "aris-research-wiki-0073ccfb906933a7"
+  },
+  {
+    "source": "aris",
+    "path": "skills/resubmit-pipeline/SKILL.md",
+    "name": "aris-resubmit-pipeline-65a4827629869abe"
+  },
+  {
+    "source": "aris",
+    "path": "skills/result-to-claim/SKILL.md",
+    "name": "aris-result-to-claim-98bd4d0d69b12150"
+  },
+  {
+    "source": "aris",
+    "path": "skills/run-experiment/SKILL.md",
+    "name": "aris-run-experiment-738635ff87c7cf74"
+  },
+  {
+    "source": "aris",
+    "path": "skills/semantic-scholar/SKILL.md",
+    "name": "aris-semantic-scholar-e820837441334575"
+  },
+  {
+    "source": "aris",
+    "path": "skills/serverless-modal/SKILL.md",
+    "name": "aris-serverless-modal-7655b8714c8eea3a"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex-claude-review/auto-paper-improvement-loop/SKILL.md",
+    "name": "aris-auto-paper-improvement-loop-bc7af23cf4cdd938"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex-claude-review/auto-review-loop/SKILL.md",
+    "name": "aris-auto-review-loop-c55bcf27da03b004"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex-claude-review/novelty-check/SKILL.md",
+    "name": "aris-novelty-check-d8c17ebdcfc8c111"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex-claude-review/paper-figure/SKILL.md",
+    "name": "aris-paper-figure-fe587b1eee6dbcb8"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex-claude-review/paper-plan/SKILL.md",
+    "name": "aris-paper-plan-b2df5629dbb8cd4d"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex-claude-review/paper-write/SKILL.md",
+    "name": "aris-paper-write-cf0df0a0ff0c1f67"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex-claude-review/research-refine/SKILL.md",
+    "name": "aris-research-refine-63f729c708746068"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex-claude-review/research-review/SKILL.md",
+    "name": "aris-research-review-c3e48efb4a65ff04"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex-gemini-review/auto-paper-improvement-loop/SKILL.md",
+    "name": "aris-auto-paper-improvement-loop-88e1a180387e213d"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex-gemini-review/auto-review-loop/SKILL.md",
+    "name": "aris-auto-review-loop-85a84db394a36da3"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex-gemini-review/grant-proposal/SKILL.md",
+    "name": "aris-grant-proposal-feb5a7812a511a64"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex-gemini-review/idea-creator/SKILL.md",
+    "name": "aris-idea-creator-1c377375742016be"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex-gemini-review/idea-discovery-robot/SKILL.md",
+    "name": "aris-idea-discovery-robot-9fb28cbeb87a9718"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex-gemini-review/idea-discovery/SKILL.md",
+    "name": "aris-idea-discovery-a1c8efb5f0968b13"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex-gemini-review/novelty-check/SKILL.md",
+    "name": "aris-novelty-check-83ce0da8a97b47a0"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex-gemini-review/paper-figure/SKILL.md",
+    "name": "aris-paper-figure-e1d912185c163d9a"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex-gemini-review/paper-plan/SKILL.md",
+    "name": "aris-paper-plan-3c113daa4a241ae6"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex-gemini-review/paper-poster-html/SKILL.md",
+    "name": "aris-paper-poster-html-b70dccabb7e81507"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex-gemini-review/paper-slides/SKILL.md",
+    "name": "aris-paper-slides-33e1e6265dd3e286"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex-gemini-review/paper-write/SKILL.md",
+    "name": "aris-paper-write-c91232dbb534ddd5"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex-gemini-review/paper-writing/SKILL.md",
+    "name": "aris-paper-writing-6b5cace0d824df50"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex-gemini-review/research-refine/SKILL.md",
+    "name": "aris-research-refine-81e9566e8a818abc"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex-gemini-review/research-review/SKILL.md",
+    "name": "aris-research-review-040576d41d02af29"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/ablation-planner/SKILL.md",
+    "name": "aris-ablation-planner-2ef5bd011a9bfcaa"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/alphaxiv/SKILL.md",
+    "name": "aris-alphaxiv-6d88d8126fdac17a"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/analyze-results/SKILL.md",
+    "name": "aris-analyze-results-32c7e224815e3bd6"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/arxiv/SKILL.md",
+    "name": "aris-arxiv-573455ea4446c0f0"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/auto-paper-improvement-loop/SKILL.md",
+    "name": "aris-auto-paper-improvement-loop-61842beac857f760"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/auto-review-loop-llm/SKILL.md",
+    "name": "aris-auto-review-loop-llm-2603ee46a1b29b7f"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/auto-review-loop-minimax/SKILL.md",
+    "name": "aris-auto-review-loop-minimax-fb2fbc90e672e760"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/auto-review-loop/SKILL.md",
+    "name": "aris-auto-review-loop-c819bd2644a91e2a"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/citation-audit/SKILL.md",
+    "name": "aris-citation-audit-2b477998fad44e0c"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/claims-drafting/SKILL.md",
+    "name": "aris-claims-drafting-57fc92db8746dccd"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/comm-lit-review/SKILL.md",
+    "name": "aris-comm-lit-review-c0eb17515e256834"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/deepxiv/SKILL.md",
+    "name": "aris-deepxiv-e20ab4e0f12d8024"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/dse-loop/SKILL.md",
+    "name": "aris-dse-loop-7325921fe25819ba"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/exa-search/SKILL.md",
+    "name": "aris-exa-search-45f3caab25c969b3"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/experiment-audit/SKILL.md",
+    "name": "aris-experiment-audit-5cdb7a287474dfff"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/experiment-bridge/SKILL.md",
+    "name": "aris-experiment-bridge-74db6e095e69542e"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/experiment-plan/SKILL.md",
+    "name": "aris-experiment-plan-efa0c716602af79d"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/experiment-queue/SKILL.md",
+    "name": "aris-experiment-queue-20ad79bda1f29b86"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/feishu-notify/SKILL.md",
+    "name": "aris-feishu-notify-51bc73c767471b70"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/figure-spec/SKILL.md",
+    "name": "aris-figure-spec-3eb20aab326602d0"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/formula-derivation/SKILL.md",
+    "name": "aris-formula-derivation-aeac2dea6d844f8d"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/gemini-search/SKILL.md",
+    "name": "aris-gemini-search-2e421fd8ae4a04b9"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/grant-proposal/SKILL.md",
+    "name": "aris-grant-proposal-85d9e4660f160174"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/idea-creator/SKILL.md",
+    "name": "aris-idea-creator-14c07d806f99d1e3"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/idea-discovery-robot/SKILL.md",
+    "name": "aris-idea-discovery-robot-a6aa677964f6679f"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/idea-discovery/SKILL.md",
+    "name": "aris-idea-discovery-f22c2360c3b54c2b"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/integrity-forensics/SKILL.md",
+    "name": "aris-integrity-forensics-c510c5fb19f776a0"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/interview-cheatsheet/SKILL.md",
+    "name": "aris-interview-cheatsheet-51a1ec2bdf34d9d7"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/invention-structuring/SKILL.md",
+    "name": "aris-invention-structuring-1e3d4cbc9b62bd4c"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/kill-argument/SKILL.md",
+    "name": "aris-kill-argument-fdfbeaacd8354ca1"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/lean-formalize/SKILL.md",
+    "name": "aris-lean-formalize-ceb54660d449885a"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/mermaid-diagram/SKILL.md",
+    "name": "aris-mermaid-diagram-be2261e255ed8b9f"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/meta-apply/SKILL.md",
+    "name": "aris-meta-apply-04f20bf6c29b397f"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/meta-optimize/SKILL.md",
+    "name": "aris-meta-optimize-f686e2310d52b4ec"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/monitor-experiment/SKILL.md",
+    "name": "aris-monitor-experiment-abb1b17c51af1741"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/novelty-check/SKILL.md",
+    "name": "aris-novelty-check-4f5a671149f84852"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/openalex/SKILL.md",
+    "name": "aris-openalex-a33737782de147ce"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/overleaf-sync/SKILL.md",
+    "name": "aris-overleaf-sync-4769656ed477ce38"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/paper-claim-audit/SKILL.md",
+    "name": "aris-paper-claim-audit-d7ffac793042da5b"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/paper-compile/SKILL.md",
+    "name": "aris-paper-compile-73874d17bf176e35"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/paper-figure/SKILL.md",
+    "name": "aris-paper-figure-2cf266cd3b836789"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/paper-illustration-image2/SKILL.md",
+    "name": "aris-paper-illustration-image2-a29257736426b5a5"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/paper-illustration/SKILL.md",
+    "name": "aris-paper-illustration-084a1156ba3f6270"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/paper-plan/SKILL.md",
+    "name": "aris-paper-plan-f39824bd01653e03"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/paper-poster-html/SKILL.md",
+    "name": "aris-paper-poster-html-b743a875ed8cd267"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/paper-poster/SKILL.md",
+    "name": "aris-paper-poster-5350ea2f8fcf1e15"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/paper-slides/SKILL.md",
+    "name": "aris-paper-slides-ae731accf1c2ecc3"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/paper-talk/SKILL.md",
+    "name": "aris-paper-talk-03bf8bf6a3c5995c"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/paper-write/SKILL.md",
+    "name": "aris-paper-write-8dd59dd45b8ab52e"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/paper-writing/SKILL.md",
+    "name": "aris-paper-writing-52fb3cc126417e6c"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/patent-novelty-check/SKILL.md",
+    "name": "aris-patent-novelty-check-becc47585a91fda6"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/patent-pipeline/SKILL.md",
+    "name": "aris-patent-pipeline-a8c0fbbf69797f15"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/patent-review/SKILL.md",
+    "name": "aris-patent-review-5324e03691e6ac65"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/pixel-art/SKILL.md",
+    "name": "aris-pixel-art-1c127beada2b8de2"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/proof-checker/SKILL.md",
+    "name": "aris-proof-checker-d1cdee38b4ff3441"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/proof-orchestrator/SKILL.md",
+    "name": "aris-proof-orchestrator-678b2d1e0beb4794"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/proof-writer/SKILL.md",
+    "name": "aris-proof-writer-6ae95d5b00e8d089"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/rebuttal/SKILL.md",
+    "name": "aris-rebuttal-89f922fb5bf23a4c"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/render-html/SKILL.md",
+    "name": "aris-render-html-250e062e3196fdca"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/research-implement-feature/SKILL.md",
+    "name": "aris-research-implement-feature-9c917605cb6a4f5c"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/research-lit/SKILL.md",
+    "name": "aris-research-lit-b33f5f5c14c2025c"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/research-pipeline/SKILL.md",
+    "name": "aris-research-pipeline-49da56d6813bbb9a"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/research-refine-pipeline/SKILL.md",
+    "name": "aris-research-refine-pipeline-d63fe010673582bd"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/research-refine/SKILL.md",
+    "name": "aris-research-refine-02f6f2bcc51bafc4"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/research-review/SKILL.md",
+    "name": "aris-research-review-e5c8a36d2222728b"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/research-wiki/SKILL.md",
+    "name": "aris-research-wiki-6e24badccba00e52"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/resubmit-pipeline/SKILL.md",
+    "name": "aris-resubmit-pipeline-c59342c74b9b6cfe"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/result-to-claim/SKILL.md",
+    "name": "aris-result-to-claim-deb00e513d1fb940"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/run-experiment/SKILL.md",
+    "name": "aris-run-experiment-e79270ac9cabd9d2"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/semantic-scholar/SKILL.md",
+    "name": "aris-semantic-scholar-d7b13b874fbf36a9"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/serverless-modal/SKILL.md",
+    "name": "aris-serverless-modal-9cf7448fb9837545"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/slides-polish/SKILL.md",
+    "name": "aris-slides-polish-66bff7136e4222d1"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/specification-writing/SKILL.md",
+    "name": "aris-specification-writing-09ba16cd8a42bd6d"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/system-profile/SKILL.md",
+    "name": "system-profile"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/training-check/SKILL.md",
+    "name": "aris-training-check-a7466b979bcd1b69"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/vast-gpu/SKILL.md",
+    "name": "aris-vast-gpu-a53716d222c43c73"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/web-debug-search/SKILL.md",
+    "name": "web-debug-search"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/wiki-enrich/SKILL.md",
+    "name": "aris-wiki-enrich-95871c702a98c8e1"
+  },
+  {
+    "source": "aris",
+    "path": "skills/skills-codex/writing-systems-papers/SKILL.md",
+    "name": "aris-writing-systems-papers-e44d2bc56e57a7e8"
+  },
+  {
+    "source": "aris",
+    "path": "skills/slides-polish/SKILL.md",
+    "name": "aris-slides-polish-1f08aa7872c95c1b"
+  },
+  {
+    "source": "aris",
+    "path": "skills/specification-writing/SKILL.md",
+    "name": "aris-specification-writing-d1a93dda60d17b0f"
+  },
+  {
+    "source": "aris",
+    "path": "skills/training-check/SKILL.md",
+    "name": "aris-training-check-e20383531b9b1767"
+  },
+  {
+    "source": "aris",
+    "path": "skills/vast-gpu/SKILL.md",
+    "name": "aris-vast-gpu-9a0f4f565e97e2d9"
+  },
+  {
+    "source": "aris",
+    "path": "skills/wiki-enrich/SKILL.md",
+    "name": "aris-wiki-enrich-2aacaae68d2b41d6"
+  },
+  {
+    "source": "aris",
+    "path": "skills/writing-systems-papers/SKILL.md",
+    "name": "aris-writing-systems-papers-61862ff5b3ee500b"
+  },
+  {
+    "source": "bioskills",
+    "path": "chemoinformatics/admet-prediction/SKILL.md",
+    "name": "bio-admet-prediction"
+  },
+  {
+    "source": "bioskills",
+    "path": "chemoinformatics/conformer-generation/SKILL.md",
+    "name": "bio-conformer-generation"
+  },
+  {
+    "source": "bioskills",
+    "path": "chemoinformatics/free-energy-calculations/SKILL.md",
+    "name": "bio-free-energy-calculations"
+  },
+  {
+    "source": "bioskills",
+    "path": "chemoinformatics/molecular-descriptors/SKILL.md",
+    "name": "bio-molecular-descriptors"
+  },
+  {
+    "source": "bioskills",
+    "path": "chemoinformatics/molecular-standardization/SKILL.md",
+    "name": "bio-molecular-standardization"
+  },
+  {
+    "source": "bioskills",
+    "path": "chemoinformatics/pose-validation/SKILL.md",
+    "name": "bio-pose-validation"
+  },
+  {
+    "source": "bioskills",
+    "path": "chemoinformatics/qsar-modeling/SKILL.md",
+    "name": "bio-qsar-modeling"
+  },
+  {
+    "source": "bioskills",
+    "path": "chemoinformatics/similarity-searching/SKILL.md",
+    "name": "bio-similarity-searching"
+  },
+  {
+    "source": "bioskills",
+    "path": "chemoinformatics/substructure-search/SKILL.md",
+    "name": "bio-substructure-search"
+  },
+  {
+    "source": "bioskills",
+    "path": "chemoinformatics/virtual-screening/SKILL.md",
+    "name": "bio-virtual-screening"
+  },
+  {
+    "source": "bioskills",
+    "path": "clinical-biostatistics/effect-measures/SKILL.md",
+    "name": "bio-clinical-biostatistics-effect-measures"
+  },
+  {
+    "source": "bioskills",
+    "path": "clinical-biostatistics/missing-data-sensitivity/SKILL.md",
+    "name": "bio-clinical-biostatistics-missing-data"
+  },
+  {
+    "source": "bioskills",
+    "path": "clinical-biostatistics/multiplicity-graphical/SKILL.md",
+    "name": "bio-clinical-biostatistics-multiplicity-graphical"
+  },
+  {
+    "source": "bioskills",
+    "path": "clinical-biostatistics/power-and-sample-size/SKILL.md",
+    "name": "bio-clinical-biostatistics-power-sample-size"
+  },
+  {
+    "source": "bioskills",
+    "path": "clinical-biostatistics/survival-analysis/SKILL.md",
+    "name": "bio-clinical-biostatistics-survival-analysis"
+  },
+  {
+    "source": "bioskills",
+    "path": "clinical-biostatistics/trial-reporting/SKILL.md",
+    "name": "bio-clinical-biostatistics-trial-reporting"
+  },
+  {
+    "source": "bioskills",
+    "path": "differential-expression/batch-correction/SKILL.md",
+    "name": "bio-differential-expression-batch-correction"
+  },
+  {
+    "source": "bioskills",
+    "path": "differential-expression/deseq2-basics/SKILL.md",
+    "name": "bio-differential-expression-deseq2-basics"
+  },
+  {
+    "source": "bioskills",
+    "path": "experimental-design/batch-design/SKILL.md",
+    "name": "bio-experimental-design-batch-design"
+  },
+  {
+    "source": "bioskills",
+    "path": "experimental-design/multiple-testing/SKILL.md",
+    "name": "bio-experimental-design-multiple-testing"
+  },
+  {
+    "source": "bioskills",
+    "path": "experimental-design/power-analysis/SKILL.md",
+    "name": "bio-experimental-design-power-analysis"
+  },
+  {
+    "source": "bioskills",
+    "path": "experimental-design/randomization-blocking/SKILL.md",
+    "name": "bio-experimental-design-randomization-blocking"
+  },
+  {
+    "source": "bioskills",
+    "path": "experimental-design/sample-size/SKILL.md",
+    "name": "bio-experimental-design-sample-size"
+  },
+  {
+    "source": "bioskills",
+    "path": "metabolomics/isotope-tracing/SKILL.md",
+    "name": "bio-metabolomics-isotope-tracing"
+  },
+  {
+    "source": "bioskills",
+    "path": "metabolomics/normalization-qc/SKILL.md",
+    "name": "bio-metabolomics-normalization-qc"
+  },
+  {
+    "source": "bioskills",
+    "path": "proteomics/proteomics-qc/SKILL.md",
+    "name": "bio-proteomics-proteomics-qc"
+  },
+  {
+    "source": "bioskills",
+    "path": "read-qc/fastp-workflow/SKILL.md",
+    "name": "bio-read-qc-fastp-workflow"
+  },
+  {
+    "source": "bioskills",
+    "path": "read-qc/rnaseq-qc/SKILL.md",
+    "name": "bio-read-qc-rnaseq-qc"
+  },
+  {
+    "source": "bioskills",
+    "path": "single-cell/cell-annotation/SKILL.md",
+    "name": "bio-single-cell-cell-annotation"
+  },
+  {
+    "source": "bioskills",
+    "path": "single-cell/doublet-detection/SKILL.md",
+    "name": "bio-single-cell-doublet-detection"
+  },
+  {
+    "source": "bioskills",
+    "path": "single-cell/preprocessing/SKILL.md",
+    "name": "bio-single-cell-preprocessing"
+  },
+  {
+    "source": "bioskills",
+    "path": "spatial-transcriptomics/spatial-deconvolution/SKILL.md",
+    "name": "bio-spatial-transcriptomics-spatial-deconvolution"
+  },
+  {
+    "source": "bioskills",
+    "path": "spatial-transcriptomics/spatial-statistics/SKILL.md",
+    "name": "bio-spatial-transcriptomics-spatial-statistics"
+  },
+  {
+    "source": "bioskills",
+    "path": "structural-biology/structure-preparation/SKILL.md",
+    "name": "bio-structural-biology-structure-preparation"
+  },
+  {
+    "source": "bioskills",
+    "path": "structural-biology/structure-validation/SKILL.md",
+    "name": "bio-structural-biology-structure-validation"
+  },
+  {
+    "source": "bioskills",
+    "path": "systems-biology/flux-balance-analysis/SKILL.md",
+    "name": "bio-systems-biology-flux-balance-analysis"
+  },
+  {
+    "source": "bioskills",
+    "path": "systems-biology/model-curation/SKILL.md",
+    "name": "bio-systems-biology-model-curation"
+  },
+  {
+    "source": "bioskills",
+    "path": "workflows/clinical-trial-pipeline/SKILL.md",
+    "name": "bio-workflows-clinical-trial-pipeline"
+  },
+  {
+    "source": "bioskills",
+    "path": "workflows/metabolomics-pipeline/SKILL.md",
+    "name": "bio-workflows-metabolomics-pipeline"
+  },
+  {
+    "source": "bioskills",
+    "path": "workflows/multi-omics-pipeline/SKILL.md",
+    "name": "bio-workflows-multi-omics-pipeline"
+  },
+  {
+    "source": "bioskills",
+    "path": "workflows/proteomics-pipeline/SKILL.md",
+    "name": "bio-workflows-proteomics-pipeline"
+  },
+  {
+    "source": "bioskills",
+    "path": "workflows/rnaseq-to-de/SKILL.md",
+    "name": "bio-workflows-rnaseq-to-de"
+  },
+  {
+    "source": "bioskills",
+    "path": "workflows/scrnaseq-pipeline/SKILL.md",
+    "name": "bio-workflows-scrnaseq-pipeline"
+  },
+  {
+    "source": "bioskills",
+    "path": "workflows/spatial-pipeline/SKILL.md",
+    "name": "bio-workflows-spatial-pipeline"
+  },
+  {
+    "source": "claude-scholar",
+    "path": "skills/agent-identifier/SKILL.md",
+    "name": "agent-identifier"
+  },
+  {
+    "source": "claude-scholar",
+    "path": "skills/architecture-design/SKILL.md",
+    "name": "architecture-design"
+  },
+  {
+    "source": "claude-scholar",
+    "path": "skills/bug-detective/SKILL.md",
+    "name": "bug-detective"
+  },
+  {
+    "source": "claude-scholar",
+    "path": "skills/citation-verification/SKILL.md",
+    "name": "citation-verification"
+  },
+  {
+    "source": "claude-scholar",
+    "path": "skills/code-review-excellence/SKILL.md",
+    "name": "code-review-excellence"
+  },
+  {
+    "source": "claude-scholar",
+    "path": "skills/command-development/SKILL.md",
+    "name": "command-development"
+  },
+  {
+    "source": "claude-scholar",
+    "path": "skills/daily-coding/SKILL.md",
+    "name": "daily-coding"
+  },
+  {
+    "source": "claude-scholar",
+    "path": "skills/daily-paper-generator/SKILL.md",
+    "name": "daily-paper-generator"
+  },
+  {
+    "source": "claude-scholar",
+    "path": "skills/defuddle/SKILL.md",
+    "name": "defuddle"
+  },
+  {
+    "source": "claude-scholar",
+    "path": "skills/doc-coauthoring/SKILL.md",
+    "name": "doc-coauthoring"
+  },
+  {
+    "source": "claude-scholar",
+    "path": "skills/expression-skill/SKILL.md",
+    "name": "expression-skill"
+  },
+  {
+    "source": "claude-scholar",
+    "path": "skills/frontend-design/SKILL.md",
+    "name": "frontend-design"
+  },
+  {
+    "source": "claude-scholar",
+    "path": "skills/git-workflow/SKILL.md",
+    "name": "git-workflow"
+  },
+  {
+    "source": "claude-scholar",
+    "path": "skills/hook-development/SKILL.md",
+    "name": "hook-development"
+  },
+  {
+    "source": "claude-scholar",
+    "path": "skills/kaggle-learner/SKILL.md",
+    "name": "kaggle-learner"
+  },
+  {
+    "source": "claude-scholar",
+    "path": "skills/latex-conference-template-organizer/SKILL.md",
+    "name": "latex-conference-template-organizer"
+  },
+  {
+    "source": "claude-scholar",
+    "path": "skills/mcp-integration/SKILL.md",
+    "name": "mcp-integration"
+  },
+  {
+    "source": "claude-scholar",
+    "path": "skills/ml-paper-writing/SKILL.md",
+    "name": "claude-scholar-ml-paper-writing"
+  },
+  {
+    "source": "claude-scholar",
+    "path": "skills/nature-data/SKILL.md",
+    "name": "claude-scholar-nature-data"
+  },
+  {
+    "source": "claude-scholar",
+    "path": "skills/nature-polishing/SKILL.md",
+    "name": "claude-scholar-nature-polishing"
+  },
+  {
+    "source": "claude-scholar",
+    "path": "skills/nature-response/SKILL.md",
+    "name": "claude-scholar-nature-response"
+  },
+  {
+    "source": "claude-scholar",
+    "path": "skills/nature-writing/SKILL.md",
+    "name": "claude-scholar-nature-writing"
+  },
+  {
+    "source": "claude-scholar",
+    "path": "skills/obsidian-kb-artifacts/SKILL.md",
+    "name": "obsidian-kb-artifacts"
+  },
+  {
+    "source": "claude-scholar",
+    "path": "skills/obsidian-literature-workflow/SKILL.md",
+    "name": "obsidian-literature-workflow"
+  },
+  {
+    "source": "claude-scholar",
+    "path": "skills/obsidian-project-kb-core/SKILL.md",
+    "name": "obsidian-project-kb-core"
+  },
+  {
+    "source": "claude-scholar",
+    "path": "skills/obsidian-source-ingestion/SKILL.md",
+    "name": "obsidian-source-ingestion"
+  },
+  {
+    "source": "claude-scholar",
+    "path": "skills/paper-self-review/SKILL.md",
+    "name": "paper-self-review"
+  },
+  {
+    "source": "claude-scholar",
+    "path": "skills/planning-with-files/SKILL.md",
+    "name": "planning-with-files"
+  },
+  {
+    "source": "claude-scholar",
+    "path": "skills/plugin-structure/SKILL.md",
+    "name": "plugin-structure"
+  },
+  {
+    "source": "claude-scholar",
+    "path": "skills/post-acceptance/SKILL.md",
+    "name": "post-acceptance"
+  },
+  {
+    "source": "claude-scholar",
+    "path": "skills/publication-chart-skill/SKILL.md",
+    "name": "publication-chart-skill"
+  },
+  {
+    "source": "claude-scholar",
+    "path": "skills/research-ideation/SKILL.md",
+    "name": "research-ideation"
+  },
+  {
+    "source": "claude-scholar",
+    "path": "skills/results-analysis/SKILL.md",
+    "name": "results-analysis"
+  },
+  {
+    "source": "claude-scholar",
+    "path": "skills/results-report/SKILL.md",
+    "name": "results-report"
+  },
+  {
+    "source": "claude-scholar",
+    "path": "skills/review-response/SKILL.md",
+    "name": "review-response"
+  },
+  {
+    "source": "claude-scholar",
+    "path": "skills/skill-development/SKILL.md",
+    "name": "skill-development"
+  },
+  {
+    "source": "claude-scholar",
+    "path": "skills/skill-improver/SKILL.md",
+    "name": "skill-improver"
+  },
+  {
+    "source": "claude-scholar",
+    "path": "skills/skill-quality-reviewer/SKILL.md",
+    "name": "skill-quality-reviewer"
+  },
+  {
+    "source": "claude-scholar",
+    "path": "skills/ui-ux-pro-max/SKILL.md",
+    "name": "ui-ux-pro-max"
+  },
+  {
+    "source": "claude-scholar",
+    "path": "skills/uv-package-manager/SKILL.md",
+    "name": "uv-package-manager"
+  },
+  {
+    "source": "claude-scholar",
+    "path": "skills/verification-loop/SKILL.md",
+    "name": "verification-loop"
+  },
+  {
+    "source": "claude-scholar",
+    "path": "skills/web-design-reviewer/SKILL.md",
+    "name": "web-design-reviewer"
+  },
+  {
+    "source": "claude-scholar",
+    "path": "skills/webapp-testing/SKILL.md",
+    "name": "webapp-testing"
+  },
+  {
+    "source": "claude-scholar",
+    "path": "skills/writing-anti-ai/SKILL.md",
+    "name": "writing-anti-ai"
+  },
+  {
+    "source": "claude-scholar",
+    "path": "skills/zotero-obsidian-bridge/SKILL.md",
+    "name": "zotero-obsidian-bridge"
+  },
+  {
+    "source": "claude-scientific-writer",
+    "path": "skills/citation-management/SKILL.md",
+    "name": "claude-scientific-writer-citation-management"
+  },
+  {
+    "source": "claude-scientific-writer",
+    "path": "skills/clinical-decision-support/SKILL.md",
+    "name": "claude-scientific-writer-clinical-decision-support"
+  },
+  {
+    "source": "claude-scientific-writer",
+    "path": "skills/clinical-reports/SKILL.md",
+    "name": "claude-scientific-writer-clinical-reports"
+  },
+  {
+    "source": "claude-scientific-writer",
+    "path": "skills/generate-image/SKILL.md",
+    "name": "claude-scientific-writer-generate-image"
+  },
+  {
+    "source": "claude-scientific-writer",
+    "path": "skills/hypothesis-generation/SKILL.md",
+    "name": "claude-scientific-writer-hypothesis-generation"
+  },
+  {
+    "source": "claude-scientific-writer",
+    "path": "skills/infographics/SKILL.md",
+    "name": "claude-scientific-writer-infographics"
+  },
+  {
+    "source": "claude-scientific-writer",
+    "path": "skills/latex-posters/SKILL.md",
+    "name": "claude-scientific-writer-latex-posters"
+  },
+  {
+    "source": "claude-scientific-writer",
+    "path": "skills/literature-review/SKILL.md",
+    "name": "claude-scientific-writer-literature-review"
+  },
+  {
+    "source": "claude-scientific-writer",
+    "path": "skills/market-research-reports/SKILL.md",
+    "name": "claude-scientific-writer-market-research-reports"
+  },
+  {
+    "source": "claude-scientific-writer",
+    "path": "skills/markitdown/SKILL.md",
+    "name": "claude-scientific-writer-markitdown"
+  },
+  {
+    "source": "claude-scientific-writer",
+    "path": "skills/parallel-web/SKILL.md",
+    "name": "claude-scientific-writer-parallel-web"
+  },
+  {
+    "source": "claude-scientific-writer",
+    "path": "skills/peer-review/SKILL.md",
+    "name": "claude-scientific-writer-peer-review"
+  },
+  {
+    "source": "claude-scientific-writer",
+    "path": "skills/pptx-posters/SKILL.md",
+    "name": "claude-scientific-writer-pptx-posters"
+  },
+  {
+    "source": "claude-scientific-writer",
+    "path": "skills/research-grants/SKILL.md",
+    "name": "claude-scientific-writer-research-grants"
+  },
+  {
+    "source": "claude-scientific-writer",
+    "path": "skills/research-lookup/SKILL.md",
+    "name": "claude-scientific-writer-research-lookup"
+  },
+  {
+    "source": "claude-scientific-writer",
+    "path": "skills/scholar-evaluation/SKILL.md",
+    "name": "claude-scientific-writer-scholar-evaluation"
+  },
+  {
+    "source": "claude-scientific-writer",
+    "path": "skills/scientific-critical-thinking/SKILL.md",
+    "name": "claude-scientific-writer-scientific-critical-thinking"
+  },
+  {
+    "source": "claude-scientific-writer",
+    "path": "skills/scientific-schematics/SKILL.md",
+    "name": "claude-scientific-writer-scientific-schematics"
+  },
+  {
+    "source": "claude-scientific-writer",
+    "path": "skills/scientific-slides/SKILL.md",
+    "name": "claude-scientific-writer-scientific-slides"
+  },
+  {
+    "source": "claude-scientific-writer",
+    "path": "skills/scientific-writing/SKILL.md",
+    "name": "claude-scientific-writer-scientific-writing"
+  },
+  {
+    "source": "claude-scientific-writer",
+    "path": "skills/treatment-plans/SKILL.md",
+    "name": "claude-scientific-writer-treatment-plans"
+  },
+  {
+    "source": "claude-scientific-writer",
+    "path": "skills/venue-templates/SKILL.md",
+    "name": "claude-scientific-writer-venue-templates"
+  },
+  {
+    "source": "control-guides",
+    "path": "doc/linear.rst",
+    "name": "control-systems-engineering"
+  },
+  {
+    "source": "huggingface-skills",
+    "path": "skills/hf-cli/SKILL.md",
+    "name": "hf-cli"
+  },
+  {
+    "source": "huggingface-skills",
+    "path": "skills/hf-cloud-aws-context-discovery/SKILL.md",
+    "name": "hf-cloud-aws-context-discovery"
+  },
+  {
+    "source": "huggingface-skills",
+    "path": "skills/hf-cloud-python-env-setup/SKILL.md",
+    "name": "hf-cloud-python-env-setup"
+  },
+  {
+    "source": "huggingface-skills",
+    "path": "skills/hf-cloud-sagemaker-deployment-planner/SKILL.md",
+    "name": "hf-cloud-sagemaker-deployment-planner"
+  },
+  {
+    "source": "huggingface-skills",
+    "path": "skills/hf-cloud-sagemaker-iam-preflight/SKILL.md",
+    "name": "hf-cloud-sagemaker-iam-preflight"
+  },
+  {
+    "source": "huggingface-skills",
+    "path": "skills/hf-cloud-sagemaker-production-defaults/SKILL.md",
+    "name": "hf-cloud-sagemaker-production-defaults"
+  },
+  {
+    "source": "huggingface-skills",
+    "path": "skills/hf-cloud-serving-image-selection/SKILL.md",
+    "name": "hf-cloud-serving-image-selection"
+  },
+  {
+    "source": "huggingface-skills",
+    "path": "skills/hf-mem/SKILL.md",
+    "name": "hf-mem"
+  },
+  {
+    "source": "huggingface-skills",
+    "path": "skills/huggingface-best/SKILL.md",
+    "name": "huggingface-best"
+  },
+  {
+    "source": "huggingface-skills",
+    "path": "skills/huggingface-community-evals/SKILL.md",
+    "name": "huggingface-community-evals"
+  },
+  {
+    "source": "huggingface-skills",
+    "path": "skills/huggingface-datasets/SKILL.md",
+    "name": "huggingface-datasets"
+  },
+  {
+    "source": "huggingface-skills",
+    "path": "skills/huggingface-gradio/SKILL.md",
+    "name": "huggingface-gradio"
+  },
+  {
+    "source": "huggingface-skills",
+    "path": "skills/huggingface-local-models/SKILL.md",
+    "name": "huggingface-local-models"
+  },
+  {
+    "source": "huggingface-skills",
+    "path": "skills/huggingface-lora-space-builder/SKILL.md",
+    "name": "huggingface-lora-space-builder"
+  },
+  {
+    "source": "huggingface-skills",
+    "path": "skills/huggingface-paper-publisher/SKILL.md",
+    "name": "huggingface-paper-publisher"
+  },
+  {
+    "source": "huggingface-skills",
+    "path": "skills/huggingface-papers/SKILL.md",
+    "name": "huggingface-papers"
+  },
+  {
+    "source": "huggingface-skills",
+    "path": "skills/huggingface-spaces/SKILL.md",
+    "name": "huggingface-spaces"
+  },
+  {
+    "source": "huggingface-skills",
+    "path": "skills/huggingface-tool-builder/SKILL.md",
+    "name": "huggingface-tool-builder"
+  },
+  {
+    "source": "huggingface-skills",
+    "path": "skills/huggingface-trackio/SKILL.md",
+    "name": "huggingface-trackio"
+  },
+  {
+    "source": "huggingface-skills",
+    "path": "skills/huggingface-vision-trainer/SKILL.md",
+    "name": "huggingface-vision-trainer"
+  },
+  {
+    "source": "huggingface-skills",
+    "path": "skills/huggingface-zerogpu/SKILL.md",
+    "name": "huggingface-zerogpu"
+  },
+  {
+    "source": "huggingface-skills",
+    "path": "skills/train-sentence-transformers/SKILL.md",
+    "name": "train-sentence-transformers"
+  },
+  {
+    "source": "huggingface-skills",
+    "path": "skills/transformers-js/SKILL.md",
+    "name": "transformers-js"
+  },
+  {
+    "source": "huggingface-skills",
+    "path": "skills/trl-training/SKILL.md",
+    "name": "trl-training"
+  },
+  {
+    "source": "kicad-happy",
+    "path": "skills/bom/SKILL.md",
+    "name": "bom"
+  },
+  {
+    "source": "kicad-happy",
+    "path": "skills/datasheets/SKILL.md",
+    "name": "datasheets"
+  },
+  {
+    "source": "kicad-happy",
+    "path": "skills/emc/SKILL.md",
+    "name": "emc"
+  },
+  {
+    "source": "kicad-happy",
+    "path": "skills/kicad/SKILL.md",
+    "name": "kicad"
+  },
+  {
+    "source": "kicad-happy",
+    "path": "skills/spice/SKILL.md",
+    "name": "spice"
+  },
+  {
+    "source": "lean4-skills",
+    "path": "plugins/lean4/skills/lean4/SKILL.md",
+    "name": "lean4"
+  },
+  {
+    "source": "mattpocock-skills",
+    "path": "skills/engineering/ask-matt/SKILL.md",
+    "name": "ask-matt"
+  },
+  {
+    "source": "mattpocock-skills",
+    "path": "skills/engineering/code-review/SKILL.md",
+    "name": "code-review"
+  },
+  {
+    "source": "mattpocock-skills",
+    "path": "skills/engineering/codebase-design/SKILL.md",
+    "name": "codebase-design"
+  },
+  {
+    "source": "mattpocock-skills",
+    "path": "skills/engineering/diagnosing-bugs/SKILL.md",
+    "name": "diagnosing-bugs"
+  },
+  {
+    "source": "mattpocock-skills",
+    "path": "skills/engineering/domain-modeling/SKILL.md",
+    "name": "domain-modeling"
+  },
+  {
+    "source": "mattpocock-skills",
+    "path": "skills/engineering/grill-with-docs/SKILL.md",
+    "name": "grill-with-docs"
+  },
+  {
+    "source": "mattpocock-skills",
+    "path": "skills/engineering/implement-spec/SKILL.md",
+    "name": "implement-spec"
+  },
+  {
+    "source": "mattpocock-skills",
+    "path": "skills/engineering/implement/SKILL.md",
+    "name": "implement"
+  },
+  {
+    "source": "mattpocock-skills",
+    "path": "skills/engineering/improve-codebase-architecture/SKILL.md",
+    "name": "improve-codebase-architecture"
+  },
+  {
+    "source": "mattpocock-skills",
+    "path": "skills/engineering/pr/SKILL.md",
+    "name": "pr"
+  },
+  {
+    "source": "mattpocock-skills",
+    "path": "skills/engineering/prototype/SKILL.md",
+    "name": "prototype"
+  },
+  {
+    "source": "mattpocock-skills",
+    "path": "skills/engineering/research/SKILL.md",
+    "name": "research"
+  },
+  {
+    "source": "mattpocock-skills",
+    "path": "skills/engineering/retro/SKILL.md",
+    "name": "retro"
+  },
+  {
+    "source": "mattpocock-skills",
+    "path": "skills/engineering/setup-matt-pocock-skills/SKILL.md",
+    "name": "setup-matt-pocock-skills"
+  },
+  {
+    "source": "mattpocock-skills",
+    "path": "skills/engineering/tdd/SKILL.md",
+    "name": "tdd"
+  },
+  {
+    "source": "mattpocock-skills",
+    "path": "skills/engineering/to-spec/SKILL.md",
+    "name": "to-spec"
+  },
+  {
+    "source": "mattpocock-skills",
+    "path": "skills/engineering/to-tickets/SKILL.md",
+    "name": "to-tickets"
+  },
+  {
+    "source": "mattpocock-skills",
+    "path": "skills/engineering/triage/SKILL.md",
+    "name": "triage"
+  },
+  {
+    "source": "mattpocock-skills",
+    "path": "skills/engineering/wayfinder/SKILL.md",
+    "name": "wayfinder"
+  },
+  {
+    "source": "mattpocock-skills",
+    "path": "skills/engineering/wizard/SKILL.md",
+    "name": "wizard"
+  },
+  {
+    "source": "mattpocock-skills",
+    "path": "skills/productivity/writing-for-agents/SKILL.md",
+    "name": "writing-for-agents"
+  },
+  {
+    "source": "nature-skills",
+    "path": "skills/nature-academic-search/SKILL.md",
+    "name": "nature-academic-search"
+  },
+  {
+    "source": "nature-skills",
+    "path": "skills/nature-citation/SKILL.md",
+    "name": "nature-citation"
+  },
+  {
+    "source": "nature-skills",
+    "path": "skills/nature-data/SKILL.md",
+    "name": "nature-data"
+  },
+  {
+    "source": "nature-skills",
+    "path": "skills/nature-downloader/SKILL.md",
+    "name": "nature-downloader"
+  },
+  {
+    "source": "nature-skills",
+    "path": "skills/nature-experiment-log/SKILL.md",
+    "name": "nature-experiment-log"
+  },
+  {
+    "source": "nature-skills",
+    "path": "skills/nature-figure/SKILL.md",
+    "name": "nature-figure"
+  },
+  {
+    "source": "nature-skills",
+    "path": "skills/nature-image2ppt/SKILL.md",
+    "name": "nature-image2ppt"
+  },
+  {
+    "source": "nature-skills",
+    "path": "skills/nature-literature-pipeline/SKILL.md",
+    "name": "nature-literature-pipeline"
+  },
+  {
+    "source": "nature-skills",
+    "path": "skills/nature-paper-card/SKILL.md",
+    "name": "nature-paper-card"
+  },
+  {
+    "source": "nature-skills",
+    "path": "skills/nature-paper-to-patent/SKILL.md",
+    "name": "nature-paper-to-patent"
+  },
+  {
+    "source": "nature-skills",
+    "path": "skills/nature-paper-trans/SKILL.md",
+    "name": "nature-paper-trans"
+  },
+  {
+    "source": "nature-skills",
+    "path": "skills/nature-paper-xray/SKILL.md",
+    "name": "nature-paper-xray"
+  },
+  {
+    "source": "nature-skills",
+    "path": "skills/nature-paper2ppt/SKILL.md",
+    "name": "nature-paper2ppt"
+  },
+  {
+    "source": "nature-skills",
+    "path": "skills/nature-polishing/SKILL.md",
+    "name": "nature-polishing"
+  },
+  {
+    "source": "nature-skills",
+    "path": "skills/nature-proposal-writer/SKILL.md",
+    "name": "researchwrite"
+  },
+  {
+    "source": "nature-skills",
+    "path": "skills/nature-reader/SKILL.md",
+    "name": "nature-reader"
+  },
+  {
+    "source": "nature-skills",
+    "path": "skills/nature-ref-verifier/SKILL.md",
+    "name": "nature-ref-verifier"
+  },
+  {
+    "source": "nature-skills",
+    "path": "skills/nature-response/SKILL.md",
+    "name": "nature-response"
+  },
+  {
+    "source": "nature-skills",
+    "path": "skills/nature-reviewer/SKILL.md",
+    "name": "nature-reviewer"
+  },
+  {
+    "source": "nature-skills",
+    "path": "skills/nature-shared/SKILL.md",
+    "name": "nature-shared"
+  },
+  {
+    "source": "nature-skills",
+    "path": "skills/nature-social-science/SKILL.md",
+    "name": "nature-social-science"
+  },
+  {
+    "source": "nature-skills",
+    "path": "skills/nature-statistics/SKILL.md",
+    "name": "nature-statistics"
+  },
+  {
+    "source": "nature-skills",
+    "path": "skills/nature-writing/SKILL.md",
+    "name": "nature-writing"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/biology/anndata/SKILL.md",
+    "name": "openscience-anndata"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/biology/bids/SKILL.md",
+    "name": "openscience-bids"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/biology/bioimage-analysis/SKILL.md",
+    "name": "bioimage-analysis"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/biology/bionemo-nims/SKILL.md",
+    "name": "bionemo-nims"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/biology/bulk-rnaseq/SKILL.md",
+    "name": "openscience-bulk-rnaseq"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/biology/cancer-genomics-analysis/SKILL.md",
+    "name": "cancer-genomics-analysis"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/biology/clinical-decision-support/SKILL.md",
+    "name": "openscience-clinical-decision-support"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/biology/clinical-imaging/SKILL.md",
+    "name": "clinical-imaging"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/biology/clinical-reports/SKILL.md",
+    "name": "openscience-clinical-reports"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/biology/curated-bio-datasets/SKILL.md",
+    "name": "curated-bio-datasets"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/biology/deeptools/SKILL.md",
+    "name": "openscience-deeptools"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/biology/esm/SKILL.md",
+    "name": "openscience-esm"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/biology/flow-cytometry-analysis/SKILL.md",
+    "name": "flow-cytometry-analysis"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/biology/flowio/SKILL.md",
+    "name": "openscience-flowio"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/biology/folklore-variant-evidence/SKILL.md",
+    "name": "openscience-folklore-variant-evidence"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/biology/genomic-coordinates/SKILL.md",
+    "name": "openscience-genomic-coordinates"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/biology/genomic-intelligence/SKILL.md",
+    "name": "openscience-genomic-intelligence"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/biology/gget/SKILL.md",
+    "name": "openscience-gget"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/biology/ginkgo-cloud-lab/SKILL.md",
+    "name": "openscience-ginkgo-cloud-lab"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/biology/glycobiology/SKILL.md",
+    "name": "glycobiology"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/biology/histolab/SKILL.md",
+    "name": "openscience-histolab"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/biology/immunology-assays/SKILL.md",
+    "name": "immunology-assays"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/biology/lamindb/SKILL.md",
+    "name": "openscience-lamindb"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/biology/marker-panel-annotation/SKILL.md",
+    "name": "marker-panel-annotation"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/biology/microbial-dynamics/SKILL.md",
+    "name": "microbial-dynamics"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/biology/molecular-cloning/SKILL.md",
+    "name": "molecular-cloning"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/biology/neurokit2/SKILL.md",
+    "name": "openscience-neurokit2"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/biology/neuropixels-analysis/SKILL.md",
+    "name": "openscience-neuropixels-analysis"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/biology/nextflow/SKILL.md",
+    "name": "openscience-nextflow"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/biology/pacsomatic/SKILL.md",
+    "name": "openscience-pacsomatic"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/biology/pathogen-variant-surveillance/SKILL.md",
+    "name": "openscience-pathogen-variant-surveillance"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/biology/pathway-enrichment/SKILL.md",
+    "name": "openscience-pathway-enrichment"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/biology/pharmacology-wetlab/SKILL.md",
+    "name": "pharmacology-wetlab"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/biology/polars-bio/SKILL.md",
+    "name": "openscience-polars-bio"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/biology/protein-binder-design/SKILL.md",
+    "name": "protein-binder-design"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/biology/pydeseq2/SKILL.md",
+    "name": "openscience-pydeseq2"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/biology/pyhealth/SKILL.md",
+    "name": "openscience-pyhealth"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/biology/pylabrobot/SKILL.md",
+    "name": "openscience-pylabrobot"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/biology/pysam/SKILL.md",
+    "name": "openscience-pysam"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/biology/relsa-severity-assessment/SKILL.md",
+    "name": "openscience-relsa-severity-assessment"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/biology/scanpy/SKILL.md",
+    "name": "openscience-scanpy"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/biology/scikit-bio/SKILL.md",
+    "name": "openscience-scikit-bio"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/biology/scvelo/SKILL.md",
+    "name": "openscience-scvelo"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/biology/scvi-tools/SKILL.md",
+    "name": "openscience-scvi-tools"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/biology/structure-analysis/SKILL.md",
+    "name": "structure-analysis"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/biology/synthetic-biology/SKILL.md",
+    "name": "synthetic-biology"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/biology/tamarind/SKILL.md",
+    "name": "openscience-tamarind"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/biology/tiledbvcf/SKILL.md",
+    "name": "openscience-tiledbvcf"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/biology/treatment-plans/SKILL.md",
+    "name": "openscience-treatment-plans"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/biology/waypoint-bio/SKILL.md",
+    "name": "openscience-waypoint-bio"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/chemistry/admet-prediction/SKILL.md",
+    "name": "admet-prediction"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/chemistry/admet-reasoning/SKILL.md",
+    "name": "admet-reasoning"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/chemistry/analytical-method-validation/SKILL.md",
+    "name": "openscience-analytical-method-validation"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/chemistry/atomistic-workflows/SKILL.md",
+    "name": "atomistic-workflows"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/chemistry/binding-affinity/SKILL.md",
+    "name": "binding-affinity"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/chemistry/cheminformatics-definitions/SKILL.md",
+    "name": "cheminformatics-definitions"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/chemistry/datamol/SKILL.md",
+    "name": "openscience-datamol"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/chemistry/deepchem/SKILL.md",
+    "name": "openscience-deepchem"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/chemistry/denovo-design/SKILL.md",
+    "name": "denovo-design"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/chemistry/diffdock/SKILL.md",
+    "name": "openscience-diffdock"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/chemistry/drug-design/SKILL.md",
+    "name": "drug-design"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/chemistry/framework-topology/SKILL.md",
+    "name": "framework-topology"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/chemistry/hypogenic/SKILL.md",
+    "name": "openscience-hypogenic"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/chemistry/matchms/SKILL.md",
+    "name": "openscience-matchms"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/chemistry/medchem/SKILL.md",
+    "name": "openscience-medchem"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/chemistry/molecular-docking/SKILL.md",
+    "name": "molecular-docking"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/chemistry/molecular-dynamics/SKILL.md",
+    "name": "openscience-molecular-dynamics"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/chemistry/molecular-optimization/SKILL.md",
+    "name": "molecular-optimization"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/chemistry/molecular-rag/SKILL.md",
+    "name": "molecular-rag"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/chemistry/molecule-visualization/SKILL.md",
+    "name": "molecule-visualization"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/chemistry/molfeat/SKILL.md",
+    "name": "openscience-molfeat"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/chemistry/nmr-compound-inference/SKILL.md",
+    "name": "nmr-compound-inference"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/chemistry/pkpd-modeling/SKILL.md",
+    "name": "openscience-pkpd-modeling"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/chemistry/pocket-detection/SKILL.md",
+    "name": "pocket-detection"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/chemistry/pyopenms/SKILL.md",
+    "name": "openscience-pyopenms"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/chemistry/pytdc/SKILL.md",
+    "name": "openscience-pytdc"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/chemistry/rdkit/SKILL.md",
+    "name": "openscience-rdkit"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/chemistry/smiles-validation/SKILL.md",
+    "name": "smiles-validation"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/chemistry/structure-prediction/SKILL.md",
+    "name": "structure-prediction"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/chemistry/torchdrug/SKILL.md",
+    "name": "openscience-torchdrug"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/cloud-compute/fireworks-ai/SKILL.md",
+    "name": "fireworks-ai-inference"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/cloud-compute/givemeanode/SKILL.md",
+    "name": "givemeanode-agent-compute"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/cloud-compute/lambda-labs/SKILL.md",
+    "name": "lambda-gpu-cloud"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/cloud-compute/modal/SKILL.md",
+    "name": "openscience-modal-serverless-gpu"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/cloud-compute/runpod/SKILL.md",
+    "name": "runpod-gpu-cloud"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/cloud-compute/skypilot/SKILL.md",
+    "name": "openscience-skypilot-multi-cloud-orchestration"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/cloud-compute/tensorpool/SKILL.md",
+    "name": "tensorpool-gpu-cloud"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/cloud-compute/tinker-training-cost/SKILL.md",
+    "name": "tinker-training-cost"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/cloud-compute/tinker/SKILL.md",
+    "name": "tinker-fine-tuning"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/cloud-compute/together-ai/SKILL.md",
+    "name": "together-ai-inference"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/cloud-compute/vast-ai/SKILL.md",
+    "name": "vast-ai-gpu-cloud"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/coding/arboreto/SKILL.md",
+    "name": "openscience-arboreto"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/coding/audiocraft/SKILL.md",
+    "name": "openscience-audiocraft-audio-generation"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/coding/exploratory-data-analysis/SKILL.md",
+    "name": "openscience-exploratory-data-analysis"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/coding/matlab/SKILL.md",
+    "name": "openscience-matlab"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/coding/multi-objective-optimization/SKILL.md",
+    "name": "multi-objective-optimization"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/coding/networkx/SKILL.md",
+    "name": "openscience-networkx"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/coding/optimize-for-gpu/SKILL.md",
+    "name": "openscience-optimize-for-gpu"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/coding/pymc/SKILL.md",
+    "name": "pymc-bayesian-modeling"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/coding/pymoo/SKILL.md",
+    "name": "openscience-pymoo"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/coding/scikit-learn/SKILL.md",
+    "name": "openscience-scikit-learn"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/coding/shap/SKILL.md",
+    "name": "openscience-shap"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/coding/simpy/SKILL.md",
+    "name": "openscience-simpy"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/coding/slime/SKILL.md",
+    "name": "openscience-slime-rl-training"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/coding/statistical-analysis/SKILL.md",
+    "name": "openscience-statistical-analysis"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/coding/statsmodels/SKILL.md",
+    "name": "openscience-statsmodels"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/coding/timesfm-forecasting/SKILL.md",
+    "name": "openscience-timesfm-forecasting"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/coding/torch_geometric/SKILL.md",
+    "name": "openscience-torch-geometric"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/coding/umap-learn/SKILL.md",
+    "name": "openscience-umap-learn"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/core/acceptance-checks/SKILL.md",
+    "name": "acceptance-checks"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/core/analysis-report/SKILL.md",
+    "name": "analysis-report"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/core/autoresearch/SKILL.md",
+    "name": "openscience-autoresearch"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/core/brainstorming/SKILL.md",
+    "name": "openscience-brainstorming"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/core/citations/SKILL.md",
+    "name": "citations"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/core/compute/SKILL.md",
+    "name": "compute"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/core/delegation/SKILL.md",
+    "name": "delegation"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/core/execution-hygiene/SKILL.md",
+    "name": "execution-hygiene"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/core/figures/SKILL.md",
+    "name": "figures"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/core/generate-image/SKILL.md",
+    "name": "openscience-generate-image"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/core/hypotheses/SKILL.md",
+    "name": "hypotheses"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/core/literature-review/SKILL.md",
+    "name": "openscience-literature-review"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/core/ml-paper-writing/SKILL.md",
+    "name": "openscience-ml-paper-writing"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/core/paper-writing/SKILL.md",
+    "name": "paper-writing"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/core/peer-review/SKILL.md",
+    "name": "openscience-peer-review"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/core/reproduce/SKILL.md",
+    "name": "reproduce"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/core/research-lookup/SKILL.md",
+    "name": "openscience-research-lookup"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/core/schematics/SKILL.md",
+    "name": "schematics"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/core/scientific-visualization/SKILL.md",
+    "name": "openscience-scientific-visualization"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/core/sources/SKILL.md",
+    "name": "sources"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/core/statistical-conventions/SKILL.md",
+    "name": "statistical-conventions"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/core/submitted-code/SKILL.md",
+    "name": "submitted-code"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/data-engineering/aeon/SKILL.md",
+    "name": "openscience-aeon"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/data-engineering/dask/SKILL.md",
+    "name": "openscience-dask"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/data-engineering/datalad/SKILL.md",
+    "name": "openscience-datalad"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/data-engineering/geomaster/SKILL.md",
+    "name": "openscience-geomaster"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/data-engineering/geopandas/SKILL.md",
+    "name": "openscience-geopandas"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/data-engineering/hdf5-pde-data-loading/SKILL.md",
+    "name": "hdf5-pde-data-loading"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/data-engineering/hugging-face-datasets/SKILL.md",
+    "name": "hugging-face-datasets"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/data-engineering/markitdown/SKILL.md",
+    "name": "openscience-markitdown"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/data-engineering/ray-data/SKILL.md",
+    "name": "openscience-ray-data"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/data-engineering/vaex/SKILL.md",
+    "name": "openscience-vaex"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/data-engineering/zarr-python/SKILL.md",
+    "name": "openscience-zarr-python"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/databases/database-lookup/SKILL.md",
+    "name": "openscience-database-lookup"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/databases/depmap/SKILL.md",
+    "name": "openscience-depmap"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/databases/imaging-data-commons/SKILL.md",
+    "name": "openscience-imaging-data-commons"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/databases/ncats-arax/SKILL.md",
+    "name": "openscience-ncats-arax"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/databases/onekgpd/SKILL.md",
+    "name": "openscience-onekgpd"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/databases/ontology-term-resolution/SKILL.md",
+    "name": "openscience-ontology-term-resolution"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/databases/usfiscaldata/SKILL.md",
+    "name": "openscience-usfiscaldata"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/document-parsing/liteparse/SKILL.md",
+    "name": "openscience-liteparse"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/llm-tools/autogpt/SKILL.md",
+    "name": "openscience-autogpt-agents"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/llm-tools/blip-2/SKILL.md",
+    "name": "openscience-blip-2-vision-language"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/llm-tools/chroma/SKILL.md",
+    "name": "openscience-chroma"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/llm-tools/clip/SKILL.md",
+    "name": "openscience-clip"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/llm-tools/constitutional-ai/SKILL.md",
+    "name": "openscience-constitutional-ai"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/llm-tools/crewai/SKILL.md",
+    "name": "openscience-crewai-multi-agent"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/llm-tools/dspy/SKILL.md",
+    "name": "openscience-dspy"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/llm-tools/faiss/SKILL.md",
+    "name": "openscience-faiss"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/llm-tools/guidance/SKILL.md",
+    "name": "openscience-guidance"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/llm-tools/hugging-face-cli/SKILL.md",
+    "name": "hugging-face-cli"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/llm-tools/hugging-face-tool-builder/SKILL.md",
+    "name": "hugging-face-tool-builder"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/llm-tools/huggingface-tokenizers/SKILL.md",
+    "name": "openscience-huggingface-tokenizers"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/llm-tools/instructor/SKILL.md",
+    "name": "openscience-instructor"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/llm-tools/langchain/SKILL.md",
+    "name": "openscience-langchain"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/llm-tools/langsmith/SKILL.md",
+    "name": "openscience-langsmith-observability"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/llm-tools/llamaguard/SKILL.md",
+    "name": "openscience-llamaguard"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/llm-tools/llamaindex/SKILL.md",
+    "name": "openscience-llamaindex"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/llm-tools/llava/SKILL.md",
+    "name": "openscience-llava"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/llm-tools/llm-as-judge-evaluation/SKILL.md",
+    "name": "llm-as-judge-evaluation"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/llm-tools/long-context/SKILL.md",
+    "name": "openscience-long-context"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/llm-tools/nemo-guardrails/SKILL.md",
+    "name": "openscience-nemo-guardrails"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/llm-tools/outlines/SKILL.md",
+    "name": "openscience-outlines"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/llm-tools/pinecone/SKILL.md",
+    "name": "openscience-pinecone"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/llm-tools/qdrant/SKILL.md",
+    "name": "openscience-qdrant-vector-search"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/llm-tools/segment-anything/SKILL.md",
+    "name": "openscience-segment-anything-model"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/llm-tools/sentence-transformers/SKILL.md",
+    "name": "openscience-sentence-transformers"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/llm-tools/sentencepiece/SKILL.md",
+    "name": "openscience-sentencepiece"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/llm-tools/stable-diffusion/SKILL.md",
+    "name": "openscience-stable-diffusion-image-generation"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/llm-tools/transformers/SKILL.md",
+    "name": "openscience-transformers"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/llm-tools/whisper/SKILL.md",
+    "name": "openscience-whisper"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-inference/gguf/SKILL.md",
+    "name": "openscience-gguf-quantization"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-inference/groq/SKILL.md",
+    "name": "groq-inference"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-inference/llama-cpp/SKILL.md",
+    "name": "openscience-llama-cpp"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-inference/miles/SKILL.md",
+    "name": "openscience-miles-rl-training"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-inference/phoenix/SKILL.md",
+    "name": "openscience-phoenix-observability"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-inference/sglang/SKILL.md",
+    "name": "openscience-sglang"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-inference/speculative-decoding/SKILL.md",
+    "name": "openscience-speculative-decoding"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-inference/tensorrt-llm/SKILL.md",
+    "name": "openscience-tensorrt-llm"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-inference/vllm/SKILL.md",
+    "name": "openscience-serving-llms-vllm"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-training/accelerate/SKILL.md",
+    "name": "openscience-huggingface-accelerate"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-training/awq/SKILL.md",
+    "name": "openscience-awq-quantization"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-training/axolotl/SKILL.md",
+    "name": "openscience-axolotl"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-training/bigcode-evaluation-harness/SKILL.md",
+    "name": "openscience-evaluating-code-models"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-training/bitsandbytes/SKILL.md",
+    "name": "openscience-quantizing-models-bitsandbytes"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-training/colab-finetuning/SKILL.md",
+    "name": "colab-finetuning"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-training/deepspeed/SKILL.md",
+    "name": "openscience-deepspeed"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-training/flash-attention/SKILL.md",
+    "name": "openscience-optimizing-attention-flash"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-training/geniml/SKILL.md",
+    "name": "openscience-geniml"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-training/gptq/SKILL.md",
+    "name": "openscience-gptq"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-training/grpo-rl-training/SKILL.md",
+    "name": "openscience-grpo-rl-training"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-training/hqq/SKILL.md",
+    "name": "openscience-hqq-quantization"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-training/hugging-face-evaluation/SKILL.md",
+    "name": "hugging-face-evaluation"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-training/hugging-face-model-trainer/SKILL.md",
+    "name": "hugging-face-model-trainer"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-training/knowledge-distillation/SKILL.md",
+    "name": "openscience-knowledge-distillation"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-training/litgpt/SKILL.md",
+    "name": "openscience-implementing-llms-litgpt"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-training/llama-factory/SKILL.md",
+    "name": "openscience-llama-factory"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-training/lm-evaluation-harness/SKILL.md",
+    "name": "openscience-evaluating-llms-harness"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-training/mamba/SKILL.md",
+    "name": "openscience-mamba-architecture"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-training/megatron-core/SKILL.md",
+    "name": "openscience-training-llms-megatron"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-training/ml-benchmark-evaluation/SKILL.md",
+    "name": "ml-benchmark-evaluation"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-training/mlflow/SKILL.md",
+    "name": "openscience-mlflow"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-training/model-economics/SKILL.md",
+    "name": "model-economics"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-training/model-merging/SKILL.md",
+    "name": "openscience-model-merging"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-training/model-pruning/SKILL.md",
+    "name": "openscience-model-pruning"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-training/moe-training/SKILL.md",
+    "name": "openscience-moe-training"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-training/nanogpt/SKILL.md",
+    "name": "openscience-nanogpt"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-training/nemo-curator/SKILL.md",
+    "name": "openscience-nemo-curator"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-training/nemo-evaluator/SKILL.md",
+    "name": "openscience-nemo-evaluator-sdk"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-training/nnsight/SKILL.md",
+    "name": "openscience-nnsight-remote-interpretability"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-training/openrlhf/SKILL.md",
+    "name": "openscience-openrlhf-training"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-training/peft/SKILL.md",
+    "name": "openscience-peft-fine-tuning"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-training/prime-intellect-lab/SKILL.md",
+    "name": "prime-intellect"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-training/pufferlib/SKILL.md",
+    "name": "openscience-pufferlib"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-training/pytorch-fsdp/SKILL.md",
+    "name": "pytorch-fsdp"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-training/pytorch-lightning/SKILL.md",
+    "name": "openscience-pytorch-lightning"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-training/pyvene/SKILL.md",
+    "name": "openscience-pyvene-interventions"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-training/ray-train/SKILL.md",
+    "name": "openscience-ray-train"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-training/rwkv/SKILL.md",
+    "name": "openscience-rwkv-architecture"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-training/saelens/SKILL.md",
+    "name": "openscience-sparse-autoencoder-training"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-training/simpo/SKILL.md",
+    "name": "openscience-simpo-training"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-training/stable-baselines3/SKILL.md",
+    "name": "openscience-stable-baselines3"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-training/tensorboard/SKILL.md",
+    "name": "openscience-tensorboard"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-training/torchforge/SKILL.md",
+    "name": "openscience-torchforge-rl-training"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-training/torchtitan/SKILL.md",
+    "name": "openscience-distributed-llm-pretraining-torchtitan"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-training/training-data-pipeline/SKILL.md",
+    "name": "training-data-pipeline"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-training/transformer-lens/SKILL.md",
+    "name": "openscience-transformer-lens-interpretability"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-training/trl-fine-tuning/SKILL.md",
+    "name": "openscience-fine-tuning-with-trl"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-training/unsloth/SKILL.md",
+    "name": "unsloth-fine-tuning"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-training/verl/SKILL.md",
+    "name": "openscience-verl-rl-training"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/ml-training/weights-and-biases/SKILL.md",
+    "name": "openscience-weights-and-biases"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/other/checkpoint/SKILL.md",
+    "name": "checkpoint"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/other/compact/SKILL.md",
+    "name": "compact"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/other/coq/SKILL.md",
+    "name": "coq"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/other/get-available-resources/SKILL.md",
+    "name": "openscience-get-available-resources"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/other/goal/SKILL.md",
+    "name": "goal"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/other/handoff/SKILL.md",
+    "name": "handoff"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/other/hugging-face-jobs/SKILL.md",
+    "name": "hugging-face-jobs"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/other/hugging-face-trackio/SKILL.md",
+    "name": "hugging-face-trackio"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/other/init/SKILL.md",
+    "name": "init"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/other/iso-13485-certification/SKILL.md",
+    "name": "iso-13485-certification"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/other/iso-standards-readiness/SKILL.md",
+    "name": "openscience-iso-standards-readiness"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/other/lab-hardware-cad/SKILL.md",
+    "name": "openscience-lab-hardware-cad"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/other/lean4-mathlib/SKILL.md",
+    "name": "lean4-mathlib"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/other/plan/SKILL.md",
+    "name": "plan"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/other/skill-installer/SKILL.md",
+    "name": "skill-installer"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/other/stop/SKILL.md",
+    "name": "stop"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/physics/astronomy-inference/SKILL.md",
+    "name": "astronomy-inference"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/physics/astropy/SKILL.md",
+    "name": "openscience-astropy"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/physics/autoregressive-neural-pde-solver/SKILL.md",
+    "name": "autoregressive-neural-pde-solver"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/physics/bayesian-inference/SKILL.md",
+    "name": "bayesian-inference"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/physics/conservation-law-discovery/SKILL.md",
+    "name": "conservation-law-discovery"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/physics/dimensional-analysis/SKILL.md",
+    "name": "dimensional-analysis"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/physics/dynamical-systems/SKILL.md",
+    "name": "dynamical-systems"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/physics/energy-systems/SKILL.md",
+    "name": "energy-systems"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/physics/fluid-dynamics/SKILL.md",
+    "name": "fluid-dynamics"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/physics/geoscience-data/SKILL.md",
+    "name": "geoscience-data"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/physics/hamiltonian-mechanics/SKILL.md",
+    "name": "hamiltonian-mechanics"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/physics/neural-operator/SKILL.md",
+    "name": "neural-operator"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/physics/ode-solver/SKILL.md",
+    "name": "ode-solver"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/physics/openpiv/SKILL.md",
+    "name": "openscience-openpiv"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/physics/pde-solver/SKILL.md",
+    "name": "pde-solver"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/physics/physics-databases/SKILL.md",
+    "name": "physics-databases"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/physics/physics-fitting/SKILL.md",
+    "name": "physics-fitting"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/physics/physics-visualization/SKILL.md",
+    "name": "physics-visualization"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/physics/pinn-training/SKILL.md",
+    "name": "pinn-training"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/physics/pymatgen/SKILL.md",
+    "name": "openscience-pymatgen"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/physics/shock-capturing-neural-operators/SKILL.md",
+    "name": "shock-capturing-neural-operators"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/physics/sindy-identification/SKILL.md",
+    "name": "sindy-identification"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/physics/spectral-analysis/SKILL.md",
+    "name": "spectral-analysis"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/physics/statistical-mechanics/SKILL.md",
+    "name": "statistical-mechanics"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/physics/symbolic-regression/SKILL.md",
+    "name": "symbolic-regression"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/physics/uncertainty-and-units/SKILL.md",
+    "name": "openscience-uncertainty-and-units"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/physics/wave-propagation/SKILL.md",
+    "name": "wave-propagation"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/quantum/cirq/SKILL.md",
+    "name": "openscience-cirq"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/quantum/pennylane/SKILL.md",
+    "name": "openscience-pennylane"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/quantum/qiskit/SKILL.md",
+    "name": "openscience-qiskit"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/quantum/qutip/SKILL.md",
+    "name": "openscience-qutip"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/research/compare/SKILL.md",
+    "name": "compare"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/research/experimental-design/SKILL.md",
+    "name": "openscience-experimental-design"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/research/export/SKILL.md",
+    "name": "export"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/research/market-research-reports/SKILL.md",
+    "name": "openscience-market-research-reports"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/research/paper-lookup/SKILL.md",
+    "name": "openscience-paper-lookup"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/research/patent-mining/SKILL.md",
+    "name": "patent-mining"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/research/research-grants/SKILL.md",
+    "name": "openscience-research-grants"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/research/research-workflows/SKILL.md",
+    "name": "research-workflows"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/research/review/SKILL.md",
+    "name": "review"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/research/statistical-power/SKILL.md",
+    "name": "openscience-statistical-power"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/scholar-evaluation/SKILL.md",
+    "name": "openscience-scholar-evaluation"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/visualization/dna-visualization/SKILL.md",
+    "name": "dna-visualization"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/visualization/infographics/SKILL.md",
+    "name": "openscience-infographics"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/visualization/plotly/SKILL.md",
+    "name": "plotly"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/visualization/protein-diagram/SKILL.md",
+    "name": "protein-diagram"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/visualization/seaborn/SKILL.md",
+    "name": "openscience-seaborn"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/writing/hugging-face-paper-publisher/SKILL.md",
+    "name": "hugging-face-paper-publisher"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/writing/latex-posters/SKILL.md",
+    "name": "openscience-latex-posters"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/writing/markdown-mermaid-writing/SKILL.md",
+    "name": "openscience-markdown-mermaid-writing"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/writing/paper-2-web/SKILL.md",
+    "name": "paper-2-web"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/writing/pptx-posters/SKILL.md",
+    "name": "openscience-pptx-posters"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/writing/pyzotero/SKILL.md",
+    "name": "openscience-pyzotero"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/writing/scientific-slides/SKILL.md",
+    "name": "openscience-scientific-slides"
+  },
+  {
+    "source": "openscience",
+    "path": "backend/cli/skills/writing/zotero-local/SKILL.md",
+    "name": "zotero-local"
+  },
+  {
+    "source": "qutip-guides",
+    "path": "tutorials-v5/time-evolution/003_qubit-dynamics.md",
+    "name": "qutip-quantum-dynamics"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/13c-metabolic-flux/SKILL.md",
+    "name": "13c-metabolic-flux"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/adaptyv/SKILL.md",
+    "name": "adaptyv"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/aeon/SKILL.md",
+    "name": "scientific-agent-skills-aeon"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/alphagenome/SKILL.md",
+    "name": "alphagenome"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/analytical-method-validation/SKILL.md",
+    "name": "scientific-agent-skills-analytical-method-validation"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/anndata/SKILL.md",
+    "name": "scientific-agent-skills-anndata"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/arbor/SKILL.md",
+    "name": "arbor"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/arboreto/SKILL.md",
+    "name": "scientific-agent-skills-arboreto"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/astropy/SKILL.md",
+    "name": "scientific-agent-skills-astropy"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/autoskill/SKILL.md",
+    "name": "autoskill"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/benchling-integration/SKILL.md",
+    "name": "benchling-integration"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/bgpt-paper-search/SKILL.md",
+    "name": "bgpt-paper-search"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/bids/SKILL.md",
+    "name": "scientific-agent-skills-bids"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/bulk-rnaseq/SKILL.md",
+    "name": "scientific-agent-skills-bulk-rnaseq"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/cantera/SKILL.md",
+    "name": "cantera"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/cellprofiler/SKILL.md",
+    "name": "cellprofiler"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/cellxgene-census/SKILL.md",
+    "name": "cellxgene-census"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/cirq/SKILL.md",
+    "name": "scientific-agent-skills-cirq"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/citation-management/SKILL.md",
+    "name": "scientific-agent-skills-citation-management"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/clinical-decision-support/SKILL.md",
+    "name": "scientific-agent-skills-clinical-decision-support"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/clinical-reports/SKILL.md",
+    "name": "scientific-agent-skills-clinical-reports"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/consciousness-council/SKILL.md",
+    "name": "consciousness-council"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/dask/SKILL.md",
+    "name": "scientific-agent-skills-dask"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/database-lookup/SKILL.md",
+    "name": "scientific-agent-skills-database-lookup"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/datalad/SKILL.md",
+    "name": "scientific-agent-skills-datalad"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/datamol/SKILL.md",
+    "name": "scientific-agent-skills-datamol"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/deepchem/SKILL.md",
+    "name": "scientific-agent-skills-deepchem"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/deeptools/SKILL.md",
+    "name": "scientific-agent-skills-deeptools"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/depmap/SKILL.md",
+    "name": "scientific-agent-skills-depmap"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/dhdna-profiler/SKILL.md",
+    "name": "dhdna-profiler"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/diffdock/SKILL.md",
+    "name": "scientific-agent-skills-diffdock"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/dnanexus-integration/SKILL.md",
+    "name": "dnanexus-integration"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/esm/SKILL.md",
+    "name": "scientific-agent-skills-esm"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/exa-search/SKILL.md",
+    "name": "exa-search"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/experimental-design/SKILL.md",
+    "name": "scientific-agent-skills-experimental-design"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/exploratory-data-analysis/SKILL.md",
+    "name": "scientific-agent-skills-exploratory-data-analysis"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/fictiv/SKILL.md",
+    "name": "fictiv"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/flowio/SKILL.md",
+    "name": "scientific-agent-skills-flowio"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/flowkit/SKILL.md",
+    "name": "flowkit"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/fluidsim/SKILL.md",
+    "name": "fluidsim"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/folklore-variant-evidence/SKILL.md",
+    "name": "scientific-agent-skills-folklore-variant-evidence"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/generate-image/SKILL.md",
+    "name": "scientific-agent-skills-generate-image"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/geniml/SKILL.md",
+    "name": "scientific-agent-skills-geniml"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/genomic-coordinates/SKILL.md",
+    "name": "scientific-agent-skills-genomic-coordinates"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/genomic-intelligence/SKILL.md",
+    "name": "scientific-agent-skills-genomic-intelligence"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/geomaster/SKILL.md",
+    "name": "scientific-agent-skills-geomaster"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/geopandas/SKILL.md",
+    "name": "scientific-agent-skills-geopandas"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/get-available-resources/SKILL.md",
+    "name": "scientific-agent-skills-get-available-resources"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/gget/SKILL.md",
+    "name": "scientific-agent-skills-gget"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/ginkgo-cloud-lab/SKILL.md",
+    "name": "scientific-agent-skills-ginkgo-cloud-lab"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/gtars/SKILL.md",
+    "name": "gtars"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/histolab/SKILL.md",
+    "name": "scientific-agent-skills-histolab"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/hugging-science/SKILL.md",
+    "name": "hugging-science"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/hypogenic/SKILL.md",
+    "name": "scientific-agent-skills-hypogenic"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/hypothesis-generation/SKILL.md",
+    "name": "scientific-agent-skills-hypothesis-generation"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/imaging-data-commons/SKILL.md",
+    "name": "scientific-agent-skills-imaging-data-commons"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/infographics/SKILL.md",
+    "name": "scientific-agent-skills-infographics"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/iso-standards-readiness/SKILL.md",
+    "name": "scientific-agent-skills-iso-standards-readiness"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/lab-hardware-cad/SKILL.md",
+    "name": "scientific-agent-skills-lab-hardware-cad"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/labarchive-integration/SKILL.md",
+    "name": "labarchive-integration"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/lamindb/SKILL.md",
+    "name": "scientific-agent-skills-lamindb"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/latchbio-integration/SKILL.md",
+    "name": "latchbio-integration"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/latex-posters/SKILL.md",
+    "name": "scientific-agent-skills-latex-posters"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/liteparse/SKILL.md",
+    "name": "scientific-agent-skills-liteparse"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/literature-review/SKILL.md",
+    "name": "scientific-agent-skills-literature-review"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/mageck/SKILL.md",
+    "name": "mageck"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/marine-carbonate-chemistry/SKILL.md",
+    "name": "marine-carbonate-chemistry"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/markdown-mermaid-writing/SKILL.md",
+    "name": "scientific-agent-skills-markdown-mermaid-writing"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/market-research-reports/SKILL.md",
+    "name": "scientific-agent-skills-market-research-reports"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/markitdown/SKILL.md",
+    "name": "scientific-agent-skills-markitdown"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/matchms/SKILL.md",
+    "name": "scientific-agent-skills-matchms"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/matlab/SKILL.md",
+    "name": "scientific-agent-skills-matlab"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/medchem/SKILL.md",
+    "name": "scientific-agent-skills-medchem"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/modal/SKILL.md",
+    "name": "modal"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/molecular-dynamics/SKILL.md",
+    "name": "scientific-agent-skills-molecular-dynamics"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/molfeat/SKILL.md",
+    "name": "scientific-agent-skills-molfeat"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/ncats-arax/SKILL.md",
+    "name": "scientific-agent-skills-ncats-arax"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/networkx/SKILL.md",
+    "name": "scientific-agent-skills-networkx"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/neurokit2/SKILL.md",
+    "name": "scientific-agent-skills-neurokit2"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/neuropixels-analysis/SKILL.md",
+    "name": "scientific-agent-skills-neuropixels-analysis"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/nextflow/SKILL.md",
+    "name": "scientific-agent-skills-nextflow"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/nmrglue/SKILL.md",
+    "name": "nmrglue"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/nwb-conversion/SKILL.md",
+    "name": "nwb-conversion"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/omero-integration/SKILL.md",
+    "name": "omero-integration"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/onekgpd/SKILL.md",
+    "name": "scientific-agent-skills-onekgpd"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/ontology-term-resolution/SKILL.md",
+    "name": "scientific-agent-skills-ontology-term-resolution"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/open-notebook/SKILL.md",
+    "name": "open-notebook"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/openpiv/SKILL.md",
+    "name": "scientific-agent-skills-openpiv"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/opentrons-integration/SKILL.md",
+    "name": "opentrons-integration"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/optimize-for-gpu/SKILL.md",
+    "name": "scientific-agent-skills-optimize-for-gpu"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/pacsomatic/SKILL.md",
+    "name": "scientific-agent-skills-pacsomatic"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/paper-lookup/SKILL.md",
+    "name": "scientific-agent-skills-paper-lookup"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/paperclip/SKILL.md",
+    "name": "paperclip"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/paperzilla/SKILL.md",
+    "name": "paperzilla"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/parallel-web/SKILL.md",
+    "name": "scientific-agent-skills-parallel-web"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/pathml/SKILL.md",
+    "name": "pathml"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/pathogen-variant-surveillance/SKILL.md",
+    "name": "scientific-agent-skills-pathogen-variant-surveillance"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/pathway-enrichment/SKILL.md",
+    "name": "scientific-agent-skills-pathway-enrichment"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/peer-review/SKILL.md",
+    "name": "scientific-agent-skills-peer-review"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/pennylane/SKILL.md",
+    "name": "scientific-agent-skills-pennylane"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/pi-agent/SKILL.md",
+    "name": "pi-agent"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/pkpd-modeling/SKILL.md",
+    "name": "scientific-agent-skills-pkpd-modeling"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/polars-bio/SKILL.md",
+    "name": "scientific-agent-skills-polars-bio"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/pptx-posters/SKILL.md",
+    "name": "scientific-agent-skills-pptx-posters"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/primer-design/SKILL.md",
+    "name": "primer-design"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/protocolsio-integration/SKILL.md",
+    "name": "protocolsio-integration"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/pufferlib/SKILL.md",
+    "name": "scientific-agent-skills-pufferlib"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/pybamm/SKILL.md",
+    "name": "pybamm"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/pycalphad/SKILL.md",
+    "name": "pycalphad"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/pydeseq2/SKILL.md",
+    "name": "scientific-agent-skills-pydeseq2"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/pydicom/SKILL.md",
+    "name": "pydicom"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/pyhealth/SKILL.md",
+    "name": "scientific-agent-skills-pyhealth"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/pylabrobot/SKILL.md",
+    "name": "scientific-agent-skills-pylabrobot"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/pymatgen/SKILL.md",
+    "name": "scientific-agent-skills-pymatgen"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/pymc/SKILL.md",
+    "name": "pymc"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/pymoo/SKILL.md",
+    "name": "scientific-agent-skills-pymoo"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/pyopenms/SKILL.md",
+    "name": "scientific-agent-skills-pyopenms"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/pysam/SKILL.md",
+    "name": "scientific-agent-skills-pysam"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/pytdc/SKILL.md",
+    "name": "scientific-agent-skills-pytdc"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/pytorch-lightning/SKILL.md",
+    "name": "scientific-agent-skills-pytorch-lightning"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/pyzotero/SKILL.md",
+    "name": "scientific-agent-skills-pyzotero"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/qiime2-amplicon/SKILL.md",
+    "name": "qiime2-amplicon"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/qiskit/SKILL.md",
+    "name": "scientific-agent-skills-qiskit"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/qutip/SKILL.md",
+    "name": "scientific-agent-skills-qutip"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/rdkit/SKILL.md",
+    "name": "scientific-agent-skills-rdkit"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/relion/SKILL.md",
+    "name": "relion"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/relsa-severity-assessment/SKILL.md",
+    "name": "scientific-agent-skills-relsa-severity-assessment"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/research-grants/SKILL.md",
+    "name": "scientific-agent-skills-research-grants"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/research-lookup/SKILL.md",
+    "name": "scientific-agent-skills-research-lookup"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/scanpy/SKILL.md",
+    "name": "scientific-agent-skills-scanpy"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/scholar-evaluation/SKILL.md",
+    "name": "scientific-agent-skills-scholar-evaluation"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/scientific-brainstorming/SKILL.md",
+    "name": "scientific-brainstorming"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/scientific-critical-thinking/SKILL.md",
+    "name": "scientific-agent-skills-scientific-critical-thinking"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/scientific-schematics/SKILL.md",
+    "name": "scientific-agent-skills-scientific-schematics"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/scientific-slides/SKILL.md",
+    "name": "scientific-agent-skills-scientific-slides"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/scientific-visualization/SKILL.md",
+    "name": "scientific-agent-skills-scientific-visualization"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/scientific-writing/SKILL.md",
+    "name": "scientific-agent-skills-scientific-writing"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/scikit-bio/SKILL.md",
+    "name": "scientific-agent-skills-scikit-bio"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/scikit-learn/SKILL.md",
+    "name": "scientific-agent-skills-scikit-learn"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/scikit-survival/SKILL.md",
+    "name": "scikit-survival"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/scvelo/SKILL.md",
+    "name": "scientific-agent-skills-scvelo"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/scvi-tools/SKILL.md",
+    "name": "scientific-agent-skills-scvi-tools"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/seaborn/SKILL.md",
+    "name": "scientific-agent-skills-seaborn"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/shap/SKILL.md",
+    "name": "scientific-agent-skills-shap"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/simpy/SKILL.md",
+    "name": "scientific-agent-skills-simpy"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/stable-baselines3/SKILL.md",
+    "name": "scientific-agent-skills-stable-baselines3"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/statistical-analysis/SKILL.md",
+    "name": "scientific-agent-skills-statistical-analysis"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/statistical-power/SKILL.md",
+    "name": "scientific-agent-skills-statistical-power"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/statsmodels/SKILL.md",
+    "name": "scientific-agent-skills-statsmodels"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/tamarind/SKILL.md",
+    "name": "scientific-agent-skills-tamarind"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/tellurium/SKILL.md",
+    "name": "tellurium"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/tiledbvcf/SKILL.md",
+    "name": "scientific-agent-skills-tiledbvcf"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/timesfm-forecasting/SKILL.md",
+    "name": "scientific-agent-skills-timesfm-forecasting"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/torch-geometric/SKILL.md",
+    "name": "scientific-agent-skills-torch-geometric"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/torchdrug/SKILL.md",
+    "name": "scientific-agent-skills-torchdrug"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/transformers/SKILL.md",
+    "name": "scientific-agent-skills-transformers"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/treatment-plans/SKILL.md",
+    "name": "scientific-agent-skills-treatment-plans"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/umap-learn/SKILL.md",
+    "name": "scientific-agent-skills-umap-learn"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/uncertainty-and-units/SKILL.md",
+    "name": "scientific-agent-skills-uncertainty-and-units"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/usfiscaldata/SKILL.md",
+    "name": "scientific-agent-skills-usfiscaldata"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/vaex/SKILL.md",
+    "name": "scientific-agent-skills-vaex"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/venue-templates/SKILL.md",
+    "name": "scientific-agent-skills-venue-templates"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/waypoint-bio/SKILL.md",
+    "name": "scientific-agent-skills-waypoint-bio"
+  },
+  {
+    "source": "scientific-agent-skills",
+    "path": "skills/zarr-python/SKILL.md",
+    "name": "scientific-agent-skills-zarr-python"
+  },
+  {
+    "source": "scipy-guides",
+    "path": "doc/source/tutorial/integrate.rst",
+    "name": "scipy-numerical-methods"
+  },
+  {
+    "source": "superpowers",
+    "path": "skills/brainstorming/SKILL.md",
+    "name": "superpowers-brainstorming"
+  },
+  {
+    "source": "superpowers",
+    "path": "skills/diagnosing-superpowers/SKILL.md",
+    "name": "diagnosing-superpowers"
+  },
+  {
+    "source": "superpowers",
+    "path": "skills/dispatching-parallel-agents/SKILL.md",
+    "name": "dispatching-parallel-agents"
+  },
+  {
+    "source": "superpowers",
+    "path": "skills/executing-plans/SKILL.md",
+    "name": "executing-plans"
+  },
+  {
+    "source": "superpowers",
+    "path": "skills/finishing-a-development-branch/SKILL.md",
+    "name": "finishing-a-development-branch"
+  },
+  {
+    "source": "superpowers",
+    "path": "skills/receiving-code-review/SKILL.md",
+    "name": "receiving-code-review"
+  },
+  {
+    "source": "superpowers",
+    "path": "skills/requesting-code-review/SKILL.md",
+    "name": "requesting-code-review"
+  },
+  {
+    "source": "superpowers",
+    "path": "skills/subagent-driven-development/SKILL.md",
+    "name": "subagent-driven-development"
+  },
+  {
+    "source": "superpowers",
+    "path": "skills/systematic-debugging/SKILL.md",
+    "name": "systematic-debugging"
+  },
+  {
+    "source": "superpowers",
+    "path": "skills/test-driven-development/SKILL.md",
+    "name": "test-driven-development"
+  },
+  {
+    "source": "superpowers",
+    "path": "skills/using-git-worktrees/SKILL.md",
+    "name": "using-git-worktrees"
+  },
+  {
+    "source": "superpowers",
+    "path": "skills/using-superpowers/SKILL.md",
+    "name": "using-superpowers"
+  },
+  {
+    "source": "superpowers",
+    "path": "skills/verification-before-completion/SKILL.md",
+    "name": "verification-before-completion"
+  },
+  {
+    "source": "superpowers",
+    "path": "skills/writing-plans/SKILL.md",
+    "name": "writing-plans"
+  },
+  {
+    "source": "superpowers",
+    "path": "skills/writing-skills/SKILL.md",
+    "name": "writing-skills"
+  },
+  {
+    "source": "sympy-guides",
+    "path": "doc/src/tutorials/intro-tutorial/solvers.rst",
+    "name": "sympy-symbolic-mathematics"
+  },
+  {
+    "source": "sympy-guides",
+    "path": "doc/src/tutorials/physics/mechanics/rollingdisc_example_lagrange.rst",
+    "name": "sympy-classical-mechanics"
+  }
+]

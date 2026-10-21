@@ -1,0 +1,48 @@
+.page {
+  box-sizing: border-box;
+  height: 100%;
+  min-width: 0;
+  overflow: auto;
+  padding: 20px 24px 40px;
+  color: var(--dsw-alias-label-primary);
+  font-size: 13px;
+  line-height: 20px;
+  overflow-wrap: anywhere;
+  container-type: inline-size;
+}
+.header { margin-bottom: 24px; }
+.header h1 { margin: 0 0 8px; font-size: 20px; font-weight: 500; line-height: 28px; }
+.header p, .secondary, .empty { color: var(--dsw-alias-label-secondary); }
+.section { padding: 20px 0; border-top: 0.5px solid var(--dsw-alias-border-l1); }
+.section h2 { margin: 0 0 12px; font-size: 14px; font-weight: 500; line-height: 22px; }
+.section h3 { min-width: 0; margin: 0; font-size: 13px; font-weight: 500; line-height: 20px; }
+.section p { margin: 8px 0; }
+.row { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; min-width: 0; }
+.row > h3 { flex: 1; }
+.phases, .artifacts, .evidence, .papers, .sources, .skills { list-style: none; margin: 12px 0 0; padding: 0; }
+.phase { margin-top: 12px; padding: 12px; background: var(--dsw-alias-fill-l1); border-radius: var(--dsw-radius-md); }
+.phase[data-current] { outline: 0.5px solid var(--dsw-alias-border-l3); }
+.artifact { display: flex; align-items: center; gap: 8px; margin: 8px 0; }
+.artifact .path { flex: 1; }
+.path { min-width: 0; overflow-wrap: anywhere; }
+.artifact button { flex: none; }
+.evidence li { margin: 12px 0; }
+.evidence .secondary { display: block; margin-top: 4px; }
+.sources li, .papers li { margin: 12px 0; }
+.papers a { color: var(--dsw-alias-state-business-primary); text-decoration: none; }
+.papers a:hover { text-decoration: underline; }
+.papers a:focus-visible { outline: var(--dsw-focus-ring-width) solid var(--dsw-focus-ring-color); outline-offset: 3px; }
+.excerpt { margin: 12px 0 0; padding: 8px 12px; border-left: 2px solid var(--dsw-alias-border-l3); color: var(--dsw-alias-label-secondary); }
+.excerpt cite { font-style: normal; }
+.metrics, .skillDetails { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, auto); gap: 8px 16px; margin: 12px 0; }
+.metrics dt, .skillDetails dt { color: var(--dsw-alias-label-secondary); }
+.metrics dd, .skillDetails dd { min-width: 0; margin: 0; text-align: right; font-variant-numeric: tabular-nums; }
+.search { width: 100%; }
+.skills > li { padding: 12px 0; border-bottom: 0.5px solid var(--dsw-alias-border-l1); }
+.skills > li:last-child { border-bottom: 0; }
+.catalogFailure { padding: 12px; margin-top: 12px; border-radius: var(--dsw-radius-md); background: var(--dsw-alias-fill-l1); }
+@media (max-width: 767px) { .page { padding: 16px 18px 32px; } }
+@container (max-width: 340px) {
+  .metrics, .skillDetails { column-gap: 8px; }
+  .artifact { align-items: flex-start; flex-wrap: wrap; }
+}

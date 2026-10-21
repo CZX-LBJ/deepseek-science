@@ -1,0 +1,148 @@
+[
+  {
+    "id": "biology",
+    "patterns": [
+      "生物|基因|组学|转录|蛋白|细胞|生态|bio(?:log|inform)|genom|transcriptom|proteom|single.?cell|rna.?seq|dna"
+    ],
+    "skills": [
+      "scientific-agent-skills-experimental-design",
+      "scientific-agent-skills-genomic-coordinates",
+      "scientific-agent-skills-scikit-bio"
+    ]
+  },
+  {
+    "id": "medicine",
+    "patterns": [
+      "医[学药疗]|临床|患者|队列|随机对照|药物|clinical|medical|biomed|patient|cohort|epidemiol|pharma|drug"
+    ],
+    "skills": [
+      "scientific-agent-skills-statistical-analysis",
+      "scientific-agent-skills-clinical-reports",
+      "scientific-agent-skills-medchem"
+    ]
+  },
+  {
+    "id": "chemistry",
+    "patterns": [
+      "化学|分子|催化|反应|材料|晶体|chem|molecul|cataly|reaction|material|crystal"
+    ],
+    "skills": [
+      "scientific-agent-skills-rdkit",
+      "scientific-agent-skills-pymatgen",
+      "scientific-agent-skills-deepchem"
+    ]
+  },
+  {
+    "id": "physics",
+    "patterns": [
+      "物理|量子|天文|粒子|光学|力学|physics|quantum|astro|optics|mechanic|particle"
+    ],
+    "skills": [
+      "qutip-quantum-dynamics",
+      "sympy-classical-mechanics",
+      "scientific-agent-skills-astropy"
+    ]
+  },
+  {
+    "id": "mathematics",
+    "patterns": [
+      "数学|定理|证明|微分|积分|代数|数值|优化|math|theorem|proof|algebra|calculus|numerical|differential|optimization"
+    ],
+    "skills": [
+      "sympy-symbolic-mathematics",
+      "lean4",
+      "scipy-numerical-methods"
+    ]
+  },
+  {
+    "id": "engineering",
+    "patterns": [
+      "工程|控制|机器人|有限元|流体|结构|信号|engineer|control|robot|finite.?element|fluid|structural|signal"
+    ],
+    "skills": [
+      "control-systems-engineering",
+      "scipy-numerical-methods",
+      "scientific-agent-skills-simpy"
+    ]
+  },
+  {
+    "id": "electronics",
+    "patterns": [
+      "电子|电路|电磁|半导体|嵌入式|电力|electronic|circuit|kicad|spice|semiconductor|embedded|electrical"
+    ],
+    "skills": [
+      "kicad",
+      "spice",
+      "emc",
+      "datasheets",
+      "bom"
+    ]
+  },
+  {
+    "id": "earth-environment",
+    "patterns": [
+      "地球|地质|环境|气候|海洋|遥感|geolog|climate|environment|ocean|geospatial|remote.?sens"
+    ],
+    "skills": [
+      "marine-carbonate-chemistry",
+      "scientific-agent-skills-statistical-analysis"
+    ]
+  },
+  {
+    "id": "computing",
+    "patterns": [
+      "计算机|人工智能|机器学习|深度学习|神经网络|computer|machine.?learning|deep.?learning|neural|llm|transformer|\\bai\\b"
+    ],
+    "skills": [
+      "brainstorming-research-ideas",
+      "ai-research-skills-ml-paper-writing",
+      "academic-plotting"
+    ]
+  },
+  {
+    "id": "ideation",
+    "patterns": [
+      "选题|课题|查新|idea|novelty|research.?direction|自主.*科研|科研.*自主"
+    ],
+    "skills": [
+      "openscience-brainstorming",
+      "brainstorming-research-ideas",
+      "aris-idea-discovery-f22c2360c3b54c2b"
+    ]
+  },
+  {
+    "id": "figure",
+    "patterns": ["科研.*图|学术.*图|论文.*图|绘图|画图|作图|配图|图例|多面板|散点图|热图|scientific.?figure|publication.?figure|plot|heatmap|scatter|multipanel"],
+    "skills": ["nature-figure"]
+  },
+  {
+    "id": "polishing",
+    "patterns": ["润色|改写|重构.*(?:论文|摘要|引言|讨论)|polish|proofread|restructure"],
+    "skills": ["nature-polishing"]
+  },
+  {
+    "id": "statistics",
+    "patterns": ["统计|置信区间|显著性|效应量|独立重复|statistics?|confidence.?interval|effect.?size"],
+    "skills": ["nature-statistics"]
+  },
+  {
+    "id": "citation",
+    "patterns": ["核验.*(?:引文|文献|引用)|引用.*核验|参考文献.*(?:检查|复核)|verify.*(?:reference|citation)|bibliograph"],
+    "skills": ["nature-ref-verifier"]
+  },
+  {
+    "id": "publication",
+    "patterns": [
+      "论文|稿件|排版|投稿|润色|双栏|两栏|manuscript|paper|journal|latex|nature|typeset|reformat|two.column"
+    ],
+    "skills": [
+      "aris-paper-compile-39f7e147f6885a94",
+      "aris-paper-figure-845066a6af5b1a64",
+      "nature-writing",
+      "scientific-agent-skills-venue-templates",
+      "scientific-agent-skills-scientific-visualization",
+      "claude-scholar-nature-writing",
+      "aris-paper-write-803e0bb140ac2dd8"
+    ]
+  }
+]

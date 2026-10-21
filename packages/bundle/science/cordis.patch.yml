@@ -1,0 +1,25 @@
+# Shared scientific services preserve the Harness loop, transport and tool history.
+- id: system-prompt
+  config:
+    personaPrefix: >-
+      You are DeepSeek Science powered by the {{model}} model.
+      Conduct evidence-led scientific research. Preserve measured data, read before citing,
+      distinguish hypotheses from supported results, and produce reproducible files.
+    personaSuffix: Your working directory is {{cwd}}.
+
+- insert:
+    - id: skill-science
+      name: '@deepseek-ai/dsh-skill-science'
+      config:
+        enabledPacks: !!js "['core', 'ai', 'nature', ...(process.env.DSH_SCIENCE_NONCOMMERCIAL === '1' ? ['academic-noncommercial', 'academic-codex-noncommercial'] : [])]"
+    - id: science-project
+      name: '@deepseek-ai/dsh-science-project'
+    - id: science-literature
+      name: '@deepseek-ai/dsh-science-literature'
+    - id: tool-science
+      name: '@deepseek-ai/dsh-tool-science'
+      config:
+        enabledPacks: !!js "['core', 'ai', 'nature', ...(process.env.DSH_SCIENCE_NONCOMMERCIAL === '1' ? ['academic-noncommercial', 'academic-codex-noncommercial'] : [])]"
+    - id: ui-science
+      name: '@deepseek-ai/dsh-client-ui-science'
+      disabled: !!js "ctx.get('profileContext')?.name === 'science-headless'"

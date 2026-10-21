@@ -1,0 +1,19 @@
+# Bilingual-pair consistency record for science.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
+#   pnpm run verify-translation-pairing --write docs/subsystems/science.md
+/:
+  en: db5e5a18ae8dbed2
+  zh: c140818eb472629d
+/science:
+  en: 1113adc8b75e12d4
+  zh: b326670eb173bc83
+/science/projects-and-evidence:
+  en: 1c337b136ba5c201
+  zh: 58f2acb60d3bbe15
+/science/literature:
+  en: df8d5e7a32cce500
+  zh: 2cdea936040c01f8
+/science/session-view-and-usage:
+  en: 2bd495638db3e0a6
+  zh: f9c32a0f12cb121a

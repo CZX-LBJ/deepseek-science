@@ -1,0 +1,19 @@
+# Bilingual-pair consistency record for benchmarking-science.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
+#   pnpm run verify-translation-pairing --write docs/cookbook/benchmarking-science.md
+/:
+  en: 242b686ce4e15ce4
+  zh: 0ecf2bde4636c2e6
+/verify-scientific-profiles:
+  en: 9179799453ef0fab
+  zh: 0f36273c0a53b443
+/verify-scientific-profiles/1-replay-scientific-tool-evidence:
+  en: 982e9965689f0149
+  zh: 4f9109069516896c
+/verify-scientific-profiles/2-prepare-a-provider-comparison:
+  en: 06767ce9c436101b
+  zh: 61123066da607f6b
+/verify-scientific-profiles/read-the-report:
+  en: 2df770b5cc117ae0
+  zh: 7dc10d667c023672

@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "data_status": "demonstration",
+  "question": "Can complementary panels preserve the same explicitly invented observations and their uncertainty?",
+  "claim": "This rendering fixture demonstrates descriptive plots, not research evidence or a scientific effect.",
+  "width_mm": 180,
+  "height_mm": 140,
+  "font_size_pt": 7,
+  "font_family": "sans",
+  "dpi": 600,
+  "columns": 2,
+  "panels": [
+    {
+      "type": "line",
+      "data": "line.csv",
+      "title": "Response over time",
+      "evidence_role": "Illustrative comparison of two response trajectories",
+      "xlabel": "Time (s)",
+      "ylabel": "Response (mV)",
+      "n_definition": "n is the number of invented units per method and time; identical IDs recur across time",
+      "x": "time",
+      "y": "value",
+      "group": "method",
+      "unit_id": "id",
+      "mode": "raw",
+      "center": "mean",
+      "uncertainty": {"kind": "sd"}
+    },
+    {
+      "type": "scatter",
+      "data": "scatter.csv",
+      "title": "Individual observations",
+      "evidence_role": "Show every invented response rather than a fitted association",
+      "xlabel": "Reference (mV)",
+      "ylabel": "Response (mV)",
+      "n_definition": "Each point is one invented observation; this fixture has four points per method",
+      "x": "x",
+      "y": "y",
+      "group": "method"
+    },
+    {
+      "type": "distribution",
+      "data": "distribution.csv",
+      "title": "Paired observations",
+      "evidence_role": "Expose individual invented units and their explicit correspondence",
+      "xlabel": "Condition",
+      "ylabel": "Response (mV)",
+      "n_definition": "n is five complete invented paired units per condition, not ten independent units",
+      "group": "condition",
+      "y": "value",
+      "unit_id": "subject",
+      "paired_by": "subject",
+      "center": "mean",
+      "uncertainty": {"kind": "sd"}
+    },
+    {
+      "type": "heatmap",
+      "data": "heatmap.csv",
+      "title": "Response map",
+      "evidence_role": "Illustrate a supplied complete matrix without synthesizing missing cells",
+      "xlabel": "Setting",
+      "ylabel": "Region",
+      "n_definition": "Each cell is one supplied invented value; no uncertainty or sample n is inferred",
+      "x": "x",
+      "y": "y",
+      "value": "value",
+      "colorbar_label": "Signal (a.u.)",
+      "cmap": "cividis"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DeepSeek Science publication project version 1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "main", "template", "language", "engine", "cjk_fontset", "timeout_seconds", "max_passes", "figure_width_mm"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "main": { "type": "string", "pattern": "\\.tex$", "minLength": 5 },
+    "template": { "enum": ["neutral", "nature-inspired", "ieee"] },
+    "language": { "enum": ["en", "zh", "bilingual"] },
+    "engine": { "enum": ["auto", "pdflatex", "xelatex"] },
+    "cjk_fontset": { "enum": ["fandol", "windows"] },
+    "timeout_seconds": { "type": "integer", "minimum": 5, "maximum": 300 },
+    "max_passes": { "type": "integer", "minimum": 3, "maximum": 6 },
+    "figure_width_mm": { "type": "integer", "minimum": 50, "maximum": 190 }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "language": { "enum": ["zh", "bilingual"] } } },
+      "then": { "properties": { "engine": { "enum": ["auto", "xelatex"] } } }
+    }
+  ]
+}

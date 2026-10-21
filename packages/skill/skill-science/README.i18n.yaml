@@ -1,0 +1,43 @@
+# Bilingual-pair consistency record for README.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
+#   pnpm run verify-translation-pairing --write packages/skill/skill-science/README.md
+/:
+  en: 8bf4f8d6dcf3a00b
+  zh: e1f314f040750133
+/deepseek-ai-dsh-skill-science:
+  en: 0c2bd2986d52c1cc
+  zh: 7d5fc7893645222b
+/deepseek-ai-dsh-skill-science/use-this-package:
+  en: 4c7e58f14fdc4905
+  zh: 78d8eb64ddd6f88d
+/deepseek-ai-dsh-skill-science/catalog-api:
+  en: aa58ab089d588686
+  zh: 28f18c5084b0156c
+/deepseek-ai-dsh-skill-science/embedded-resources-and-synchronization:
+  en: 2b5132c3d5b36efa
+  zh: 91eb25bd4f1254f6
+/deepseek-ai-dsh-skill-science/model-experience:
+  en: 215e7ba838619b7b
+  zh: a311da3843709f90
+/deepseek-ai-dsh-skill-science/model-experience/skill-discovery-and-loading:
+  en: 4304dd121d7b7f1f
+  zh: 5587d0c4bb58d353
+/deepseek-ai-dsh-skill-science/model-experience/skill-discovery-and-loading/what-the-model-sees:
+  en: 8c324ae68796c95b
+  zh: f990cb77a3fe8375
+/deepseek-ai-dsh-skill-science/model-experience/skill-discovery-and-loading/what-the-model-sees/workflow-verification-limit:
+  en: 02dd75324914c006
+  zh: 21add8566ccbaea5
+/deepseek-ai-dsh-skill-science/model-experience/skill-discovery-and-loading/what-the-model-sees/resource-and-tool-guidance:
+  en: d3d6974cb29fdeb8
+  zh: 026f586561840424
+/deepseek-ai-dsh-skill-science/model-experience/skill-discovery-and-loading/token-effect:
+  en: 3de91787ed8c57bd
+  zh: f71b9626158b345b
+/deepseek-ai-dsh-skill-science/model-experience/skill-discovery-and-loading/kv-cache-effect:
+  en: cd631f9ce1c37039
+  zh: cd54d2f53b448ddb
+/deepseek-ai-dsh-skill-science/known-limitations-and-deferred-work:
+  en: 149d90962e2fcfa7
+  zh: dd308bce57ebdb55

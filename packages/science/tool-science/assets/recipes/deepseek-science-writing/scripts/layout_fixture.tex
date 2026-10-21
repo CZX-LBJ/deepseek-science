@@ -1,0 +1,190 @@
+% Editable typesetting fixture. All curves and counts are invented demonstrations.
+\section{Introduction}
+\subsection{Why the representation matters}
+A scientific manuscript connects a research question to observations through a sequence of explicit decisions. The question identifies the object of inquiry, the methods explain how the observations were obtained, and the results preserve the distinction between an observation and its interpretation. Typography contributes to this connection by making the sequence legible. A reader should be able to move from a sentence to its equation, from an equation to a plot, and from a plot to the underlying definition without guessing whether a symbol or a unit has changed. This document examines that reading sequence as a typesetting demonstration, using invented curves rather than experimental findings.
+
+The present fixture is deliberately longer than a one-page example. A short sample can hide problems that emerge when a table is deferred, a wide figure must wait for a new page, or a late reference points back to an early definition. Here the running discussion gives the output routine enough material to place narrow and wide floats among real paragraphs. The text addresses experimental units, numerical definitions, visual encoding, record keeping and limitations. These topics are relevant to scientific communication, but their presence does not establish that any particular study followed a valid protocol. The fixture remains an engineering check of editable publication artifacts.
+
+Double-column reading imposes a useful constraint on the length of equations and sentences. A long expression should be divided at a mathematically meaningful relation, rather than scaled until its characters become smaller than the prose. A caption should describe a figure without relying on a colour name that is absent in monochrome printing. A table should expose its units in a stable location, instead of repeating an ambiguous abbreviation in every cell. These decisions are visible at ordinary reading scale. They cannot be inferred from a successful compiler exit, which only establishes that the source was accepted by the selected TeX engine.
+
+\begin{figure}[!t]
+\centering\includegraphics[width=\linewidth]{figures/response.pdf}
+\caption{LAYOUT-A. Invented response curves from analytic functions sampled at 101 time points. Solid blue and dashed orange lines encode different time constants; the samples are numerical evaluations, not independent experimental replicates. No error interval or fitted parameter is shown.}\label{fig:response}
+\end{figure}
+
+Figure~\ref{fig:response} introduces the narrow figure form. Its source is a deterministic calculation retained in the project, and the distinction between the two curves is expressed through line style as well as colour. The analytic time coordinate is expressed in seconds, while the response is dimensionless. Neither curve is evidence that a physical instrument reaches a given level at a given time. A real instrument study would require calibration, environmental conditions, sampling details and an uncertainty model. The figure's purpose is to test a readable legend and axis system within one column while surrounding prose continues in the other column.
+
+\subsection{Scope of the demonstration}
+The LaTeX Project documentation supplies the software reference for the document system used here~\cite{latex-project}. The bibliography record is intentionally modest: it identifies software documentation rather than pretending to support a biological, clinical or causal statement. In an actual manuscript, every external claim would need a source whose contents have been inspected at the recorded reading depth. Merely placing a citation key beside a sentence is not sufficient. The source must address the population, intervention, material, quantity or theorem actually named by that sentence, and any important qualification must remain visible when the sentence is summarized.
+
+The demonstration includes a full-width title, a two-column body, narrow plots at column edges, a wide workflow, a wide pair of panels and compact tables. It also includes multiple lines of aligned mathematics. These elements exercise the relationships that are easy to lose during a conversion from a word processor or a presentation. All labels resolve within editable source. All vector assets retain text and line geometry. No publisher logo, acceptance date or institutional affiliation is invented. An unofficial editorial treatment may support reading, but it cannot substitute for the current instructions of a selected journal and article type.
+
+\ifdefined\sciencebilingual
+\subsection{中文阅读与证据边界}
+本稿只检验双栏正文、通栏标题、栏顶栏底浮动图表和数学公式的连续排版。图中的曲线来自明确写出的解析函数，计数用于演示文件记录，不代表生物学重复、临床样本或工程实测结果。正式论文必须保留原始数据、独立实验单位、分析程序和真实参考文献，并根据学科说明研究设计与不确定性。图注和正文中的限定语应当一起阅读，不能因为版式整齐而把示例当作研究证据。
+\fi
+
+\section{Question, observations and records}
+\subsection{A unit is part of the design}
+The number of rows in a data file is a property of that file. The number of independent units in a study is a property of the design. These quantities sometimes agree, but the agreement must be established rather than assumed. Repeated observations of one specimen can be useful for measuring technical variation while still representing a single biological unit. Multiple time points from one device can expose a transient response while sharing calibration and environmental conditions. A figure legend should state what a dot represents, and the methods should describe which dependencies were retained in the analysis. A plotting function cannot recover these facts from numeric columns alone.
+
+The fixture therefore describes its 101 evaluations as points on an analytic curve. It does not label them as a sample of 101 independent subjects. Similarly, a small set of invented scalar values used in a summary table is identified as an invented set. The arithmetic operations are reproducible, but a correct arithmetic mean does not establish the relevance of a mean to every scientific question. Some distributions require a transformation or a different estimand. Some experiments require a paired difference, an area under a response curve or a hierarchical model. The representation should follow those choices and retain the assumptions that make them interpretable.
+
+\begin{table}[tb]
+\caption{LAYOUT-T1. Definitions used in the synthetic fixture. Counts describe retained numerical evaluations, not scientific sample sizes.}\label{tab:definitions}
+\centering\small
+\begin{tabular}{@{}lll@{}}\toprule
+Symbol & Meaning & Unit \\ \midrule
+$t$ & Analytic time & s \\
+$r(t)$ & Normalized response & 1 \\
+$\tau$ & Chosen time constant & s \\
+$n$ & Scalar row count & 1 \\
+$s$ & Sample SD & mV \\ \bottomrule
+\end{tabular}
+\end{table}
+
+Table~\ref{tab:definitions} makes the unit convention explicit. Dimensionless quantities are marked as such, and a chosen parameter is distinguished from an estimated parameter. This distinction matters when a reader compares an equation to a plot. A curve generated with a selected time constant has no estimation uncertainty unless a separate procedure defines one. A fitted time constant, by contrast, would require a loss function, observations, constraints and a way to assess uncertainty or identifiability. Presenting both quantities with the same visual error band would conceal that difference. The caption and methods should make the construction of every interval inspectable.
+
+\subsection{Retaining the analytic sequence}
+A useful project record preserves the input file, the transformation applied to it, the resulting table and the source of each figure. The record need not duplicate a large scientific archive inside a manuscript folder. It should identify the actual version or accession of that archive, state access restrictions and retain enough local information to reproduce the reported operation. For a small deterministic fixture, the entire input can be retained as text. This makes it possible to compare the plotted values with the values used in the equations. It also exposes accidental edits that would otherwise leave an old PDF looking current.
+
+The publication build hashes its retained inputs and records the resulting PDF hash. Those hashes are freshness checks, not assessments of truth. If a curve file changes after compilation, a previously compiled PDF no longer represents the current source project. If the file remains unchanged but the underlying experiment was poorly designed, the hash still matches. These are different questions and should be reported separately. A transparent workflow first establishes which bytes were consumed, then examines whether the operations performed on those bytes answer the intended scientific question. Neither a version identifier nor a clean build supplies the second judgment automatically.
+
+\begin{figure*}[!t]
+\centering\includegraphics[width=\textwidth]{figures/workflow.pdf}
+\caption{LAYOUT-B. A wide, illustrative communication workflow linking a question to a checked LaTeX artifact. The arrows express the order in which a reader can inspect retained material; they do not assert that the illustrated process validates a study. The figure is an editable vector diagram with no experimental sample size.}\label{fig:workflow}
+\end{figure*}
+
+The full-width diagram in Figure~\ref{fig:workflow} uses the page width to preserve labels that would be cramped in a single column. Its placement is restricted to the top of a page. The text that introduces it remains part of the normal two-column reading order, and the caption names the limits of the diagram. Wide figures should be reserved for content that benefits from the width, such as related panels or a labelled system architecture. Increasing the width of a trivial chart without increasing its information can create a large blank area and force useful text onto another page. The fixture uses a shallow workflow so that its page can still contain substantial prose.
+
+\section{Mathematical specification}
+\subsection{A response with explicit assumptions}
+For the illustration, consider a normalized first-order response with a positive time constant. The initial response is zero, the limiting response is one, and the time domain begins at zero. These statements define the analytic object being drawn. They do not establish that an observed system is first order. In a real application the model would need to be justified by the measurement process, physical approximation or empirical diagnostic appropriate to that field. The model discrepancy could be larger than the numerical error used to evaluate its curve. The figure should not blur those sources of uncertainty into a single unexplained band.
+
+\begin{equation}\begin{aligned}
+\tau\,\frac{\mathrm{d}r}{\mathrm{d}t}+r&=1,\qquad \tau>0,\\
+r(0)&=0,\\
+r(t;\tau)&=1-\exp(-t/\tau).
+\end{aligned}\label{eq:response}\end{equation}
+
+Equation~\eqref{eq:response} is broken into lines at the governing relation, initial condition and closed form. The line breaks preserve the logical sequence and keep the notation at the same reading size as the body. The symbol $t$ denotes time, $r$ a normalized response and $\tau$ a chosen time constant. This definition is sufficient to regenerate the two curves in the retained plotting script. A numerical solver is not needed for this example, so reporting an invented solver tolerance would add a false level of procedural detail. When a solver is actually used, its tolerance and convergence evidence belong in the method record.
+
+The derivative and the response term in the first line are dimensionally consistent because $\tau$ has units of time. The expression inside the exponential is dimensionless. These checks are elementary, but writing them explicitly helps prevent a common graphical error: changing an axis from seconds to milliseconds while leaving a parameter or equation unchanged. A unit conversion should be reflected consistently in the plotted coordinate, any printed parameter value, the methods and the retained script. The same principle applies to normalization. A response divided by a baseline should state what baseline was used and whether that baseline was measured independently or estimated from the same observations.
+
+\subsection{Descriptive summaries are separate objects}
+For a finite set of scalar observations, the arithmetic mean and sample variance define a different object from the analytic response. The fixture includes both to exercise notation, but it does not use the sample variance as an error bar on an exact function. If scalar observations were collected from a repeated-measures experiment, a variance computed over all rows could mix between-unit and within-unit variation. A manuscript should state which variation is being summarized. Statistical software generally computes the requested expression even when the analyst supplied the wrong experimental unit; a plausible output number is not a design check.
+
+\begin{equation}\begin{aligned}
+\bar{x}&=\frac{1}{n}\sum_{i=1}^{n}x_i,\\
+s^2&=\frac{1}{n-1}\sum_{i=1}^{n}(x_i-\bar{x})^2,\\
+u_{\bar{x}}&=s/\sqrt{n}\quad\text{under independence}.
+\end{aligned}\label{eq:summary}\end{equation}
+
+The last line of Equation~\eqref{eq:summary} labels its independence assumption rather than hiding it in a caption. The sample standard deviation describes the spread of observations. The standard error describes uncertainty of a mean under a model. A confidence interval requires additional choices about a sampling distribution or resampling procedure. These quantities serve different purposes and should not be exchanged merely because one produces a visually narrower bar. If a study reports an interval, the legend should give the level, method, centre statistic and independent-unit count. If a quantity is unavailable for a small group, it should remain unavailable rather than being filled with a zero.
+
+\begin{figure}[!b]
+\centering\includegraphics[width=\linewidth]{figures/residual.pdf}
+\caption{LAYOUT-C. A deterministic sinusoidal residual used to test a bottom-of-column plot. The vertical scale is dimensionless. Its shape is prescribed by the source function, not observed model error; no statistical interval or experiment count is implied.}\label{fig:residual}
+\end{figure}
+
+\section{Visual encoding and panel structure}
+\subsection{A readable comparison}
+The wide comparison in Figure~\ref{fig:comparison} repeats the analytic curves as two related panels. The duplication is intentional for a layout fixture: it makes it possible to inspect shared vertical limits, panel labels and the treatment of discrete markers over continuous lines. It would rarely be necessary to show both versions in a concise scientific result. An actual manuscript should choose the representation that most directly answers its question, using additional panels only when they contribute new information. A pair of panels can support comparison if their scales and symbols agree, but it can also mislead when one panel silently changes its range or normalization.
+
+Panel labels should be short, stable and referenced in the caption. Their position should not depend on the longest tick label. Retaining the panel source makes it possible to adjust these details without manually repainting the exported image. The example uses lowercase panel labels with enough space around the title and data. It also uses different point shapes for the two curves, so the distinction survives monochrome printing or a change in colour rendering. Colour selection is only one part of accessibility. Text size, line weight, contrast and a useful verbal description remain necessary, and the final page must be inspected at its actual publication size.
+
+\begin{figure*}[!t]
+\centering\includegraphics[width=\textwidth]{figures/comparison.pdf}
+\caption{LAYOUT-D. A wide pair of synthetic response panels. Panels a and b show analytic curves A and B with matching axis limits. Markers identify selected numerical evaluations, with circles and triangles providing a redundant distinction. All values are calculated fixtures; the 101 time points in each curve are not independent experimental replicates.}\label{fig:comparison}
+\end{figure*}
+
+A vector export preserves paths and text, which permits a small plot to remain sharp when the PDF is magnified. This property does not guarantee that the chosen font is readable at the reduced size used in a column. The source figure should be created near its intended physical width, with a font size appropriate to that width. When a wide figure is automatically reduced to a narrow column, the reduction affects every tick and label. The build fixture therefore supplies separate narrow and wide assets and tests both forms. The intended width is a design decision recorded with the source, rather than an accidental consequence of an oversized bounding box.
+
+\subsection{Images and plotted data}
+Some scientific images are inherently raster: microscopy, photographs and detector images retain information in pixels. Converting those data into a vector outline would not improve their evidential content. A figure system should retain the original raster data, document image processing and present a scale bar where needed. Vector rules remain useful for text overlays, panel labels and diagrams around such images. The present fixture contains no microscopy or photographs. Its all-vector inspection demonstrates that curves and text stayed editable in the example; it does not impose a rule that all figures from every discipline must be vector drawings.
+
+The visual relationship between a figure and its caption should remain stable when floats move to another page. A caption must identify the quantity being plotted, define its units and explain any uncertainty encoding without requiring the reader to search several pages backward. The main text, in turn, should explain why the figure matters to the argument. Repeating every number from a figure in prose can obscure that relationship. A concise description points to the evidence and states the comparison being made, while a retained data table allows the values to be inspected. In this fixture, every caption explicitly limits the claim to an invented typesetting demonstration.
+
+\section{Numerical consistency and checking}
+\subsection{A finite calculation can be inspected}
+For deterministic curves the simplest consistency check is to recompute selected values directly from the defining expression. The result should match the coordinate retained in the CSV up to the stated numeric precision. A discrepancy can arise from using a different parameter, applying a normalization twice, changing time units or selecting the wrong source file. The plot can remain smooth in all of those cases. Smooth appearance is therefore a weak check of numerical consistency. A stronger record connects the plotted coordinates to a named expression and keeps the calculation source beside the export. Real simulations also need solver and discretization checks suited to their numerical method.
+
+One useful dimensionless diagnostic is a normalized difference between two evaluations. Its definition must handle a zero or nearly zero denominator explicitly, and its interpretation depends on the scale chosen for normalization. If the diagnostic compares two implementations of the same model, agreement establishes implementation consistency over the tested domain. It does not establish that the model is an adequate description of the experiment. A model can be implemented identically in two languages and still omit the process that controls an observed outcome. The following expression illustrates how to fit a nontrivial diagnostic into a column without shrinking the mathematical characters.
+
+\begin{equation}\begin{aligned}
+d_i&=\left|r_i^{(1)}-r_i^{(2)}\right|,\\
+q_i&=\frac{d_i}{\max(1,|r_i^{(1)}|)},\\
+q_{\max}&=\max_{1\leq i\leq n}q_i.
+\end{aligned}\label{eq:diagnostic}\end{equation}
+
+Equation~\eqref{eq:diagnostic} defines a check rather than reporting an observed error. There is no fabricated tolerance threshold or claimed agreement value in this document. In a real comparison the analyst would state the tested inputs, the numeric types, the implementations and an error criterion chosen for the intended application. That criterion might be absolute, relative or derived from a physical uncertainty budget. A decision that changes after examining the result should be disclosed as exploratory. The corresponding artifact would include the actual values, with enough information to reproduce any failure rather than only a summary that says the check passed.
+
+\begin{table*}[!t]
+\caption{LAYOUT-T2. Inspection targets for this publication fixture. These are artifact checks, not substitutes for scientific review.}\label{tab:checks}
+\centering\small
+\begin{tabular}{@{}p{0.20\textwidth}p{0.33\textwidth}p{0.40\textwidth}@{}}\toprule
+Target & Inspectable artifact & Limit of the inspection \\ \midrule
+Curve coordinates & Retained analytic expression and CSV & Numerical agreement does not validate a physical model. \\
+Figure export & Editable PDF, SVG and plotting script & Vector geometry does not establish biological evidence. \\
+Reference links & BibTeX records and settled labels & A key alone does not show that a source supports a claim. \\
+Fresh publication & Input hashes, actual PDF and logs & Matching bytes do not establish study quality. \\
+Column placement & Rendered pages and PDF coordinates & One fixture does not cover every future manuscript. \\ \bottomrule
+\end{tabular}
+\end{table*}
+
+\subsection{Checks should fail visibly}
+A useful check has a clear failure state. If a referenced figure is absent, the build should identify that asset instead of returning a PDF from an earlier run. If a bibliography key cannot be resolved, the unresolved citation should remain visible in the diagnostic report. If the selected engine or font is missing, the project should retain its editable sources and report a setup requirement. A substitute image generated by another system would obscure the actual failure. The publication helper therefore records the executable, arguments, exit status and produced artifact. Those records make it possible to distinguish a clean build from an interrupted or partially completed attempt.
+
+Table~\ref{tab:checks} separates artifact checks from scientific judgments. The distinction is especially important when an automated assistant performs several operations in succession. A tool can establish that a file exists, but the conclusion attributed to that file must still be examined. A plotting tool can compute a standard deviation, but the meaning of the rows must still come from the study design. A formatter can produce a professional-looking page, but publication quality includes an argument, evidence and limitations that typography alone cannot supply. Reporting each operation independently preserves the information needed for that broader assessment.
+
+\section{Reading a continuous two-column manuscript}
+\subsection{Floats belong at column edges}
+A narrow figure placed at the top of a column allows the reader to finish the preceding column and then inspect the figure before continuing the prose below it. A bottom figure occupies the opposite edge. Both placements preserve a continuous reading area within the column. A figure forced into the middle of a paragraph can create a visual interruption and make the next line appear to belong to the wrong sentence. This fixture therefore uses top or bottom float requests and does not use inline placement. Captions remain attached to their floats, and text references preserve the intended reading order even when the output routine defers a figure.
+
+Wide figures require additional care because they occupy both columns. Stock two-column LaTeX supports a top area for wide floats; a bottom area needs a compatible output-routine extension and separate validation. The present fixture uses top placements for its wide figures and table. It does not claim that adding a bottom flag alone supplies a working bottom-wide layout. This limited default avoids introducing an untested interaction with a journal class. If the selected journal requires bottom-wide placement, the author must use that venue's supported mechanism and inspect its actual output, including ordering, caption position, column balance and the relation to footnotes.
+
+\begin{figure}[!t]
+\centering\includegraphics[width=\linewidth]{figures/retention.pdf}
+\caption{LAYOUT-E. Invented bookkeeping counts at four stages. Each bar equals five by construction. These values demonstrate labels, category spacing and retained counts; they do not describe recruitment, sample exclusions, assay yield or a scientific success rate.}\label{fig:retention}
+\end{figure}
+
+Figure~\ref{fig:retention} provides a late narrow float, while Figure~\ref{fig:response} appears early in the source. Their order exercises the output routine over several pages. Table~\ref{tab:definitions} and the wider Table~\ref{tab:checks} exercise a separate float sequence. A manuscript may contain several outstanding floats at once, so testing only a single early figure misses important interactions. The fixture supplies enough surrounding text that the expected result is not a collection of empty float pages. Nevertheless, float placement always depends on the actual content and dimensions. A different paper needs its own rendered-page review rather than inheriting an approval from this example.
+
+\subsection{The title and hierarchy}
+The title spans the two columns and describes the document's scope. Authors are represented only by demonstration metadata. A real submission should identify actual contributors and affiliations according to its venue, and should not invent a corresponding-author address to make the page look complete. Section headings establish a readable hierarchy without consuming excessive vertical space. Subsections group related definitions or inspections, while captions use a consistent size and weight. The body uses one text size rather than locally shrinking difficult paragraphs. These choices provide a stable baseline that a journal-specific class may legitimately replace.
+
+Whitespace has a structural purpose around headings, equations and floats. It should help the reader distinguish objects without making a dense result appear more important through isolation. Excessive manual vertical spacing can hide an unresolved float backlog by moving content to another page. Excessive negative spacing can create overlaps when a title wraps or a caption becomes longer. The fixture relies on bounded float spacing and ordinary paragraph composition rather than manual page breaks. Its final page still depends on the amount of body text. An uneven last page should be assessed in context and corrected using the target class's supported balancing procedure when required.
+
+\begin{figure*}[!t]
+\centering\includegraphics[width=\textwidth]{figures/late-summary.pdf}
+\caption{LAYOUT-F. A late wide float testing final-page ordering. Panels a--c deliberately repeat the same analytic curves to inspect alignment and consistent scales. This repetition is a layout stress case, not three experiments or independent replications. Numerical source and line styles are identical in all panels.}\label{fig:late}
+\end{figure*}
+
+\section{Disciplinary interpretation}
+\subsection{Different evidence requires different methods}
+In a physical experiment, a plotted response may depend on calibration, sensor bandwidth and environmental conditions. In a biological assay it may depend on batch effects, independent organisms and technical replicates. In a clinical study it may depend on eligibility, outcomes, follow-up and a prespecified analysis. In mathematics a curve can illustrate a theorem without proving it. In computing a benchmark can reflect a workload and hardware configuration without establishing performance on every deployment. These examples share a need for precise definitions, but they do not share one universal statistical method. The layout can support all of them only when the content retains its disciplinary distinctions.
+
+The fixture's invented signals therefore do not receive a generic claim of significance. They have no sampling distribution derived from recruitment or repeated independent trials. The source functions are known, so a fitting exercise would require a separately defined observation model before it could illustrate estimation. If noise were added for a teaching example, its distribution and seed would need to be stated, and the result would remain synthetic. A realistic-looking cloud of points is particularly easy to misread as an experiment. Clear labels in the figure, caption and methods prevent that ambiguity while still permitting an informative typesetting demonstration.
+
+\ifdefined\sciencebilingual
+\subsection{跨学科表述}
+物理和工程论文需要说明单位、边界条件与数值误差；生物和医学论文需要明确实验单位、重复类型、伦理审批及人群范围；数学论文需要逐项核对定义、量词和证明条件；计算机论文需要保留数据划分、硬件配置及基准任务。共同的双栏版式只是阅读框架，不能把这些不同证据要求压缩成一个通用结论。中文与英文的术语、公式符号和图表单位应当保持一致，翻译时也要保留限定条件。
+\fi
+
+\subsection{Claims and limitations travel together}
+A careful sentence states the conditions under which its claim holds. Removing those conditions during editing can turn an accurate local observation into an unsupported universal statement. The same problem occurs when a caption is shortened without preserving the experimental unit or interval definition. A claim register helps track the relationship between a sentence and its source artifact, but it is not a substitute for reading the sentence in context. The author must examine whether the interpretation remains within the design, whether alternative explanations are addressed and whether a negative or missing result changes the argument. Those responsibilities remain after every reference resolves.
+
+Limitations should be specific enough to affect interpretation. Saying that more research is needed offers little guidance. Saying that a response was measured in one temperature range, that a cohort excluded an important group, or that a proof assumes a bounded operator gives the reader an actual condition to evaluate. In this demonstration the central limitation is direct: every curve and count is invented for layout testing. Consequently the document makes no empirical claim about an instrument, an organism, a patient or a deployed system. The retained artifacts establish what was typeset, not a scientific discovery.
+
+\section{Discussion}
+The combined fixture tests more than the presence of a PDF. It exercises two-column flow, a full-width title, several narrow and wide floats, a deliberately bottom-placed narrow plot, multilingual text and aligned equations. The late text points back to Figure~\ref{fig:response}, Equation~\eqref{eq:response} and Table~\ref{tab:definitions}, while Figure~\ref{fig:late} tests a late wide placement. These references must settle after compilation. A visual inspection then checks whether the resulting page makes the relationships readable. The two checks are complementary: a reference may resolve correctly while a label is too small, and a polished figure may still point to an undefined equation.
+
+The expected artifact is editable. A reviewer can inspect the formula, adjust a caption, regenerate a plot or change the selected template without reconstructing the content from a screenshot. That property reduces friction when a real journal requests a different physical width or reporting detail. It also permits a later correction to be traced to the relevant source and rebuilt. The build report does not freeze a conclusion; it records the inputs and operation behind one version of the manuscript. The author remains responsible for deciding when those inputs need to change and for ensuring that the scientific interpretation changes with them.
+
+The fixture supports a practical default for illustrated papers: keep a consistent two-column body, use a title across the page, place figures and tables at column or page edges, and reserve wide floats for content that benefits from them. A specific journal may require a different submission layout, and its official instructions take precedence when that target is known. The generic template is explicitly first party and unofficial. It carries no acceptance mark or publisher identity. Its success criterion is a readable, inspectable manuscript artifact whose evidence limits are visible, not an imitation of the authority associated with a published page.
+
+\section*{Data and code availability}
+The analytic curve definitions, plotting scripts, generated CSV coordinates, vector PDF and SVG files, LaTeX source and bibliography are retained with the fixture. Input hashes and the compiled PDF hash are recorded by the build helper. Numerical arrays are deterministic and contain no personal, patient or proprietary data. The bookkeeping values are invented. Any reuse for a real study must replace the fixture content with actual evidence and retain the study-specific acquisition, analysis and access information rather than changing only the title.
+
+\section*{Declarations}
+This document is an illustrated typesetting demonstration. No human participants, animals or clinical records were used, and no experimental discovery, journal endorsement or publication acceptance is asserted. Scientific approval cannot be inferred from the page layout, compiled equations or vector status of the figures. The final rendered pages require inspection for clipping, overlaps, missing characters, figure legibility and float placement after any source or template change.
