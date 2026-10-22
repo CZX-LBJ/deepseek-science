@@ -62,7 +62,7 @@
     "@deepseek-ai/dsh-host-webserver": "workspace:*"
   },
   "devDependencies": {
-    "chrome-devtools-frontend": "1.0.1638082",
+    "chrome-devtools-frontend": "1.0.1699061",
     "@types/serve-static": "^2.2.0",
     "@deepseek-ai/dsh-client-test-runtime": "workspace:*",
     "@testing-library/react": "^16.1.0",
