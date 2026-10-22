@@ -252,7 +252,7 @@
     "oxlint": "1.76.0",
     "oxlint-tsgolint": "7.0.2001",
     "pnpm": "11.7.0",
-    "publint": "^0.3.21",
+    "publint": "^0.3.24",
     "semver": "^7.8.5",
     "smol-toml": "^1.7.1",
     "spdx-expression-parse": "^5.0.0",
