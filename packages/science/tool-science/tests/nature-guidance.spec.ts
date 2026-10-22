@@ -1,3 +1,4 @@
+import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { expect, it } from 'vitest'
@@ -45,6 +46,7 @@ it('includes complete plotting and rendered QA instructions with exclusive backe
     expect(paths).toContain('references/qa-contract.md')
     const text = await renderNatureGuidance(catalog, plan, 200000)
     const qa = await loadScienceSkillResource(catalog, plan.name, 'references/qa-contract.md')
+    assert(qa, 'Nature figure QA resource must be present')
     expect(text).toContain(qa.content)
     expect(text).toContain('5 pt')
     expect(text).toContain('1.5 pt')
@@ -108,6 +110,7 @@ it('includes only entire resources and accounts for all deferred paths in the fu
   expect(bounded.length).toBeLessThanOrEqual(12000)
   for (const resource of plan.resources) {
     const raw = await loadScienceSkillResource(catalog, plan.name, resource.relative)
+    assert(raw, `Nature resource must be present: ${resource.relative}`)
     expect(bounded).toContain(resource.path)
     if (bounded.includes(`<nature_resource path="${resource.path}" sha256="${raw.digest}">`)) expect(bounded).toContain(raw.content)
     else expect(bounded).not.toContain(raw.content)

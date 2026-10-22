@@ -108,6 +108,16 @@ const GROUP_ORDER = [
 
 const SERVICE_ROLES: ServiceRole[] = [
   {
+    key: 'scienceProjects', pkg: 'science-project', title: 'Research project state and checkpoints',
+    mode: 'service', consumers: ['tool-science'],
+    note: 'Stores revisioned research projects and artifact-backed checkpoints through the active filesystem.',
+  },
+  {
+    key: 'scienceLiterature', pkg: 'science-literature', title: 'Literature search, reading and verification',
+    mode: 'service', consumers: ['tool-science'],
+    note: 'Queries scholarly sources, reads authorized documents and retains source evidence for citation verification.',
+  },
+  {
     key: 'hmr',
     pkg: 'hmr',
     title: 'Serialized module and configuration reloads',

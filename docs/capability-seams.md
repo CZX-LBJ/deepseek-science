@@ -7,6 +7,11 @@ A service can be a core spine service, a swappable capability seam, a bundle/com
 
 ```mermaid
 flowchart LR
+  pkg_science_project["science-project"]
+  svc_scienceProjects["ctx.scienceProjects<br/>Research project state and checkpoints"]
+  pkg_tool_science["tool-science"]
+  pkg_science_literature["science-literature"]
+  svc_scienceLiterature["ctx.scienceLiterature<br/>Literature search, reading and verification"]
   pkg_hmr["hmr"]
   svc_hmr["ctx.hmr<br/>Serialized module and configuration reloads"]
   pkg_app_boot["app-boot"]
@@ -367,6 +372,8 @@ flowchart LR
   pkg_sandbox_ssh --> svc_sandbox
   pkg_sandbox_windows_acl --> svc_skills
   pkg_schedule --> svc_schedule
+  pkg_science_literature --> svc_scienceLiterature
+  pkg_science_project --> svc_scienceProjects
   pkg_session --> svc_sessions
   pkg_session_log_deepseek --> svc_deepseekLlmApiExtensions
   pkg_session_persistence --> svc_sessionPersistence
@@ -488,6 +495,8 @@ flowchart LR
   svc_sandboxPolicy --> pkg_bash_sandbox
   svc_sandboxPolicy --> pkg_fs_sandbox
   svc_sandboxPolicy --> pkg_terminal_bash
+  svc_scienceLiterature --> pkg_tool_science
+  svc_scienceProjects --> pkg_tool_science
   svc_sessionPersistence --> pkg_agent_loop
   svc_sessionPersistence --> pkg_hooks_claude_code
   svc_sessionPersistence --> pkg_hooks_codex
@@ -571,6 +580,8 @@ flowchart LR
 
 | ctx key | Role | Owner | Implementations | Direct consumers | Companion plugins | Note |
 | --- | --- | --- | --- | --- | --- | --- |
+| `ctx.scienceProjects` | `service` | [`science-project`](../packages/science/science-project) | - | [`tool-science`](../packages/science/tool-science) | - | Stores revisioned research projects and artifact-backed checkpoints through the active filesystem. |
+| `ctx.scienceLiterature` | `service` | [`science-literature`](../packages/science/science-literature) | - | [`tool-science`](../packages/science/tool-science) | - | Queries scholarly sources, reads authorized documents and retains source evidence for citation verification. |
 | `ctx.hmr` | `core` | [`hmr`](../packages/boot/hmr) | - | [`app-boot`](../packages/boot/app-boot) | - | Owns module and exact configuration watchers; application mutations share its queue and automatic reloads await the application file lock. |
 | `ctx.pluginRegistryProbe` | `core` | [`client-ui-plugin-manager`](../packages/client/ui-plugin-manager) | - | [`client-ui-plugin-manager`](../packages/client/ui-plugin-manager) | - | Races public registry responses on the Host; the Client owns the initial registry recommendation. |
 | `ctx.pluginManager` | `core` | [`plugin-manager`](../packages/boot/plugin-manager) | - | [`plugin-manager`](../packages/boot/plugin-manager), `ui-settings-plugin-inventory` | - | Shares profile package operations with the CLI and reports persisted and running state to Web and agent callers. |

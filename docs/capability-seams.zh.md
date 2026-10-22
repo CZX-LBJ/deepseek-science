@@ -9,6 +9,11 @@
 
 ```mermaid
 flowchart LR
+  pkg_science_project["science-project"]
+  svc_scienceProjects["ctx.scienceProjects<br/>Research project state and checkpoints"]
+  pkg_tool_science["tool-science"]
+  pkg_science_literature["science-literature"]
+  svc_scienceLiterature["ctx.scienceLiterature<br/>Literature search, reading and verification"]
   pkg_hmr["hmr"]
   svc_hmr["ctx.hmr<br/>Serialized module and configuration reloads"]
   pkg_app_boot["app-boot"]
@@ -369,6 +374,8 @@ flowchart LR
   pkg_sandbox_ssh --> svc_sandbox
   pkg_sandbox_windows_acl --> svc_skills
   pkg_schedule --> svc_schedule
+  pkg_science_literature --> svc_scienceLiterature
+  pkg_science_project --> svc_scienceProjects
   pkg_session --> svc_sessions
   pkg_session_log_deepseek --> svc_deepseekLlmApiExtensions
   pkg_session_persistence --> svc_sessionPersistence
@@ -490,6 +497,8 @@ flowchart LR
   svc_sandboxPolicy --> pkg_bash_sandbox
   svc_sandboxPolicy --> pkg_fs_sandbox
   svc_sandboxPolicy --> pkg_terminal_bash
+  svc_scienceLiterature --> pkg_tool_science
+  svc_scienceProjects --> pkg_tool_science
   svc_sessionPersistence --> pkg_agent_loop
   svc_sessionPersistence --> pkg_hooks_claude_code
   svc_sessionPersistence --> pkg_hooks_codex
@@ -573,6 +582,8 @@ flowchart LR
 
 | ctx 键 | 角色 | 所属包 | 实现 | 直接消费方 | 配套插件 | 说明 |
 | --- | --- | --- | --- | --- | --- | --- |
+| `ctx.scienceProjects` | `service` | [`science-project`](../packages/science/science-project) | - | [`tool-science`](../packages/science/tool-science) | - | 通过当前文件系统保存带版本的科研项目和附有产物的检查点。 |
+| `ctx.scienceLiterature` | `service` | [`science-literature`](../packages/science/science-literature) | - | [`tool-science`](../packages/science/tool-science) | - | 检索学术来源、读取已获授权的文档，并保留引用核验所需的来源证据。 |
 | `ctx.hmr` | `core` | [`hmr`](../packages/boot/hmr) | - | [`app-boot`](../packages/boot/app-boot) | - | 负责模块和精确配置监听；应用修改共用其队列，自动重载等待应用文件锁。 |
 | `ctx.pluginRegistryProbe` | `core` | [`client-ui-plugin-manager`](../packages/client/ui-plugin-manager) | - | [`client-ui-plugin-manager`](../packages/client/ui-plugin-manager) | - | 在 Host 上并发比较公共安装源响应；初始安装源推荐由 Client 负责。 |
 | `ctx.pluginManager` | `core` | [`plugin-manager`](../packages/boot/plugin-manager) | - | [`plugin-manager`](../packages/boot/plugin-manager), `ui-settings-plugin-inventory` | - | 与 CLI 共享 profile 包操作，并向 Web 和 Agent 调用方分别报告持久状态与运行状态。 |

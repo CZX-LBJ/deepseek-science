@@ -1,0 +1,19 @@
+# Bilingual-pair consistency record for 0.2.1-alpha.1.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
+#   pnpm run verify-translation-pairing --write docs/release-notes/0.2.1-alpha.1.md
+/deepseek-science-0-2-1-alpha-1:
+  en: 7fa74f20ac7bf270
+  zh: d2e6c9694ae9abf5
+/deepseek-science-0-2-1-alpha-1/included:
+  en: cd2df489dc503573
+  zh: 2899778ed836e754
+/deepseek-science-0-2-1-alpha-1/install:
+  en: 84ba0594002bceea
+  zh: 560f07b3794e017e
+/deepseek-science-0-2-1-alpha-1/scope-and-limitations:
+  en: c267d6de92cef645
+  zh: 1d139776b2be14d0
+/deepseek-science-0-2-1-alpha-1/validation-status:
+  en: 70b95e0b8ff326aa
+  zh: 035ff7e56cb9aabd

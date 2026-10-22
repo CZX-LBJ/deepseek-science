@@ -4,15 +4,17 @@ English | [中文](README.zh.md)
 
 **A standalone, local-first AI research workbench for Windows.** DeepSeek Science combines the DeepSeek Harness desktop runtime with domain-aware research workflows, a built-in scientific skills library, and editable LaTeX and figure outputs.
 
-[Download Windows setup](https://github.com/OWNER/deepseek-science/releases/download/v0.2.1-alpha.1/DeepSeek-Science-Setup-0.2.1-alpha.1.exe) · [All releases](https://github.com/OWNER/deepseek-science/releases) · [Report a bug](https://github.com/OWNER/deepseek-science/issues)
+[Download Windows setup](https://github.com/CZX-LBJ/deepseek-science/releases/download/v0.2.1-alpha.1/DeepSeek-Science-Setup-0.2.1-alpha.1.exe) · [All releases](https://github.com/CZX-LBJ/deepseek-science/releases) · [Report a bug](https://github.com/CZX-LBJ/deepseek-science/issues)
 
 ![DeepSeek Science research workflow](docs/images/deepseek-science-workflow.svg)
 
 > DeepSeek Science is an independent community project. It is not an official DeepSeek, Anthropic, or OpenScience product.
 
+<a id="run"></a>
+
 ## Install
 
-1. Download [**DeepSeek Science Setup for Windows x64**](https://github.com/OWNER/deepseek-science/releases/download/v0.2.1-alpha.1/DeepSeek-Science-Setup-0.2.1-alpha.1.exe).
+1. Download [**DeepSeek Science Setup for Windows x64**](https://github.com/CZX-LBJ/deepseek-science/releases/download/v0.2.1-alpha.1/DeepSeek-Science-Setup-0.2.1-alpha.1.exe).
 2. Run the Windows x64 installer and follow the setup prompts.
 3. Open the app, go to **Settings → Models**, and add a provider and model.
 4. Start a research workspace and describe the question in your own words.
@@ -52,20 +54,25 @@ DeepSeek Science builds on the MIT-licensed DeepSeek Harness. Its research workf
 
 Each embedded source is pinned and attributed in [`packages/skill/skill-science/assets/NOTICE.md`](packages/skill/skill-science/assets/NOTICE.md); original license files are retained beside the corresponding materials. The root MIT license covers the Harness code and project-authored changes only. It does not replace third-party terms. In particular, materials under `assets/noncommercial/` remain CC BY-NC 4.0 and do not grant commercial-use rights.
 
+<a id="run-from-source"></a>
+
 ## Build from source
 
-The prebuilt Windows release is the recommended way to install the application. To work on the source, use Windows x64, Node.js 22.19 or newer, Git, and pnpm 11.7.0:
+The prebuilt Windows release is the recommended way to install the application. To build the source and run the scientific CLI profile, use Windows x64, Node.js 24, Git, and pnpm 11.7.0:
 
 ```powershell
 corepack enable
 corepack prepare pnpm@11.7.0 --activate
+git clone -c core.longpaths=true https://github.com/CZX-LBJ/deepseek-science.git
+Set-Location deepseek-science
 pnpm install --frozen-lockfile
-$env:DSH_DESKTOP_APP_ID = "org.deepseek-science.desktop"
 pnpm run build:official
-pnpm --filter @deepseek-ai/dsh-desktop run package:win:x64:unsigned
+pnpm run start:science
 ```
 
-The unsigned build may trigger a Windows SmartScreen prompt. Release installers are published with a SHA-256 checksum. See the desktop packaging scripts and [contributing guide](CONTRIBUTING.md) before changing the release pipeline.
+The standalone Science release uses [`science-portable.mjs`](apps/desktop/scripts/science-portable.mjs), which requires the compiled desktop/web outputs, a production deployment prepared with `node-linker=hoisted`, and a prepared primary runtime. Its `--deployment`, `--runtime`, and `--out` arguments select these directories; `--out` must be a new directory. This is an advanced packaging path, separate from the CLI development launch above. The inherited Harness packaging and CI workflows require additional upstream infrastructure and are not a one-command Science release pipeline.
+
+The unsigned installer may trigger a Windows SmartScreen prompt. Release installers are published with a SHA-256 checksum. See the desktop packaging scripts and [contributing guide](CONTRIBUTING.md) before changing the release pipeline.
 
 ## Project references
 

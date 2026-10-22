@@ -4,15 +4,17 @@
 
 **面向 Windows 的独立 AI 科研工作台。** DeepSeek Science 以 DeepSeek Harness 桌面运行时为基础，整合跨学科科研流程、内置科研技能库，以及可编辑的 LaTeX 论文和学术图表工作流。
 
-[下载 Windows 安装包](https://github.com/OWNER/deepseek-science/releases/download/v0.2.1-alpha.1/DeepSeek-Science-Setup-0.2.1-alpha.1.exe) · [全部版本](https://github.com/OWNER/deepseek-science/releases) · [反馈问题](https://github.com/OWNER/deepseek-science/issues)
+[下载 Windows 安装包](https://github.com/CZX-LBJ/deepseek-science/releases/download/v0.2.1-alpha.1/DeepSeek-Science-Setup-0.2.1-alpha.1.exe) · [全部版本](https://github.com/CZX-LBJ/deepseek-science/releases) · [反馈问题](https://github.com/CZX-LBJ/deepseek-science/issues)
 
 ![DeepSeek Science 科研流程](docs/images/deepseek-science-workflow.svg)
 
 > DeepSeek Science 是独立社区项目，与 DeepSeek、Anthropic、OpenScience 均无官方隶属或背书关系。
 
+<a id="run"></a>
+
 ## 安装
 
-1. 下载 [**DeepSeek Science Windows x64 安装包**](https://github.com/OWNER/deepseek-science/releases/download/v0.2.1-alpha.1/DeepSeek-Science-Setup-0.2.1-alpha.1.exe)。
+1. 下载 [**DeepSeek Science Windows x64 安装包**](https://github.com/CZX-LBJ/deepseek-science/releases/download/v0.2.1-alpha.1/DeepSeek-Science-Setup-0.2.1-alpha.1.exe)。
 2. 运行 Windows x64 安装包并按提示完成安装。
 3. 打开应用，在 **设置 → 模型** 中添加模型提供商和模型。
 4. 新建科研工作区，用自然语言描述你的研究问题。
@@ -52,18 +54,23 @@ DeepSeek Science 用于辅助科研工作，不能证明结果真实、新颖、
 
 固定版本和归属信息见 [`packages/skill/skill-science/assets/NOTICE.md`](packages/skill/skill-science/assets/NOTICE.md)，原始许可文件保留在对应资源目录。根目录 MIT 许可只覆盖 Harness 代码和本项目编写的改动，不会替代第三方许可。特别是 `assets/noncommercial/` 下的材料继续受 CC BY-NC 4.0 约束，不授予商业使用权。
 
+<a id="run-from-source"></a>
+
 ## 从源代码构建
 
-普通用户建议安装预构建的 Windows 版本。开发需要 Windows x64、Node.js 22.19 或更新版本、Git 和 pnpm 11.7.0：
+普通用户建议安装预构建的 Windows 版本。构建源代码并运行科研 CLI 配置需要 Windows x64、Node.js 24、Git 和 pnpm 11.7.0：
 
 ```powershell
 corepack enable
 corepack prepare pnpm@11.7.0 --activate
+git clone -c core.longpaths=true https://github.com/CZX-LBJ/deepseek-science.git
+Set-Location deepseek-science
 pnpm install --frozen-lockfile
-$env:DSH_DESKTOP_APP_ID = "org.deepseek-science.desktop"
 pnpm run build:official
-pnpm --filter @deepseek-ai/dsh-desktop run package:win:x64:unsigned
+pnpm run start:science
 ```
+
+独立科研版使用 [`science-portable.mjs`](apps/desktop/scripts/science-portable.mjs) 组装，需要已编译的桌面端和网页产物、使用 `node-linker=hoisted` 准备的生产部署目录，以及已准备的 primary runtime。通过 `--deployment`、`--runtime` 和 `--out` 指定这些目录，`--out` 必须是新目录。这是进阶打包流程，与上面的 CLI 开发启动不同。继承自 Harness 的打包和 CI 工作流需要额外的上游基础设施，不能直接作为一条命令完成的 Science 发布流水线。
 
 未签名安装包可能触发 Windows SmartScreen 提示。Release 会同时提供 SHA-256 校验文件。修改打包流程前请阅读桌面端打包脚本和[贡献指南](CONTRIBUTING.zh.md)。
 
