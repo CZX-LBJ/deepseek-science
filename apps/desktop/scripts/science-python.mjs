@@ -29,7 +29,7 @@ export function installSciencePlotting(runtime, wheelDirectory) {
   const python = join(root, 'dependencies', 'python', 'python.exe')
   const environment = Object.fromEntries(Object.entries(process.env).filter(([name]) => !/(?:KEY|TOKEN|SECRET|PASSWORD)/iu.test(name)))
   const options = { env: environment, encoding: 'utf8', windowsHide: true, timeout: 120000 }
-  execFileSync(python, ['-I', '-B', '-m', 'pip', 'install', '--no-index', '--no-deps', ...wheels], options)
+  execFileSync(python, ['-I', '-B', '-m', 'pip', 'install', '--no-index', '--no-deps', '--no-compile', ...wheels], options)
   execFileSync(python, ['-I', '-B', '-m', 'pip', 'check'], options)
   const versions = JSON.parse(execFileSync(python, ['-I', '-B', '-c',
     'import json, importlib.metadata as m; print(json.dumps({n:m.version(n) for n in ["matplotlib","contourpy","cycler","fonttools","kiwisolver","packaging","pyparsing"]}))'], options))

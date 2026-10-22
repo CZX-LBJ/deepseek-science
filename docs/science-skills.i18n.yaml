@@ -1,0 +1,28 @@
+# Bilingual-pair consistency record for science-skills.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
+#   pnpm run verify-translation-pairing --write docs/science-skills.md
+/bundled-scientific-skills:
+  en: 66c71b3edb5548dc
+  zh: e6af8f41aa8d8c46
+/bundled-scientific-skills/summary:
+  en: 690592c824c79762
+  zh: 0ba01c4ed324b272
+/bundled-scientific-skills/contents:
+  en: 81937c9b6b5d343c
+  zh: 39060bc758b3ba14
+/bundled-scientific-skills/source-inventory:
+  en: aff6d54759656ce2
+  zh: 093b0c2c911b4e6b
+/bundled-scientific-skills/automatic-use:
+  en: 0453479a729b664f
+  zh: be2634285f38e3ca
+/bundled-scientific-skills/readiness:
+  en: e480968f631a7ff1
+  zh: 89f92f557dee94e9
+/bundled-scientific-skills/licenses:
+  en: 83272940eed4b7f7
+  zh: b4c2a11d7229dfc2
+/bundled-scientific-skills/verification:
+  en: 77c0ec5a058b0886
+  zh: 79bdd6a85d90738a

@@ -53,8 +53,6 @@ python/sdk-runtime/src/deepseek_harness_runtime/runtime/
 python/**/__pycache__/
 python/**/.pytest_cache/
 packages/**/__pycache__/
-packages/skill/skill-science/assets/noncommercial/academic-research-skills-codex/plugins/ars-codex/skills/academic-research-suite/ars/evals/
-packages/skill/skill-science/assets/noncommercial/academic-research-skills-codex/skills/academic-research-suite/ars/evals/
 apps/web/dist/
 .artifacts/
 .dsh-build/

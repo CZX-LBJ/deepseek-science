@@ -4,7 +4,7 @@
 
 **面向 Windows 的独立 AI 科研工作台。** DeepSeek Science 以 DeepSeek Harness 桌面运行时为基础，整合跨学科科研流程、内置科研技能库，以及可编辑的 LaTeX 论文和学术图表工作流。
 
-[下载 Windows 安装包](https://github.com/CZX-LBJ/deepseek-science/releases/download/v0.2.1-alpha.1/DeepSeek-Science-Setup-0.2.1-alpha.1.exe) · [全部版本](https://github.com/CZX-LBJ/deepseek-science/releases) · [反馈问题](https://github.com/CZX-LBJ/deepseek-science/issues)
+[下载 Windows 安装包](https://github.com/CZX-LBJ/deepseek-science/releases/download/v0.2.1-alpha.2/DeepSeek-Science-Setup-0.2.1-alpha.2.exe) · [全部版本](https://github.com/CZX-LBJ/deepseek-science/releases) · [反馈问题](https://github.com/CZX-LBJ/deepseek-science/issues)
 
 ![DeepSeek Science 科研流程](docs/images/deepseek-science-workflow.svg)
 
@@ -14,7 +14,7 @@
 
 ## 安装
 
-1. 下载 [**DeepSeek Science Windows x64 安装包**](https://github.com/CZX-LBJ/deepseek-science/releases/download/v0.2.1-alpha.1/DeepSeek-Science-Setup-0.2.1-alpha.1.exe)。
+1. 下载 [**DeepSeek Science Windows x64 安装包**](https://github.com/CZX-LBJ/deepseek-science/releases/download/v0.2.1-alpha.2/DeepSeek-Science-Setup-0.2.1-alpha.2.exe)。
 2. 运行 Windows x64 安装包并按提示完成安装。
 3. 打开应用，在 **设置 → 模型** 中添加模型提供商和模型。
 4. 新建科研工作区，用自然语言描述你的研究问题。
@@ -38,6 +38,8 @@
 
 技能目录包含 **968 项经过校验的技能与参考资料**，其中集成了固定版本的 Nature Skills（22 个可调用技能及共享资源），并引用 19 个上游科研项目。`academic-research-skills` 与 `academic-research-skills-codex` 两个资源包单独存放且默认关闭；它们受 CC BY-NC 4.0 许可约束。
 
+这些数量描述的是内置材料，不代表每项上游流程都已完成可执行适配。详情见[完整清单与可用状态](docs/science-skills.zh.md)。
+
 <p align="center">
   <img src="docs/images/providers-custom-form.zh.png" alt="自定义模型提供商表单，字段为空" width="640">
 </p>
@@ -50,7 +52,13 @@ DeepSeek Science 用于辅助科研工作，不能证明结果真实、新颖、
 
 ## 上游来源与许可
 
-本项目基于 MIT 许可的 DeepSeek Harness，并参考或嵌入了 [OpenScience](https://github.com/synthetic-sciences/openscience)、[Nature Skills](https://github.com/Yuan1z0825/nature-skills)、[Claude Scholar](https://github.com/Galaxy-Dawn/claude-scholar)、[AI Research Skills](https://github.com/Orchestra-Research/AI-Research-SKILLs)、[ARIS](https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep)、[Superpowers](https://github.com/obra/superpowers) 和 [Hugging Face Skills](https://github.com/huggingface/skills) 等项目的科研材料。
+本项目基于 MIT 许可的 DeepSeek Harness。
+
+内置来源的完整数量、默认发现范围和运行条件见[科研技能完整清单](docs/science-skills.zh.md)。主要材料包括：
+
+- 科研与写作：[OpenScience](https://github.com/synthetic-sciences/openscience)、[Nature Skills](https://github.com/Yuan1z0825/nature-skills)、[Claude Scholar](https://github.com/Galaxy-Dawn/claude-scholar)、[AI Research Skills](https://github.com/Orchestra-Research/AI-Research-SKILLs)、[ARIS](https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep)、[Academic Research Skills](https://github.com/Imbad0202/academic-research-skills)、[Academic Research Skills Codex](https://github.com/Imbad0202/academic-research-skills-codex)、[Scientific Agent Skills](https://github.com/K-Dense-AI/scientific-agent-skills)、[Claude Scientific Writer](https://github.com/K-Dense-AI/claude-scientific-writer)、[bioSkills](https://github.com/GPTomics/bioSkills)。
+- 软件、模型与工程：[Superpowers](https://github.com/obra/superpowers)、[Matt Pocock Skills](https://github.com/mattpocock/skills)、[Hugging Face Skills](https://github.com/huggingface/skills)、[KiCad Happy](https://github.com/aklofas/kicad-happy)、[Lean4 Skills](https://github.com/cameronfreer/lean4-skills)。
+- 知识参考：[SciPy guides](https://github.com/scipy/scipy)、[SymPy guides](https://github.com/sympy/sympy)、[python-control guides](https://github.com/python-control/python-control)、[QuTiP tutorials](https://github.com/qutip/qutip-tutorials)。
 
 固定版本和归属信息见 [`packages/skill/skill-science/assets/NOTICE.md`](packages/skill/skill-science/assets/NOTICE.md)，原始许可文件保留在对应资源目录。根目录 MIT 许可只覆盖 Harness 代码和本项目编写的改动，不会替代第三方许可。特别是 `assets/noncommercial/` 下的材料继续受 CC BY-NC 4.0 约束，不授予商业使用权。
 

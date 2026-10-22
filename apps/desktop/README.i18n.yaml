@@ -3,14 +3,14 @@
 # After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write apps/desktop/README.md
 /deepseek-science-desktop:
-  en: 0f0f6ea914eff51e
-  zh: 4934245b04e9f1c0
+  en: 8c11c50fa40f0ef4
+  zh: 0891ecb9e73b9a03
 /deepseek-science-desktop/terminal-command:
   en: bef92953c237363f
   zh: d21d6effd21b8c00
 /deepseek-science-desktop/closing-the-window-and-quitting:
-  en: c323e02e3f0305fe
-  zh: 3c730db632136443
+  en: 5ac4e5ef9695a3a1
+  zh: adf09dce4ce031fb
 /deepseek-science-desktop/key-technical-decisions:
   en: 069fdfd72d2ea26a
   zh: 76ae549d43c99bb4
@@ -24,8 +24,8 @@
   en: 22153a298a6662e1
   zh: 3600803c8c9d0274
 /deepseek-science-desktop/installation-ownership/runtime-and-plugin-activation:
-  en: a1a47b09f4a72ba4
-  zh: 7b1cf27f0b72cf31
+  en: 70721cf98d0f52b3
+  zh: 154df3ac5212de99
 /deepseek-science-desktop/installation-ownership/host-environment:
   en: 84a9cc7ca9455aa8
   zh: 4091b8aa8231b74a
@@ -45,8 +45,8 @@
   en: 0324169124c4414c
   zh: f591bee485467e93
 /deepseek-science-desktop/package/runtime-file-selection:
-  en: f0e345fd89868803
-  zh: fd2c775ad23fa2f0
+  en: a6c379c247503c46
+  zh: 3f5d79ab65dd4074
 /deepseek-science-desktop/package/upload-updates:
   en: 72073b2e72590067
   zh: 63b1f9790395c37d

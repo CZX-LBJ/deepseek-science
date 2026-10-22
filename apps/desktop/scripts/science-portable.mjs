@@ -5,7 +5,9 @@ import { createRequire } from 'node:module'
 import { execFileSync } from 'node:child_process'
 import { parseArgs } from 'node:util'
 import { fileURLToPath } from 'node:url'
+import { homedir } from 'node:os'
 import { installSciencePlotting } from './science-python.mjs'
+import { auditScienceRelease, sanitizeScienceRelease } from './science-release-privacy.mjs'
 
 const appRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const repository = resolve(appRoot, '..', '..')
@@ -196,10 +198,21 @@ export async function buildSciencePortable({ deployment, output, runtime, wheels
   header.writeUInt32LE(icon.length, 14); header.writeUInt32LE(22, 18)
   writeFileSync(join(resources, 'science.ico'), Buffer.concat([header, icon]))
   copyPortableTree(join(appRoot, 'resources', 'tray-windows.ico'), join(resources, 'tray.ico'))
+  const privacyCleanup = sanitizeScienceRelease(output)
+  // Record final runtime bytes after removing generated build metadata.
+  writeDesktopRuntime(backend, { schemaVersion: 1, version: shellManifest.version,
+    hostProtocolVersion: DESKTOP_HOST_PROTOCOL_VERSION, nodeVersion, pnpmVersion }, shared)
+  await verifyDesktopRuntime(backend, shellManifest.version)
+  const privacyRoots = [repository, homedir(), output]
+  const buildParent = dirname(repository)
+  if (dirname(buildParent) !== buildParent) privacyRoots.push(buildParent)
+  const privacy = auditScienceRelease(output, privacyRoots)
+  if (privacy.findings.length > 0) throw new Error(`Science release privacy check failed: ${JSON.stringify(privacy.findings)}`)
   writeFileSync(join(output, '使用说明.txt'), '双击 DeepSeek Science.exe。模型在应用的“设置 → 模型”中配置。用户数据与密钥保存于用户目录 .deepseek-science；此应用包不含密钥。请保持整个目录完整，可搬移整个文件夹。科研 Python/Node 已内嵌，LaTeX、GPU 和其他外部服务仍需按任务配置。\n')
   writeFileSync(join(output, 'science-build.json'), JSON.stringify({ product: 'DeepSeek Science',
     version: shellManifest.version, target: 'win32-x64', generatedAt: new Date().toISOString(),
-    credentialsIncluded: false, sharedPackages: shared.length, runtimeVerified: true, signed: false }, null, 2) + '\n')
+    credentialsIncluded: false, sharedPackages: shared.length, runtimeVerified: true, signed: false,
+    privacyVerified: true, privacyScannedFiles: privacy.scannedFiles, privacyCleanup }, null, 2) + '\n')
   console.log(`Science portable prepared: ${output}`)
 }
 

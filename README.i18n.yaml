@@ -3,20 +3,20 @@
 # After editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write README.md
 /deepseek-science:
-  en: 94c9fa8557fef77f
-  zh: 762d823982e26ae4
+  en: a55eb9ba49d9b948
+  zh: 386b9f702403aa61
 /deepseek-science/install:
-  en: 29fd999322bd702e
-  zh: 39064b1fd6e48c30
+  en: 125642c33bcbaefe
+  zh: 90f16393516c0e1a
 /deepseek-science/what-it-can-do:
-  en: ed88a85116fce954
-  zh: b41faf17140bf438
+  en: 24d650700dcaac17
+  zh: 67ccf6608cc588d9
 /deepseek-science/research-integrity:
   en: dcf352e81979af36
   zh: bc4a6de43a0b5dff
 /deepseek-science/source-projects-and-licenses:
-  en: 7917418f1e45f6fe
-  zh: 0902d7de00f3a889
+  en: c411dbcffaf092fc
+  zh: 5a02fb776b92ac33
 /deepseek-science/build-from-source:
   en: 35f73d7089eb6dc4
   zh: 049533955b027e76

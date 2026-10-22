@@ -1,0 +1,1291 @@
+#!/usr/bin/env python3
+"""run-persist — the proving commands' persistence protocol over run-store (#82B).
+
+`prove` and `autoprove` (with `--persist`) drive this helper instead of calling
+the store directly, so the failure policy is deterministic code rather than
+prose the model must re-implement each time:
+
+    start    create the run (manifest v2 / event v2) after inputs, capability
+             checks and a valid first dispatch — before any proof edit
+    dispatch / handoff / note / review / replan
+             append one event; the parent/controller is the sole writer
+    finish   set the run's final handoff (terminal)
+    status   show the invocation state
+
+Every command prints one `run-persist-result/v1` object with an `action`:
+
+    continue       the event is committed: go on
+    stop           persistence failed, is uncertain, or its bookkeeping could
+                   not be completed: STOP further proof work and emit the
+                   operational-error handoff carried in the result
+    startup-error  `start` could not create the run: do not start the command
+    done           `finish` completed; `stored` says whether the handoff was
+                   actually persisted — a fallback is never claimed as saved
+    usage          the helper could not run at all (nothing was attempted)
+
+Policy (references/cycle-engine.md § Run Persistence):
+  committed       → continue
+  journal_only    → (finish only) done, stored, with a warning; NEVER re-append
+  busy            → one bounded retry after 1 s; never break the lock
+  other refusal   → stop (operational-error, stop_detail names the code)
+  indeterminate   → stop; an event visible to `load` is not evidence of a
+                    durable commit, so no retry and no inferred success
+  no / malformed / contradictory store result → stop, as uncertain
+
+Invocation state (`--state FILE`, or $LEAN4_RUN_PERSIST_STATE) is CONTROL
+state, not a run-id cache:
+  * `start` creates it exclusively — an existing file is refused;
+  * it binds the storage root and run id for the invocation — later calls use
+    the bound root (a different --root is refused);
+  * every mutation is recorded as in-flight BEFORE the store is invoked and
+    resolved afterwards; if the resolution cannot be recorded (or the process
+    dies in between), the next call finds the unresolved operation and stops —
+    a state-write failure never suppresses the store's own outcome or the
+    fallback report, and never lets the run continue;
+  * once a terminal condition is recorded, `finish` and a policy stop prevent
+    later mutations without touching the store. If no terminal condition could
+    be recorded, report `terminal_enforced: false` and tell the controller to
+    retire the invocation; a later process cannot be guaranteed to remember it.
+The state also carries the CURRENT parent context (target/scope/mode and
+ownership from the latest persisted dispatch; files changed, baseline and
+evidence accumulated from persisted worker handoffs and notes), so the
+operational-error handoff emitted on a stop reports the work as it stands,
+never the first dispatch with "no changes".
+
+Exit codes: 0 continue/done(stored); 2 usage; 3 startup-error;
+5 stop / done(not stored).
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import os
+import subprocess
+import sys
+import time
+from typing import Any
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, HERE)
+import run_contract_validate as rc  # noqa: E402
+import run_reuse  # noqa: E402
+
+STORE = os.path.join(HERE, "run_store.py")
+RESULT_SCHEMA = "run-persist-result/v1"
+STATE_SCHEMA = "run-persist-state/v1"
+STORE_RESULT_SCHEMA = "run-store-result/v1"
+EVENT_SCHEMA_V2 = "run-store-event/v2"
+
+EXIT_OK = 0
+EXIT_USAGE = 2
+EXIT_STARTUP = 3
+EXIT_STOP = 5
+
+# Store exit codes (run_store.py) an acknowledgment must agree with.
+_STORE_EXIT = {
+    "committed": 0,
+    "nothing_written": 3,
+    "journal_only": 5,
+    "indeterminate": 6,
+}
+
+# Injection point for in-process tests (a fake store CLI).
+_STORE_ARGV: list[str] | None = None
+
+
+class UsageError(Exception):
+    pass
+
+
+def _store_argv() -> list[str]:
+    if _STORE_ARGV is not None:
+        return list(_STORE_ARGV)
+    env = os.environ.get("LEAN4_RUN_STORE_ARGV")  # tests: a fake store CLI
+    if env:
+        argv = json.loads(env)
+        if isinstance(argv, list) and all(isinstance(a, str) for a in argv):
+            return argv
+    return [sys.executable, STORE]
+
+
+def _run_store(
+    args: list[str], stdin: bytes | None, root: str
+) -> tuple[int | None, Any, str]:
+    """(exit code | None if the process yielded no result, parsed stdout | None, stderr)."""
+    try:
+        p = subprocess.run(
+            [*_store_argv(), "--root", root, *args],
+            input=stdin,
+            capture_output=True,
+            check=False,
+            timeout=120,
+        )
+    except (OSError, subprocess.SubprocessError) as ex:
+        return None, None, f"store process failed: {ex}"
+    try:
+        res = json.loads(p.stdout.decode("utf-8"))
+    except (UnicodeDecodeError, ValueError):
+        res = None
+    return p.returncode, res, p.stderr.decode("utf-8", "replace")
+
+
+def _emit(obj: dict[str, Any]) -> None:
+    out = (
+        json.dumps({"schema": RESULT_SCHEMA, **obj}, ensure_ascii=False, indent=2)
+        + "\n"
+    ).encode("utf-8", "backslashreplace")
+    sys.stdout.buffer.write(out)
+    sys.stdout.flush()
+
+
+# --------------------------------------------------------------------------
+# acknowledgment validation
+# --------------------------------------------------------------------------
+
+
+def _classify(
+    code: int | None, res: Any, stderr: str, *, expect_run_id: str | None
+) -> tuple[str, str, dict[str, Any] | None]:
+    """(outcome, detail, result). `outcome` ∈ committed / journal_only /
+    indeterminate / refused:<code> / malformed. Anything the store did not
+    acknowledge in a well-formed, exit-consistent, operation-appropriate
+    result is `malformed` — treated as uncertain, never as success."""
+    if code is None or not isinstance(res, dict):
+        return (
+            "malformed",
+            stderr.strip() or "the store process yielded no result",
+            None,
+        )
+    if res.get("schema") != STORE_RESULT_SCHEMA:
+        return "malformed", f"store result has schema {res.get('schema')!r}", None
+    outcome = res.get("outcome")
+    if not isinstance(outcome, str) or outcome not in _STORE_EXIT:
+        return "malformed", f"store result outcome {outcome!r}", None
+    if code != _STORE_EXIT[outcome] and not (
+        outcome == "nothing_written" and code == 2
+    ):
+        return "malformed", f"store exit {code} contradicts outcome {outcome!r}", None
+    if outcome in ("committed", "journal_only"):
+        seq, rid = res.get("seq"), res.get("run_id")
+        if expect_run_id is not None:
+            if not (isinstance(seq, int) and not isinstance(seq, bool) and seq >= 1):
+                return "malformed", f"store result seq {seq!r}", None
+            if rid != expect_run_id:
+                return (
+                    "malformed",
+                    f"store result run_id {rid!r} is not {expect_run_id}",
+                    None,
+                )
+        elif not (isinstance(rid, str) and isinstance(res.get("run_directory"), str)):
+            return "malformed", "store create result lacks run_id/run_directory", None
+        if outcome == "journal_only":
+            return "journal_only", str(res.get("detail", "")), res
+        return "committed", "", res
+    if outcome == "indeterminate":
+        return (
+            "indeterminate",
+            f"run-store indeterminate at {res.get('step')}: {res.get('detail')}",
+            res,
+        )
+    return (
+        f"refused:{res.get('code')}",
+        f"run-store {res.get('code')}: {res.get('detail')}",
+        res,
+    )
+
+
+# --------------------------------------------------------------------------
+# state
+# --------------------------------------------------------------------------
+
+
+def _load_state(path: str) -> dict[str, Any]:
+    try:
+        with open(path, "rb") as f:
+            st = json.loads(f.read().decode("utf-8"))
+    except FileNotFoundError as ex:
+        raise UsageError(f"no invocation state at {path}: run `start` first") from ex
+    except (OSError, ValueError) as ex:
+        raise UsageError(f"invocation state unreadable: {ex}") from ex
+    if not isinstance(st, dict) or st.get("schema") != STATE_SCHEMA:
+        raise UsageError("state file is not run-persist-state/v1")
+    return st
+
+
+def _save_state(path: str, st: dict[str, Any], *, exclusive: bool = False) -> None:
+    """Atomic replace; with exclusive=True the destination must not exist."""
+    data = (json.dumps(st, indent=2) + "\n").encode("utf-8")
+    if exclusive:
+        fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o644)
+        try:
+            os.write(fd, data)
+            os.fsync(fd)
+        finally:
+            os.close(fd)
+        return
+    tmp = f"{path}.{os.getpid()}.tmp"
+    with open(tmp, "wb") as f:
+        f.write(data)
+        f.flush()
+        os.fsync(f.fileno())
+    os.replace(tmp, path)
+
+
+def _try_save(path: str, st: dict[str, Any]) -> str | None:
+    """None on success, else the failure text. Never raises."""
+    try:
+        _save_state(path, st)
+    except OSError as ex:
+        return f"{type(ex).__name__}: {ex}"
+    return None
+
+
+def _report_terminal_save(
+    result: dict[str, Any], error: str | None, *, already_terminal: bool = False
+) -> None:
+    result["terminal_enforced"] = error is None or already_terminal
+    if error:
+        if already_terminal:
+            result["warning"] = (
+                f"terminal state could not be updated ({error}); an earlier recorded "
+                "terminal condition still prevents later mutations"
+            )
+        else:
+            result["warning"] = (
+                f"no control-state write succeeded ({error}); this result orders a stop, "
+                "but a later helper process cannot be guaranteed to remember it — retire "
+                "this invocation now"
+            )
+
+
+def _context_from_dispatch(d: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "target": d["target"],
+        "scope": d["scope"],
+        "mode": d["mode"],
+        "files_owned": list(d["owned_files"]),
+        "file_baseline": d["file_baseline"],
+    }
+
+
+def _new_state(
+    root: str, run_id: str, run_directory: str, dispatch: dict[str, Any]
+) -> dict[str, Any]:
+    return {
+        "schema": STATE_SCHEMA,
+        "run_id": run_id,
+        "run_directory": run_directory,
+        "storage_root": root,
+        "current": _context_from_dispatch(dispatch),
+        "files_changed": [],
+        "attempted_tools": [],
+        "best_candidates": [],
+        "failed_avenues": [],
+        "evidence": {
+            "queries": [],
+            "top_candidates": [],
+            "attempts": [],
+            "goal_delta": None,
+            "diagnostic_delta": None,
+        },
+        "last_seq": 0,
+        "inflight": None,
+        "stopped": None,
+        "finished": None,
+    }
+
+
+def _extend_unique(target: list[Any], items: list[Any]) -> None:
+    for item in items:
+        if item not in target:
+            target.append(item)
+
+
+def _absorb(st: dict[str, Any], kind: str, payload: dict[str, Any]) -> None:
+    """Fold an event into the parent context (committed history when called
+    on the real state; parent KNOWLEDGE when called on a copy with a pending,
+    unpersisted submission — see `_knowledge`)."""
+    if kind == "dispatch":
+        st["current"] = _context_from_dispatch(payload)
+    elif kind in ("handoff", "progress"):
+        # set semantics per list: strings by value, typed items by exact
+        # equality — a cumulative final handoff repeating items already
+        # reported through `progress` does not double-count them
+        for f in payload.get("files_changed", []):
+            if f not in st["files_changed"]:
+                st["files_changed"].append(f)
+        if payload.get("file_baseline") is not None:
+            st["current"]["file_baseline"] = payload["file_baseline"]
+        for k in ("attempted_tools", "failed_avenues"):
+            for x in payload.get(k, []):
+                if x not in st[k]:
+                    st[k].append(x)
+        _extend_unique(st["best_candidates"], payload.get("best_candidates", []))
+        ev = payload.get("evidence") or {}
+        for k in ("queries", "top_candidates"):
+            for x in ev.get(k, []):
+                if x not in st["evidence"][k]:
+                    st["evidence"][k].append(x)
+        _extend_unique(st["evidence"]["attempts"], ev.get("attempts", []))
+        _extend_unique(st.setdefault("artifacts", []), payload.get("artifacts", []))
+        if ev.get("goal_delta") is not None:
+            st["evidence"]["goal_delta"] = ev["goal_delta"]
+        if ev.get("diagnostic_delta") is not None:
+            st["evidence"]["diagnostic_delta"] = ev["diagnostic_delta"]
+    elif (
+        kind == "note"
+        and payload.get("kind") == "failed-avenue"
+        and payload["text"] not in st["failed_avenues"]
+    ):
+        st["failed_avenues"].append(payload["text"])
+
+
+def _valid_submission(kind: str, payload: Any) -> bool:
+    if kind == "dispatch":
+        return not rc.validate_dispatch(payload)
+    if kind == "handoff":
+        return not rc.validate_handoff(payload)
+    if kind == "note":
+        return rc._exact(
+            payload,
+            {
+                "kind": rc._is_str,
+                "text": rc._is_str,
+                "lean": lambda x: x is None or rc._is_str(x),
+            },
+        )
+    return False
+
+
+def _knowledge(st: dict[str, Any]) -> dict[str, Any]:
+    """Current parent knowledge = committed history + the validated submission
+    of an unresolved / failed operation (`inflight.pending`), which describes
+    work that HAPPENED even though its journal write did not commit."""
+    k: dict[str, Any] = json.loads(json.dumps(st))
+    pend = (st.get("inflight") or {}).get("pending")
+    if isinstance(pend, dict) and pend.get("kind") in (
+        "dispatch",
+        "handoff",
+        "note",
+        "progress",
+    ):
+        _absorb(k, str(pend["kind"]), pend["payload"])
+    return k
+
+
+def _operational_handoff(st: dict[str, Any], detail: str) -> dict[str, Any]:
+    """The complete run-contract/v1 handoff the command must EMIT TO THE USER
+    when persistence stops the run — built from current parent KNOWLEDGE
+    (latest dispatch, accumulated changes, baseline, evidence and artifacts,
+    including a validated submission whose write failed) and validated. Never
+    written to the broken store by this helper."""
+    st = _knowledge(st)
+    c = st["current"]
+    h = {
+        "schema": "run-contract/v1",
+        "record": "handoff",
+        "target": c["target"],
+        "scope": c["scope"],
+        "mode": c["mode"],
+        "status": "stopped",
+        "stop_reason": "operational-error",
+        "stop_detail": detail,
+        "blocker_kind": None,
+        "blocker_class": None,
+        "blocker_signature": None,
+        "attempted_tools": list(st["attempted_tools"]),
+        "best_candidates": list(st["best_candidates"]),
+        "failed_avenues": list(st["failed_avenues"]),
+        "evidence": json.loads(json.dumps(st["evidence"])),
+        "files_owned": list(c["files_owned"]),
+        "files_changed": list(st["files_changed"]),
+        "file_baseline": c["file_baseline"],
+        "artifacts": list(st.get("artifacts", [])),
+        "next_action": "stop",
+        "new_evidence_required_for_rerun": None,
+    }
+    errs = rc.validate_handoff(h)
+    if errs:  # pragma: no cover — every ingredient was a validated record
+        raise RuntimeError("operational handoff invalid: " + "; ".join(errs))
+    return h
+
+
+def _stop_result(
+    st: dict[str, Any], kind: str, outcome: str, detail: str
+) -> dict[str, Any]:
+    res: dict[str, Any] = {
+        "action": "stop",
+        "run_id": st["run_id"],
+        "kind": kind,
+        "outcome": outcome,
+        "detail": detail,
+        "handoff": _operational_handoff(st, detail),
+    }
+    pend = (st.get("inflight") or {}).get("pending")
+    if isinstance(pend, dict) and pend.get("kind") == "progress":
+        # parent knowledge by design (no journal event, no citation): report
+        # its CONTROL-STATE persistence, never a journal-write failure
+        saved = outcome != "progress_unsaved"
+        res["unpersisted"] = {
+            "kind": "progress",
+            "seq": None,
+            "status": "control-state-saved" if saved else "control-state-unsaved",
+            "note": (
+                "this progress submission informed the handoff above; the in-flight record "
+                "holding it WAS saved — a later helper process finds it unresolved, stops, and "
+                "reports it (it has no journal event and no citation by design)"
+                if saved
+                else "this progress submission informed the handoff above but could NOT be "
+                "saved to the invocation state and will not survive another invocation "
+                "(it has no journal event and no citation by design)"
+            ),
+        }
+        return res
+    if isinstance(pend, dict):
+        # A pre-write refusal (or a store never called) is KNOWN non-storage;
+        # an indeterminate / malformed / unresolved write is only unconfirmed.
+        known_absent = outcome.startswith("refused:") or outcome in (
+            "state_unwritable_before_store",
+        )
+        res["unpersisted"] = {
+            "kind": pend.get("kind"),
+            "seq": None,
+            "status": "not-stored" if known_absent else "unconfirmed",
+            "note": (
+                "this validated submission informed the handoff above but was NOT stored "
+                "(the store refused before writing / was never called); it has no citation"
+                if known_absent
+                else "this validated submission informed the handoff above; its persistence is "
+                "unconfirmed and no citation is available from this state"
+            ),
+        }
+    return res
+
+
+def _terminal_reason(st: dict[str, Any]) -> str | None:
+    if st.get("stopped"):
+        return f"run already stopped by persistence policy: {st['stopped']}"
+    if st.get("finished"):
+        return f"run already finished ({st['finished']}); no mutation after finish"
+    inflight = st.get("inflight")
+    if inflight:
+        return (
+            f"an earlier {inflight.get('op')} ({inflight.get('kind')}) was left unresolved at "
+            f"{inflight.get('at')} — its bookkeeping never completed, so its outcome is unknown"
+        )
+    return None
+
+
+# --------------------------------------------------------------------------
+# operations
+# --------------------------------------------------------------------------
+
+
+def _bind_root(st: dict[str, Any], requested: str | None) -> str:
+    bound = str(st["storage_root"])
+    if requested is not None and os.path.abspath(requested) != bound:
+        raise UsageError(
+            f"--root {requested!r} differs from the bound storage root {bound!r}"
+        )
+    return bound
+
+
+def _mutate(
+    ns: argparse.Namespace, st: dict[str, Any], op: str, kind: str, payload: Any
+) -> tuple[dict[str, Any], int]:
+    """One store mutation under the policy, with in-flight bookkeeping."""
+    root = _bind_root(st, ns.root)
+    reason = _terminal_reason(st)
+    if reason:
+        if not st.get("stopped"):  # first sight of an unresolved op / finished run
+            st["stopped"] = reason
+            _try_save(ns.state, st)
+        if op == "finish":
+            return _not_stored(st, "terminal", reason, payload), EXIT_STOP
+        return _stop_result(st, kind, "terminal", reason), EXIT_STOP
+    # 1. record the attempt BEFORE touching the store
+    st["inflight"] = {
+        "op": op,
+        "kind": kind,
+        "at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+        # the VALIDATED submission: parent knowledge even if the write fails
+        # (an invalid one is refused by the store and informs nothing)
+        "pending": (
+            {"kind": kind, "payload": payload}
+            if op != "finish" and _valid_submission(kind, payload)
+            else None
+        ),
+    }
+    err = _try_save(ns.state, st)
+    if err:
+        # The store was NEVER called; without bookkeeping the run cannot
+        # continue. The validated submission still informs THIS fallback
+        # (it is pending knowledge in memory) — but it could not be saved, so
+        # it will not survive another invocation: say so.
+        detail = (
+            f"invocation state unwritable before {op}: {err}; the store was not called"
+        )
+        if op == "finish":
+            early = _not_stored(st, "state_unwritable", detail, payload)
+        else:
+            early = _stop_result(st, kind, "state_unwritable_before_store", detail)
+        if "unpersisted" in early:
+            early["unpersisted"]["note"] += (
+                "; the pending knowledge could NOT be saved and will not survive another "
+                "invocation — keep this handoff"
+            )
+        st["inflight"] = None
+        st["stopped"] = detail
+        stop_err = _try_save(ns.state, st)
+        # The current call orders the controller to retire the invocation.
+        # If NO control-state write succeeded, a later helper process cannot
+        # be guaranteed to remember this stop: say so instead of claiming it.
+        _report_terminal_save(early, stop_err)
+        return early, EXIT_STOP
+    # 2. the store
+    body = json.dumps(payload).encode("utf-8")
+    if op == "finish":
+        args = ["set-handoff", "--run-id", st["run_id"], "--payload", "-"]
+    else:
+        args = ["append", "--run-id", st["run_id"], "--kind", kind, "--payload", "-"]
+    code, raw, err_out = _run_store(args, body, root)
+    outcome, detail, res = _classify(code, raw, err_out, expect_run_id=st["run_id"])
+    if outcome == "refused:busy":
+        time.sleep(1.0)
+        code, raw, err_out = _run_store(args, body, root)
+        outcome, detail, res = _classify(code, raw, err_out, expect_run_id=st["run_id"])
+    # 3. resolve
+    inflight = st["inflight"]
+    st["inflight"] = None
+    if res is not None and (
+        outcome == "committed" or (op == "finish" and outcome == "journal_only")
+    ):
+        seq = int(res["seq"])
+        st["last_seq"] = seq
+        if op == "finish":
+            st["finished"] = "stored"
+            # the exact stored record, separate from the accumulated context,
+            # which is reconciled from it by set semantics (no double-counting)
+            st["final_handoff"] = {
+                "cite": f"{st['run_id']}#{seq}",
+                "outcome": outcome,
+                "handoff": payload,
+            }
+            _absorb(st, "handoff", payload)
+        else:
+            _absorb(st, kind, payload)
+        result: dict[str, Any] = {
+            "action": "done" if op == "finish" else "continue",
+            "run_id": st["run_id"],
+            "kind": kind,
+            "seq": seq,
+            "cite": f"{st['run_id']}#{seq}",
+        }
+        if op == "finish":
+            result["stored"] = True
+            if outcome == "journal_only":
+                result["warning"] = (
+                    f"handoff cache not confirmed ({detail}); the journal is authoritative"
+                )
+        save_err = _try_save(ns.state, st)
+        if save_err:
+            # The store DID commit — keep the outcome and its citation — but the
+            # resolution could not be recorded, so the run must stop NOW, not
+            # after one more step: the on-disk state still shows the in-flight
+            # record and would stop the next call anyway.
+            # what the disk still says — minus the pending payload, which the
+            # in-memory context already absorbed (fold exactly once)
+            st["inflight"] = {**inflight, "pending": None}
+            detail = (
+                f"invocation state could not be updated after a committed {op} "
+                f"({save_err}); bookkeeping is unresolved"
+            )
+            if op == "finish":
+                result["warning"] = (
+                    result.get("warning", "") + " " if result.get("warning") else ""
+                ) + detail
+                return result, EXIT_OK  # terminal anyway; the handoff IS stored
+            stop = _stop_result(st, kind, "state_unwritable", detail)
+            stop["committed"] = {"seq": seq, "cite": result["cite"]}
+            stop.pop("unpersisted", None)  # it WAS persisted
+            return stop, EXIT_STOP
+        return result, EXIT_OK
+    # not committed: the run stops (finish → not stored). The submission is
+    # kept as pending knowledge: it describes work that happened.
+    if outcome == "malformed":
+        detail = f"store acknowledgment unusable, treated as uncertain: {detail}"
+    st["stopped"] = detail
+    st["inflight"] = inflight if op != "finish" else None
+    if op == "finish":
+        st["finished"] = "not-stored"
+        result = _not_stored(st, outcome, detail, payload)
+    else:
+        result = _stop_result(st, kind, outcome, detail)
+    save_err = _try_save(ns.state, st)
+    if save_err:
+        result["warning"] = (
+            f"invocation state could not be updated ({save_err}); later calls will stop"
+        )
+    return result, EXIT_STOP
+
+
+def _not_stored(
+    st: dict[str, Any], outcome: str, detail: str, submitted: Any
+) -> dict[str, Any]:
+    # A pre-write refusal / a store never called / an invalid submission is
+    # KNOWN non-storage; an indeterminate, malformed or unresolved write is
+    # only unconfirmed (the journal may hold it — no citation from this state).
+    known_absent = outcome.startswith("refused:") or outcome in (
+        "state_unwritable",
+        "invalid_submission",
+        "terminal",
+    )
+    return {
+        "action": "done",
+        "run_id": st["run_id"],
+        "stored": False,
+        "persistence": "not-stored" if known_absent else "unconfirmed",
+        "outcome": outcome,
+        "detail": detail,
+        "fallback_handoff": submitted,
+        "note": (
+            "emit fallback_handoff to the user in the stop summary; it was NOT saved and has no citation"
+            if known_absent
+            else "emit fallback_handoff to the user in the stop summary; its persistence is "
+            "unconfirmed and no citation is available from this state"
+        ),
+    }
+
+
+def cmd_start(ns: argparse.Namespace, root: str) -> int:
+    if os.path.lexists(ns.state):
+        _emit(
+            {
+                "action": "startup-error",
+                "code": "state_exists",
+                "detail": f"invocation state {ns.state} already exists; each invocation needs a fresh, private state path",
+            }
+        )
+        return EXIT_STARTUP
+    dispatch = _read_json(ns.dispatch)
+    errs = rc.validate_dispatch(dispatch)
+    if errs:
+        _emit(
+            {
+                "action": "startup-error",
+                "code": "invalid_dispatch",
+                "detail": "; ".join(errs),
+            }
+        )
+        return EXIT_STARTUP
+    reuse_note: str | None = None
+    guard: dict[str, Any] | None = None
+    if ns.prior_run:
+        # #82C: revalidate the observed prefix, apply the rerun guard, and
+        # prepare the local source-note — all BEFORE creating anything.
+        if not ns.reuse_report:
+            _emit(
+                {
+                    "action": "startup-error",
+                    "code": "reuse_report_required",
+                    "detail": "--prior-run needs --reuse-report (the `reuse` preview)",
+                }
+            )
+            return EXIT_STARTUP
+        project_root = os.path.abspath(ns.project_root or os.getcwd())
+        try:
+            report = run_reuse.validate_report(_read_json(ns.reuse_report))
+            if report["prior_run"] != ns.prior_run:
+                raise run_reuse.ReuseError(
+                    "reuse_report_mismatch",
+                    f"the reuse report names prior run {report['prior_run']!r}, not {ns.prior_run!r}",
+                )
+            # the report must be THIS invocation's: project, task, mode, ownership
+            run_reuse.bind_invocation(
+                report,
+                project_root=project_root,
+                target=str(dispatch.get("target")),
+                scope=str(dispatch.get("scope")),
+                mode=str(dispatch.get("mode")),
+                owned_files=[str(f) for f in dispatch.get("owned_files", [])],
+            )
+            loaded = run_reuse.load_prior(root, ns.prior_run)
+            seq, digest = run_reuse.prefix_digest(loaded)
+            if digest != report["prefix_digest"]:
+                raise run_reuse.ReuseError(
+                    "prior_run_changed",
+                    f"the prior run's journal prefix changed since the preview (observed {report['observed_seq']} events, now {seq}); re-run reuse",
+                )
+            selection = run_reuse.select(loaded)
+            # compatibility is re-checked against the ACTUAL startup dispatch
+            run_reuse.check_compat(
+                selection,
+                target=str(dispatch.get("target")),
+                scope=str(dispatch.get("scope")),
+                mode=str(dispatch.get("mode")),
+                project_root=project_root,
+                owned_files=[str(f) for f in dispatch.get("owned_files", [])],
+            )
+            # custody is re-derived HERE, at the final boundary before anything
+            # is created: the drift check runs again over the dispatch's owned
+            # files, approval stays bound to the token, autonomous startup
+            # refuses any drift/uncovered file, and the dispatch's baseline
+            # must be the fresh one custody hands back — a caller cannot skip
+            # `custody` and dispatch on a re-recorded baseline
+            owned = [str(f) for f in dispatch.get("owned_files", [])]
+            autonomous = dispatch.get("mode") == "autoprove"
+            cus = run_reuse.custody(
+                report=report,
+                owned_files=owned,
+                # autonomous mode has no approver: the result itself is judged below
+                approve=str(report["drift"]["approval_token"])
+                if autonomous
+                else ns.approve,
+                selection=selection,
+            )
+            if cus["result"] != "match" and autonomous:
+                raise run_reuse.ReuseError(
+                    "drift_unreconciled",
+                    f"{cus['result']}: autonomous startup never accepts drift or an uncovered file; reconcile the source and re-run reuse",
+                )
+            if run_reuse.baseline_digest(
+                dispatch.get("file_baseline")
+            ) != run_reuse.baseline_digest(cus["fresh_baseline"]):
+                raise run_reuse.ReuseError(
+                    "baseline_mismatch",
+                    "the first dispatch's file_baseline is not the fresh baseline custody returned for these owned files",
+                )
+            guard = run_reuse.guard_decision(
+                dispatch, selection, ns.evidence_justification
+            )
+            if guard["forbidden"]:
+                _emit(
+                    {
+                        "action": "startup-error",
+                        "code": "rerun_forbidden",
+                        "detail": guard["reason"],
+                        "new_evidence_required_for_rerun": guard.get(
+                            "new_evidence_required_for_rerun"
+                        ),
+                        "guard": guard,
+                    }
+                )
+                return EXIT_STARTUP
+            # rebuilt from the validated records, never copied from the report
+            note = run_reuse.source_note(
+                prior_run=ns.prior_run,
+                observed_seq=seq,
+                prefix_digest_=digest,
+                sel=selection,
+                drift={
+                    "result": cus["result"],
+                    "approval_token": cus["approval_token"],
+                },
+            )
+            note["evidence_justification"] = ns.evidence_justification
+            note["guard"] = guard
+            reuse_note = json.dumps(note, ensure_ascii=False, sort_keys=True)
+        except run_reuse.ReuseError as ex:
+            _emit({"action": "startup-error", "code": ex.code, "detail": ex.detail})
+            return EXIT_STARTUP
+    args = ["create", "--dispatch", "-", "--event-schema", EVENT_SCHEMA_V2]
+    if ns.tracker_session_id:
+        args += ["--tracker-session-id", ns.tracker_session_id]
+    if ns.prior_run:
+        args += ["--prior-run", ns.prior_run]
+    if ns.now:
+        args += ["--now", ns.now]
+    code, raw, err = _run_store(args, json.dumps(dispatch).encode("utf-8"), root)
+    outcome, detail, res = _classify(code, raw, err, expect_run_id=None)
+    if outcome != "committed" or res is None:
+        _emit(
+            {
+                "action": "startup-error",
+                "outcome": outcome,
+                "code": res.get("code") if isinstance(res, dict) else None,
+                "detail": detail or "run-store create did not commit",
+                "note": "requested persistence could not start; do not start the command",
+            }
+        )
+        return EXIT_STARTUP
+    st = _new_state(root, str(res["run_id"]), str(res["run_directory"]), dispatch)
+    if ns.prior_run:
+        st["prior_run"] = ns.prior_run
+    try:
+        _save_state(ns.state, st, exclusive=True)
+    except OSError as ex:
+        _emit(
+            {
+                "action": "startup-error",
+                "code": "state_unwritable",
+                "detail": f"run {st['run_id']} was created but the invocation state could not be written: {ex}",
+            }
+        )
+        return EXIT_STARTUP
+    out: dict[str, Any] = {
+        "action": "continue",
+        "run_id": st["run_id"],
+        "run_directory": st["run_directory"],
+        "state": ns.state,
+    }
+    if reuse_note is not None:
+        # the local source-note is the new run's first event; later Replans cite it
+        res_note, code = _mutate(
+            ns,
+            st,
+            "append",
+            "note",
+            {"kind": "source-note", "text": reuse_note, "lean": None},
+        )
+        # _mutate resolved its own bookkeeping; its result (committed cite,
+        # refusal, or indeterminate — with the fallback handoff) is emitted as is
+        if res_note["action"] != "continue":
+            res_note["run_created"] = True
+            res_note["prior_run"] = ns.prior_run
+            _emit(res_note)
+            return code
+        out["source_note_cite"] = res_note["cite"]
+        out["prior_run"] = ns.prior_run
+        out["guard"] = guard
+    _emit(out)
+    return EXIT_OK
+
+
+def cmd_reuse(ns: argparse.Namespace) -> int:
+    """Read-only: `reuse` previews; `custody` re-derives the drift report and
+    returns the fresh baseline to record. Neither touches the store."""
+    project_root = os.path.abspath(ns.project_root or os.getcwd())
+    if ns.root:
+        root = os.path.abspath(ns.root)
+    elif os.environ.get("LEAN4_RUN_STORE"):
+        root = os.path.abspath(os.environ["LEAN4_RUN_STORE"])
+    else:
+        root = os.path.join(project_root, ".lean4-skills")
+    try:
+        if ns.cmd == "reuse":
+            rep = run_reuse.preview(
+                root=root,
+                prior_run=ns.prior_run,
+                target=ns.target,
+                scope=ns.scope,
+                mode=ns.mode,
+                project_root=project_root,
+                owned_files=list(ns.owned_file),
+            )
+            _emit({"action": "preview", **rep})
+            return EXIT_OK
+        report = run_reuse.validate_report(_read_json(ns.report))
+        if os.path.realpath(project_root) != report["invocation"]["project_root"]:
+            raise run_reuse.ReuseError(
+                "reuse_report_mismatch",
+                "the reuse report was made for another project root; re-run reuse",
+            )
+        loaded = run_reuse.load_prior(root, str(report["prior_run"]))
+        _seq, digest = run_reuse.prefix_digest(loaded)
+        if digest != report["prefix_digest"]:
+            raise run_reuse.ReuseError(
+                "prior_run_changed",
+                "the prior run's journal prefix changed since the preview; re-run reuse",
+            )
+        sel = run_reuse.select(loaded)
+        res = run_reuse.custody(
+            report=report,
+            owned_files=list(ns.owned_file),
+            approve=ns.approve,
+            selection=sel,
+        )
+        _emit({"action": "custody", **res})
+        return EXIT_OK
+    except run_reuse.ReuseError as ex:
+        _emit({"action": "startup-error", "code": ex.code, "detail": ex.detail})
+        return EXIT_STARTUP
+
+
+def cmd_append(ns: argparse.Namespace, kind: str) -> int:
+    st = _load_state(ns.state)
+    if kind == "note":
+        payload: Any = {
+            "kind": ns.kind,
+            "text": ns.text,
+            "lean": _read_text(ns.lean) if ns.lean else None,
+        }
+    else:
+        payload = _read_json(ns.payload)
+    res, code = _mutate(ns, st, "append", kind, payload)
+    _emit(res)
+    return code
+
+
+PROGRESS_SCHEMA = "run-persist-progress/v1"
+
+
+def _baseline_identity(baseline: dict[str, Any]) -> dict[str, list[Any]]:
+    return {
+        os.path.abspath(str(e["path"])): [
+            e.get("realpath"),
+            e.get("exists"),
+            e.get("sha256"),
+            e.get("size"),
+        ]
+        for e in baseline.get("files", [])
+    }
+
+
+_PROGRESS_FIELDS = {
+    "schema",
+    "files_changed",
+    "file_baseline",
+    "attempted_tools",
+    "best_candidates",
+    "artifacts",
+    "evidence",
+}
+_PROGRESS_EVIDENCE_FIELDS = {
+    "queries",
+    "top_candidates",
+    "attempts",
+    "goal_delta",
+    "diagnostic_delta",
+}
+
+
+def _validate_progress(payload: Any, st: dict[str, Any]) -> list[str]:
+    """The complete submission is validated BEFORE any state change: every
+    field `_absorb` consumes is checked, and no other field is accepted."""
+    e: list[str] = []
+    if not isinstance(payload, dict) or payload.get("schema") != PROGRESS_SCHEMA:
+        return [f"schema must be {PROGRESS_SCHEMA}"]
+    unknown = sorted(set(payload) - _PROGRESS_FIELDS)
+    if unknown:
+        e.append(f"unsupported field(s): {unknown!r}")
+    owned = [os.path.abspath(str(f)) for f in st["current"]["files_owned"]]
+    changed = payload.get("files_changed", [])
+    if not rc._str_list(changed):
+        e.append("files_changed must be a list of strings")
+        changed = []
+    for f in changed:
+        if os.path.abspath(f) not in owned:
+            e.append(f"progress_outside_ownership: {f!r} is not an owned file")
+    fb = payload.get("file_baseline")
+    if changed and fb is None:
+        e.append("file_baseline is required when files_changed is non-empty")
+    if fb is not None:
+        if not rc._valid_baseline(fb) or not rc._baseline_covers(
+            fb, st["current"]["files_owned"]
+        ):
+            e.append(
+                "file_baseline must be a valid file-baseline/v1 covering exactly files_owned"
+            )
+        elif len(fb.get("files", [])) != len(owned):
+            e.append("file_baseline must cover exactly files_owned (no extra entries)")
+        else:
+            # the shipped custody chain: only intentionally changed entries
+            # may advance — an entry that differs from the current context
+            # baseline outside the reported set would bless external drift
+            before = _baseline_identity(st["current"]["file_baseline"])
+            after = _baseline_identity(fb)
+            reported = {os.path.abspath(f) for f in changed}
+            for path, ident in after.items():
+                if path not in reported and before.get(path) != ident:
+                    e.append(
+                        f"baseline_outside_reported_changes: {path!r} advanced but is not in files_changed"
+                    )
+    if not rc._str_list(payload.get("attempted_tools", [])):
+        e.append("attempted_tools must be a list of strings")
+    if not rc._typed_dicts(
+        payload.get("best_candidates", []),
+        {"candidate": rc._is_str, "outcome": rc._is_str},
+    ):
+        e.append("best_candidates items must be {candidate:str, outcome:str}")
+    if not rc._typed_dicts(
+        payload.get("artifacts", []), {"kind": rc._is_str, "content": rc._is_str}
+    ):
+        e.append("artifacts items must be {kind:str, content:str}")
+    ev = payload.get("evidence")
+    if ev is not None:
+        if not isinstance(ev, dict):
+            e.append("evidence must be an object")
+        else:
+            unknown_ev = sorted(set(ev) - _PROGRESS_EVIDENCE_FIELDS)
+            if unknown_ev:
+                e.append(f"unsupported evidence field(s): {unknown_ev!r}")
+            if (
+                not rc._str_list(ev.get("queries", []))
+                or not rc._str_list(ev.get("top_candidates", []))
+                or not rc._typed_dicts(
+                    ev.get("attempts", []),
+                    {"snippet": rc._is_str, "result": rc._is_str},
+                )
+            ):
+                e.append(
+                    "evidence shape invalid (str-list queries/top_candidates, {snippet:str,result:str} attempts)"
+                )
+            for k in ("goal_delta", "diagnostic_delta"):
+                if ev.get(k) is not None and not rc._is_str(ev.get(k)):
+                    e.append(f"evidence.{k} must be a string or null")
+    if e:
+        return e
+    # invariant: accepted progress can always produce a valid operational
+    # handoff — simulate the absorption on a copy and validate the fallback
+    trial = json.loads(json.dumps(st))
+    _absorb(trial, "progress", _normalize_progress(payload))
+    try:
+        _operational_handoff(trial, "trial")
+    except RuntimeError as ex:
+        e.append(f"accepted progress would make the fallback handoff invalid: {ex}")
+    return e
+
+
+def _normalize_progress(payload: dict[str, Any]) -> dict[str, Any]:
+    """Exactly the validated fields, in the shape `_absorb` consumes."""
+    ev = payload.get("evidence") or {}
+    return {
+        "files_changed": list(payload.get("files_changed", [])),
+        "file_baseline": payload.get("file_baseline"),
+        "attempted_tools": list(payload.get("attempted_tools", [])),
+        "best_candidates": list(payload.get("best_candidates", [])),
+        "artifacts": list(payload.get("artifacts", [])),
+        "evidence": {
+            "queries": list(ev.get("queries", [])),
+            "top_candidates": list(ev.get("top_candidates", [])),
+            "attempts": list(ev.get("attempts", [])),
+            "goal_delta": ev.get("goal_delta"),
+            "diagnostic_delta": ev.get("diagnostic_delta"),
+        },
+    }
+
+
+def cmd_progress(ns: argparse.Namespace) -> int:
+    """Parent KNOWLEDGE of an inline pass — control state only: no store
+    write, no journal event, no citation (by design). Reported under the
+    existing in-flight discipline, with the two save stages distinguished."""
+    st = _load_state(ns.state)
+    _bind_root(st, ns.root)  # a different --root is refused before any change
+    payload = _read_json(ns.payload)
+    reason = _terminal_reason(st)
+    if reason:
+        if not st.get("stopped"):
+            st["stopped"] = reason
+            _try_save(ns.state, st)
+        _emit(_stop_result(st, "progress", "terminal", reason))
+        return EXIT_STOP
+    errs = _validate_progress(payload, st)
+    if errs:
+        _emit(
+            {
+                "action": "invalid",
+                "run_id": st["run_id"],
+                "kind": "progress",
+                "code": "invalid_progress",
+                "errors": errs,
+                "note": "nothing was recorded; the invocation state is unchanged",
+            }
+        )
+        return EXIT_STARTUP
+    # stage 1: the in-flight record carrying the validated submission
+    st["inflight"] = {
+        "op": "progress",
+        "kind": "progress",
+        "at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+        "pending": {"kind": "progress", "payload": _normalize_progress(payload)},
+    }
+    err = _try_save(ns.state, st)
+    if err:
+        detail = f"invocation state unwritable before recording progress: {err}"
+        early = _stop_result(st, "progress", "progress_unsaved", detail)
+        st["inflight"] = None
+        st["stopped"] = detail
+        stop_err = _try_save(ns.state, st)
+        _report_terminal_save(early, stop_err)
+        _emit(early)
+        return EXIT_STOP
+    # stage 2: resolve
+    inflight = st["inflight"]
+    st["inflight"] = None
+    _absorb(st, "progress", _normalize_progress(payload))
+    save_err = _try_save(ns.state, st)
+    if save_err:
+        # the in-flight record (with the submission) IS on disk: pending
+        # knowledge survives; the run must stop now
+        st["inflight"] = inflight
+        detail = (
+            f"invocation state could not be updated after recording progress ({save_err}); "
+            "bookkeeping is unresolved"
+        )
+        stop = _stop_result(st, "progress", "state_unwritable", detail)
+        stop["progress_recorded"] = False
+        _emit(stop)
+        return EXIT_STOP
+    _emit(
+        {
+            "action": "continue",
+            "run_id": st["run_id"],
+            "kind": "progress",
+            "progress_recorded": True,
+            "files_changed": list(st["files_changed"]),
+            "note": (
+                "this update's control-state save was acknowledged (parent knowledge; no "
+                "journal event, no citation by design). Fallbacks reflect REPORTED knowledge only"
+            ),
+        }
+    )
+    return EXIT_OK
+
+
+def cmd_finish(ns: argparse.Namespace) -> int:
+    st = _load_state(ns.state)
+    handoff = _read_json(ns.payload)
+    errs = rc.validate_handoff(handoff)
+    if errs:
+        # The submission is not a complete handoff: nothing is sent, and the
+        # fallback the user sees is the VALID operational record built from
+        # the current context — never the invalid submission.
+        detail = (
+            "submitted handoff is not a valid run-contract/v1 record: "
+            + "; ".join(errs)
+        )
+        already_terminal = _terminal_reason(st) is not None
+        st["stopped"] = detail
+        st["finished"] = "not-stored"
+        save_err = _try_save(ns.state, st)
+        res = _not_stored(
+            st, "invalid_submission", detail, _operational_handoff(st, detail)
+        )
+        _report_terminal_save(res, save_err, already_terminal=already_terminal)
+        res["submitted_errors"] = errs
+        _emit(res)
+        return EXIT_STOP
+    res, code = _mutate(ns, st, "finish", "handoff", handoff)
+    _emit(res)
+    return code
+
+
+def _read_json(src: str) -> Any:
+    try:
+        if src == "-":
+            data = sys.stdin.buffer.read()
+        else:
+            with open(src, "rb") as f:
+                data = f.read()
+        return json.loads(data.decode("utf-8"))
+    except (OSError, ValueError) as ex:
+        raise UsageError(f"payload {src!r}: {ex}") from ex
+
+
+def _read_text(src: str) -> str:
+    with open(src, encoding="utf-8") as f:
+        return f.read()
+
+
+def main(argv: list[str]) -> int:
+    ap = argparse.ArgumentParser(
+        prog="lean4-skills-run-persist", description=__doc__.split("\n\n")[0]
+    )
+    ap.add_argument(
+        "--root",
+        help="storage root for `start` (--run-store → $LEAN4_RUN_STORE → <project>/.lean4-skills); later calls use the root bound in the state",
+    )
+    ap.add_argument("--project-root")
+    ap.add_argument(
+        "--state",
+        default=os.environ.get("LEAN4_RUN_PERSIST_STATE"),
+        help="invocation-private state file (default $LEAN4_RUN_PERSIST_STATE)",
+    )
+    sub = ap.add_subparsers(dest="cmd", required=True)
+    s = sub.add_parser("start")
+    s.add_argument("--dispatch", required=True)
+    s.add_argument("--tracker-session-id")
+    s.add_argument("--prior-run")
+    s.add_argument(
+        "--reuse-report", help="the `reuse` preview JSON (required with --prior-run)"
+    )
+    s.add_argument(
+        "--approve",
+        help="the approval token from the `reuse` preview (guided prove; required when the drift report is not a match)",
+    )
+    s.add_argument(
+        "--evidence-justification",
+        help="how the evidence delta addresses an operational prior stop",
+    )
+    s.add_argument("--now")
+    ru = sub.add_parser(
+        "reuse", help="read-only preview of a prior run for reuse (#82C)"
+    )
+    ru.add_argument("--prior-run", required=True)
+    ru.add_argument("--target", required=True)
+    ru.add_argument("--scope", required=True)
+    ru.add_argument("--mode", required=True)
+    ru.add_argument(
+        "--owned-file",
+        action="append",
+        default=[],
+        help="intended owned file (repeatable)",
+    )
+    cu = sub.add_parser(
+        "custody",
+        help="re-derive the drift report and return the fresh baseline to record",
+    )
+    cu.add_argument("--report", required=True, help="the `reuse` preview JSON")
+    cu.add_argument("--owned-file", action="append", default=[])
+    cu.add_argument(
+        "--approve",
+        help="the approval token from the preview (required when drift is present)",
+    )
+    for k in ("dispatch", "handoff", "review", "replan"):
+        p = sub.add_parser(k)
+        p.add_argument("--payload", required=True)
+    n = sub.add_parser("note")
+    n.add_argument("--kind", required=True)
+    n.add_argument("--text", required=True)
+    n.add_argument("--lean", help="file whose contents become the note's lean field")
+    f = sub.add_parser("finish")
+    f.add_argument("--payload", required=True)
+    pr = sub.add_parser(
+        "progress",
+        help="record an inline pass's progress in the invocation state (no journal event)",
+    )
+    pr.add_argument(
+        "--payload", required=True, help="run-persist-progress/v1 JSON (file or -)"
+    )
+    sub.add_parser("status")
+    try:
+        ns = ap.parse_args(argv)
+    except SystemExit as ex:
+        return EXIT_USAGE if ex.code else EXIT_OK
+    if not ns.state and ns.cmd not in ("reuse", "custody"):
+        # the read-only previews touch neither the store nor any invocation state
+        _emit(
+            {
+                "action": "usage",
+                "detail": "--state (or $LEAN4_RUN_PERSIST_STATE) is required",
+            }
+        )
+        return EXIT_USAGE
+    try:
+        if ns.cmd == "start":
+            project_root = os.path.abspath(ns.project_root or os.getcwd())
+            if ns.root:
+                root = os.path.abspath(ns.root)
+            elif os.environ.get("LEAN4_RUN_STORE"):
+                root = os.path.abspath(os.environ["LEAN4_RUN_STORE"])
+            else:
+                root = os.path.join(project_root, ".lean4-skills")
+            return cmd_start(ns, root)
+        if ns.cmd == "status":
+            _emit({"action": "status", "state": _load_state(ns.state)})
+            return EXIT_OK
+        if ns.cmd in ("reuse", "custody"):
+            return cmd_reuse(ns)
+        if ns.cmd == "finish":
+            return cmd_finish(ns)
+        if ns.cmd == "progress":
+            return cmd_progress(ns)
+        return cmd_append(ns, ns.cmd)
+    except UsageError as ex:
+        _emit({"action": "usage", "detail": str(ex)})
+        return EXIT_USAGE
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv[1:]))
